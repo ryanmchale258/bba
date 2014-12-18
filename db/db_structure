@@ -1,0 +1,23 @@
+pages
+
+links
+	name
+	url
+
+testimonials
+	content
+	author
+	position
+	company
+	location
+
+resources/publications
+
+
+staff bios
+	name
+	bio
+	tagline
+
+job postings
+	what fields?
