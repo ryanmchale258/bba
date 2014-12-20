@@ -6,7 +6,8 @@
 		  speed: 500,
 		  fade: true,
 		  slide: 'div',
-		  cssEase: 'linear'
+		  cssEase: 'linear',
+		  autoplay: true
 		});
 	});
 </script>
