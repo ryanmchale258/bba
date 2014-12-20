@@ -8,8 +8,9 @@ class Home extends CI_Controller {
 
 	public function index() {
 		$this->load->view('template/head');
-		$this->load->view('foundation');
+		$this->load->view('slider');
 		$this->load->view('template/scripts');
+		$this->load->view('slickinit');
 		$this->load->view('template/close');
 	}
 	
