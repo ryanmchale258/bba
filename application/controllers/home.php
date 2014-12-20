@@ -8,7 +8,7 @@ class Home extends CI_Controller {
 	}	
 
 	public function index() {
-		$data['navlist'] = $this->navigation_model->getNav();
+		$data['navlist'] = $this->navigation_model->buildList();
 
 		$this->load->view('template/head', $data);
 		$this->load->view('template/nav');
