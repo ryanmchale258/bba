@@ -6,9 +6,48 @@ class Navigation_model extends CI_Model {
 		parent::__construct();
 	}
 
-	public function getNav(){
-		$toplvl = $this->db->get_where('tbl_pages', array( 'pages_navlvl' => 1 ));
-		return $toplvl->result();
+	public function getNav() {
+		$menu = '<ul>';
+
+		$this->db->select('*');
+		$this->db->where('pages_navlvl', 1);
+		$navall = $this->db->get('tbl_pages')->result();
+
+		$this->db->select('*');
+		$this->db->or_where('pages_navlvl', 3);
+		$navkids = $this->db->get('tbl_pages')->result();
+
+
+		foreach($navall as $row){
+			$children = array();
+				foreach($navkids as $subrow){
+					if($subrow->pages_navprnt == $row->pages_slug){
+						$row->pages_haskids = 1;
+						$childitems = array();
+						$childitems['childname'] = $subrow->pages_title;
+						$childitems['childlink'] = $subrow->pages_slug;
+						$children[] = $childitems;
+					}
+				}
+			if($row->pages_haskids == 1){
+				$menu .= '<li class="dropdown">';
+				$menu .= $row->pages_title;
+				$menu .= '<ul>';
+					foreach($children as $kids){
+						$menu .= '<li>' . $kids['childname'] . '</li>';
+					}
+				$menu .= '</ul>';
+				$menu .= '</li>';
+			}else{
+				$menu .= '<li>';
+				$menu .= $row->pages_title;
+				$menu .= '</li>';
+			}
+		}
+
+		$menu .= '</ul>';
+
+		return $menu;
 	}
 
 }
