@@ -4,14 +4,10 @@ class Home extends CI_Controller {
 	
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('navigation_model');
 	}	
 
 	public function index() {
-		$data['navlist'] = $this->navigation_model->buildList();
-
-		$this->load->view('template/head', $data);
-		$this->load->view('template/nav');
+		$this->load->view('template/head');
 		$this->load->view('slider');
 		$this->load->view('template/scripts');
 		$this->load->view('slickinit');
