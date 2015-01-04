@@ -1,3 +1,7 @@
+	<div class="push"></div>
+
+</div>
+
 <footer>
 	<h2 class="hide">Footer</h2>
 	<div class="row">
