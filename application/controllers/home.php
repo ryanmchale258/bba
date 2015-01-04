@@ -11,7 +11,7 @@ class Home extends CI_Controller {
 		$data['navmenu'] = $this->navigation_model->getTopNav();
 		$data['footermenu'] = $this->navigation_model->getFtNav();
 		$this->load->view('template/head', $data);
-		$this->load->view('template/nav');
+		$this->load->view('template/header');
 		$this->load->view('slider');
 		$this->load->view('template/footer');
 

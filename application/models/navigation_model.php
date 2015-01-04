@@ -7,7 +7,7 @@ class Navigation_model extends CI_Model {
 	}
 
 	public function getTopNav() {
-		$menu = '<ul>';
+		$menu = '<ul class="left">';
 
 		$this->db->select('*');
 		$this->db->where('pages_navlvl', 1);
@@ -30,18 +30,18 @@ class Navigation_model extends CI_Model {
 					}
 				}
 			if($row->pages_haskids == 1){
-				$menu .= '<li class="dropdown">';
-				$menu .= $row->pages_title;
-				$menu .= '<ul>';
+				$menu .= '<li class="has-dropdown"><a href="' . $row->pages_slug . '">';
+				$menu .= $row->pages_title . '</a>';
+				$menu .= '<ul class="dropdown">';
 					foreach($children as $kids){
-						$menu .= '<a href="' . $kids['childlink'] . '"><li>' . $kids['childname'] . '</li></a>';
+						$menu .= '<li><a href="' . $kids['childlink'] . '">' . $kids['childname'] . '</a></li>';
 					}
 				$menu .= '</ul>';
 				$menu .= '</li>';
 			}else{
-				$menu .= '<li>';
+				$menu .= '<li><a href="' . $row->pages_slug . '">';
 				$menu .= $row->pages_title;
-				$menu .= '</li>';
+				$menu .= '</a></li>';
 			}
 		}
 
