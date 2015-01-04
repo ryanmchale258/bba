@@ -74,19 +74,31 @@ header {
 	color: #648a8b;
 }
 
-#homeContent {
+#content {
 	background-color: #f9f9f9;
 }
 
-#homeContent p {
+#content p {
 	text-align: center;
 	color: #648a8b;
 	padding: 10px;
 	margin: 0;
 }
 
-#homeContent p:nth-child(even) {
+#content p:nth-child(even) {
 	background-color: #ececec;
+}
+
+.bio:nth-child(even) {
+	background-color: #ececec;
+}
+
+.bio:nth-child(odd) img {
+	float: left;
+}
+
+.bio:nth-child(even) img {
+	float: right;
 }
 
 footer {
