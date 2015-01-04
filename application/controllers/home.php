@@ -8,10 +8,13 @@ class Home extends CI_Controller {
 	}	
 
 	public function index() {
-		$data['navmenu'] = $this->navigation_model->getNav();
+		$data['navmenu'] = $this->navigation_model->getTopNav();
+		$data['footermenu'] = $this->navigation_model->getFtNav();
 		$this->load->view('template/head', $data);
 		$this->load->view('template/nav');
 		$this->load->view('slider');
+		$this->load->view('template/footer');
+
 		$this->load->view('template/scripts');
 		$this->load->view('slickinit');
 		$this->load->view('template/close');

@@ -6,7 +6,7 @@ class Navigation_model extends CI_Model {
 		parent::__construct();
 	}
 
-	public function getNav() {
+	public function getTopNav() {
 		$menu = '<ul>';
 
 		$this->db->select('*');
@@ -34,7 +34,7 @@ class Navigation_model extends CI_Model {
 				$menu .= $row->pages_title;
 				$menu .= '<ul>';
 					foreach($children as $kids){
-						$menu .= '<li>' . $kids['childname'] . '</li>';
+						$menu .= '<a href="' . $kids['childlink'] . '"><li>' . $kids['childname'] . '</li></a>';
 					}
 				$menu .= '</ul>';
 				$menu .= '</li>';
@@ -48,6 +48,23 @@ class Navigation_model extends CI_Model {
 		$menu .= '</ul>';
 
 		return $menu;
+	}
+
+	public function getFtNav() {
+		$this->db->select('*');
+		$this->db->where('pages_navlvl', 2);
+		$ftnav = $this->db->get('tbl_pages')->result();
+			$ftmenu = '<ul>';
+
+		foreach($ftnav as $row) {
+			$ftmenu .= '<li><a href="' . $row->pages_slug . '">';
+			$ftmenu .= $row->pages_title;
+			$ftmenu .= '</a></li>';
+		}
+
+		$ftmenu .= '</ul>';
+
+		return $ftmenu;
 	}
 
 }
