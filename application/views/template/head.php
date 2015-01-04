@@ -8,5 +8,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/style.css" />
     <script src="<?php echo base_url(); ?>js/vendor/modernizr.js"></script>
+    <!-- fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:900,400' rel='stylesheet' type='text/css'>
   </head>
   <body>
