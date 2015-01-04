@@ -1,7 +1,7 @@
 <header>
 	<section class="row small-collapse">
 		<div id="logoarea" class="small-10 small-centered medium-4 medium-uncentered large-3 columns">
-			<img src="<?php echo base_url(); ?>img/logo.jpg" alt="">
+			<img src="<?php echo base_url(); ?>img/logo.jpg" alt="Barker Blagrave &amp; Associates Logo">
 		</div>
 		
 		<div id="navcontainer" class="hide-for-small medium-8 large-9 columns">

@@ -26,10 +26,11 @@ header {
 	top: 0;
 	z-index: 999;
 	background-color: #3e4450;
+	border-bottom: 2px solid #648a8b;
 }
 
 .content-wrap {
-	top: 200px;
+	top: 0;
 	position: relative;
 	background-color: #3e4450;
 }
@@ -39,10 +40,22 @@ header {
 	height: 100%;
 }
 
-#navinner {
+.navinner {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
+}
+
+#desktop-nav {
+	background-color: #648a8b;
+}
+
+#desktop-nav ul li {
+	background-color: #648a8b;
+}
+
+#desktop-nav ul li a {
+	background: none;
 }
 
 .fade h2 {
