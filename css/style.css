@@ -147,3 +147,10 @@ footer p {
 	color: #ddd;
 	margin-bottom: 0;
 }
+
+.slick-dots li button:before {
+	content: " ";
+	background: blue;
+	border: 1px solid red;
+	border-radius: 50%;
+}
