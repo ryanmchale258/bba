@@ -13,9 +13,6 @@ class Home extends CI_Controller {
 		$this->load->view('template/head', $data);
 		$this->load->view('template/header');
 		$this->load->view('slider');
-		$this->load->view('slider');
-		$this->load->view('slider');
-		$this->load->view('slider');
 		$this->load->view('template/footer');
 
 		$this->load->view('template/scripts');

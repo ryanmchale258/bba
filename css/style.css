@@ -15,11 +15,13 @@ header {
 	position: fixed;
 	top: 0;
 	height: 200px;
+	z-index: 999;
 	background-color: #3e4450;
 }
 
 footer {
 	width: 100%;
+	z-index: 999;
 	position: fixed;
 	bottom: 0;
 }
