@@ -24,7 +24,6 @@ header {
 	width: 100%;
 	position: fixed;
 	top: 0;
-	height: 200px;
 	z-index: 999;
 	background-color: #3e4450;
 }
@@ -35,7 +34,12 @@ header {
 	background-color: #3e4450;
 }
 
-#desktop-nav {
+#navcontainer {
+	position: relative;
+	height: 100%;
+}
+
+#navinner {
 	position: absolute;
 	bottom: 0;
 	width: 100%;

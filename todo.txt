@@ -1,0 +1,3 @@
+To Do:
+
+-javascript to detect header and footer heights at any given time and alter content-wrap padding top and bottom
