@@ -2,11 +2,16 @@ body {
 	font-family: 'Roboto', sans-serif !important;
 }
 
+#homeSlider {
+	padding: 0;
+}
+
 .fade h2 {
 	position: absolute;
 	font-size: 1.6em;
 	color: #648a8b;
 	margin-left: 10px;
+	padding: 0;
 }
 
 .slick-dots {
@@ -22,21 +27,38 @@ body {
 	color: #648a8b;
 }
 
+#homeContent p:nth-child(even) {
+	background-color: #ececec;
+}
+
 footer {
 	background-color: #648a8b;
-	font-size: .6em;
+	padding-bottom: 10px;
 }
 
 footer ul {
 	list-style-type: none;
+	margin: 0;
 }
 
 footer li {
 	display: inline;
 }
 
+footer li a {
+	font-weight: 900;
+	font-size: .9em;
+	color: #ddd;
+}
+
+footer li:nth-child(2) {
+	padding: 0 10px 0 10px;
+}
+
 footer p {
-	font-size: 1.2em;
+	font-size: .8em;
+	color: #ddd;
+	margin-bottom: 0;
 }
 .top-nav {
 	widows: 100%;
