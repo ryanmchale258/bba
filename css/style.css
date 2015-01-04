@@ -8,10 +8,16 @@ html, body {
 
 body {
 	font-family: 'Roboto', sans-serif !important;
+	background-color: #3e4450;
 }
 
 #homeSlider {
 	padding: 0;
+	margin: 0;
+}
+
+.slick-slide img {
+	width: 100%;
 }
 
 header {
@@ -26,6 +32,7 @@ header {
 .content-wrap {
 	top: 200px;
 	position: relative;
+	background-color: #3e4450;
 }
 
 #desktop-nav {
@@ -42,6 +49,14 @@ header {
 	padding: 0;
 }
 
+.slick-prev {
+	left: 10px;
+}
+
+.slick-next {
+	right: 10px;
+}
+
 .slick-dots {
 	bottom: 0;
 }
@@ -53,6 +68,17 @@ header {
 .slick-dots li button:before {
 	font-size: 20px;
 	color: #648a8b;
+}
+
+#homeContent {
+	background-color: #f9f9f9;
+}
+
+#homeContent p {
+	text-align: center;
+	color: #648a8b;
+	padding: 10px;
+	margin: 0;
 }
 
 #homeContent p:nth-child(even) {
