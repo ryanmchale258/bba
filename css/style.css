@@ -27,8 +27,8 @@ header {
 	z-index: 999;
 	background-color: #3e4450;
 	border-bottom: 4px solid #648a8b;
-	box-shadow: 0 -3px 20px rgb(25, 25, 25);
-	box-shadow: 0 -3px 20px rgba(0, 0, 0, .8);
+	box-shadow: 0 -3px 20px rgb(25, 25, 25), 0 75px 103px -29px rgb(50, 50, 50) inset;
+	box-shadow: 0 -3px 20px rgba(0, 0, 0, .8), 0 75px 103px -29px rgba(0, 0, 0, .5) inset;
 }
 
 #logo {
@@ -68,10 +68,37 @@ main {
 
 #desktop-nav {
 	background-color: #666a73;
+	box-shadow: 0 20px 35px rgb(100, 100, 100) inset;
+	box-shadow: 0 20px 35px rgba(200, 200, 200, 0.1) inset
+}
+
+#desktop-nav ul.left > li {
+	border-left: 1px solid #3e4450;
+	border-right: 1px solid #999;
+	-webkit-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+#desktop-nav ul.left > li:hover {
+	background: #648a8b;
+	box-shadow: 0 15px 15px -5px #666a73 inset;
+}
+
+#desktop-nav ul.left > li:first-child {
+	border-left: none;
+}
+
+#desktop-nav ul.left > li:last-child {
+	border-right: none;
 }
 
 #desktop-nav ul li {
-	background: #666a73;
+	background: none;
+}
+
+#desktop-nav ul.dropdown {
+	background: #648a8b;
 }
 
 #desktop-nav ul li a {
@@ -141,6 +168,9 @@ footer {
 	z-index: 999;
 	position: fixed;
 	bottom: 0;
+	border-top: 4px solid #666a73;
+	box-shadow: 0 3px 20px rgb(25, 25, 25);
+	box-shadow: 0 3px 20px rgba(0, 0, 0, .8);
 }
 
 footer ul {
