@@ -3,7 +3,6 @@
 	var theHeader = document.querySelector('header'),
 		theLogo = document.querySelector('#logo'),
 		navWrap = document.querySelector('#navcontainer'),
-		clHeight = window.innerHeight,
 		theContent = document.querySelector('.content-wrap'),
 		theFooter = document.querySelector('footer');
 
@@ -13,6 +12,7 @@
 
 	var	topPad = theHeader.offsetHeight,
 		logoHeight = theLogo.offsetHeight,
+		clHeight = window.innerHeight,
 		bottomPad = theFooter.offsetHeight;
 
 	navWrap.style.height = logoHeight + "px";
@@ -27,6 +27,7 @@
 
 		var	topPad = theHeader.offsetHeight,
 			logoHeight = theLogo.offsetHeight,
+			clHeight = window.innerHeight,
 			bottomPad = theFooter.offsetHeight;
 
 		navWrap.style.height = logoHeight + "px";
