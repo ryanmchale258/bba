@@ -26,11 +26,18 @@ header {
 	top: 0;
 	z-index: 999;
 	background-color: #3e4450;
-	border-bottom: 2px solid #648a8b;
+	border-bottom: 4px solid #648a8b;
+	box-shadow: 0 -3px 20px rgb(25, 25, 25);
+	box-shadow: 0 -3px 20px rgba(0, 0, 0, .8);
 }
 
 #logo {
 	display: block;
+}
+
+main {
+	min-height: 100%;
+	background-color: #f9f9f9;
 }
 
 .content-wrap {
@@ -50,12 +57,20 @@ header {
 	width: 100%;
 }
 
+#ocbutton {
+	background: red;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 9999;
+}
+
 #desktop-nav {
-	background-color: #648a8b;
+	background-color: #666a73;
 }
 
 #desktop-nav ul li {
-	background-color: #648a8b;
+	background: #666a73;
 }
 
 #desktop-nav ul li a {
@@ -92,7 +107,6 @@ header {
 }
 
 #content {
-	background-color: #f9f9f9;
 	min-height: 100%;
 }
 

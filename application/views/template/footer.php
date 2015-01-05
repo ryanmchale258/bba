@@ -1,5 +1,5 @@
-</section>
-
+		</div>
+	</main>
 </div>
 
 <footer>

@@ -7,7 +7,7 @@ class Navigation_model extends CI_Model {
 	}
 
 	public function getTopNav() {
-		$menu = '<ul class="left">';
+		$menu = "";
 
 		$this->db->select('*');
 		$this->db->where('pages_navlvl', 1);
@@ -44,8 +44,6 @@ class Navigation_model extends CI_Model {
 				$menu .= '</a></li>';
 			}
 		}
-
-		$menu .= '</ul>';
 
 		return $menu;
 	}

@@ -11,4 +11,4 @@
     <!-- fonts -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:900,400' rel='stylesheet' type='text/css'>
   </head>
-  <body class="<?php if(isset($bodyclass)){ echo $bodyclass; } ?>">
+      <body class="<?php if(isset($bodyclass)){ echo $bodyclass; } ?>">
