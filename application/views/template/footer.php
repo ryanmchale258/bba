@@ -1,4 +1,4 @@
-	<div class="push"></div>
+</section>
 
 </div>
 
@@ -8,6 +8,6 @@
 		<nav class="small-12 columns text-center">
 			<?php echo $footermenu; ?>
 		</nav>
-		<p class="small-12 columns text-center">&copy; Copyright <?php echo date("Y"); ?> Barker Blagrave & Associates Dietetics Professional Corporation. All rights reserved.</p>
+		<p class="small-12 columns text-center">&copy; Copyright <?php echo date("Y"); ?> Barker Blagrave &amp; Associates Dietetics Professional Corporation. All rights reserved.</p>
 	</div>
 </footer>

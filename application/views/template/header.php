@@ -19,3 +19,4 @@
 </header>
 
 <div class="content-wrap">
+	<section id="content" class="row small-collapse">
