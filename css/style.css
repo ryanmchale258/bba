@@ -8,7 +8,7 @@ html, body {
 
 body {
 	font-family: 'Roboto', sans-serif !important;
-	background-color: #3e4450;
+	background: url('../img/bg-curves.png') left bottom;
 }
 
 #homeSlider {
@@ -38,6 +38,7 @@ header {
 main {
 	min-height: 100%;
 	background-color: #f9f9f9;
+	box-shadow: -5px 0 30px #666, 5px 0 30px #666;
 }
 
 .content-wrap {
