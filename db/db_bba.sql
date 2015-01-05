@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 21, 2014 at 03:08 AM
+-- Generation Time: Jan 05, 2015 at 04:08 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -75,11 +75,23 @@ INSERT INTO tbl_pages (pages_id, pages_slug, pages_title, pages_meta, pages_cont
 CREATE TABLE IF NOT EXISTS tbl_staffbios (
   staffbios_id tinyint(2) unsigned NOT NULL AUTO_INCREMENT,
   staffbios_name varchar(100) NOT NULL,
+  staffbios_degree varchar(20) NOT NULL,
+  staffbios_designation varchar(20) NOT NULL,
   staffbios_photo varchar(75) NOT NULL DEFAULT 'nophoto.jpg',
   staffbios_bio text NOT NULL,
   staffbios_tagline text NOT NULL,
   PRIMARY KEY (staffbios_id)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table 'tbl_staffbios'
+--
+
+INSERT INTO tbl_staffbios (staffbios_id, staffbios_name, staffbios_degree, staffbios_designation, staffbios_photo, staffbios_bio, staffbios_tagline) VALUES
+(1, 'Christine Barker', 'B.A.Sc.', 'RD', 'christine.jpg', 'During 10 years in a Long Term Care Home, Christine gained in-depth experience in both the clinical and administrative aspects of providing nutrition care and dietary services for residents. From 1997 to 2006, as the Dietitians of Canada Dietetic Consultant for LTC, she was actively involved in formulating and implementing DC’s LTC advocacy strategy. She continues her commitment to quality long term care as a presenter at workshops for Registered Dietitians, a mentor for dietetic interns and as Past-Chair of the DC LTC Action Group.', 'As a Director of BB&A, Christine manages the administrative and financial aspects of the corporation and is co-author of their many policy manuals and QA resources.'),
+(2, 'Paula Blagave', 'B.Sc.', 'RD, CDE', 'paula.jpg', 'After a 15 year career in acute care, Paula moved into the Long Term Care setting. She provides expertise from both a clinical and administrative perspective and consults on a regular basis to Long Term Care Homes and to dietitians interested in LTC. Her special interests include diabetes management, dysphagia, palliative care and total quality management and she is committed to a team approach to long term care. Paula is a Certified Diabetes Educator and a certified long term care administrator.', 'As a Director of BB&A, Paula takes the lead clinical role and \r\nco-authors their many policy manuals and QA resources.'),
+(3, 'Julie Urbshott', 'B.Sc.', 'RD', 'julie.jpg', 'Julie brings a wide range of both clinical and administrative skills to her position with BB&A. For more than 8 years, Julie worked as an Administrative Dietitian in both acute and long term care hospital sites as well as working as a Consulting Dietitian in several LTC Homes. She is committed to continued quality improvement and a team approach, both in the provision of resident care and in the administration of BB&A.', 'As a Director of BB&A, Julie assists with the financial management and is responsible for conducting audits and pre-compliance reviews and completing QA and annual reports for all Homes.'),
+(4, 'Sarah Faulds', '', 'RD', 'nophoto.jpg', '', '');
 
 -- --------------------------------------------------------
 
