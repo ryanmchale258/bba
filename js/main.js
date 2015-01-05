@@ -1,7 +1,7 @@
 (function(){
 
 	var theHeader = document.querySelector('header'),
-		theLogo = document.querySelector('#logoarea img'),
+		theLogo = document.querySelector('#logo'),
 		navWrap = document.querySelector('#navcontainer'),
 		clHeight = window.innerHeight,
 		theContent = document.querySelector('.content-wrap'),
@@ -22,7 +22,7 @@
 
 	window.addEventListener('resize', function(){
 		var logoHeight = theLogo.offsetHeight;
-	
+		
 		theHeader.style.height = logoHeight;
 
 		var	topPad = theHeader.offsetHeight,
@@ -31,6 +31,7 @@
 
 		navWrap.style.height = logoHeight + "px";
 		theContent.style.paddingTop = topPad + "px";
+		theContent.style.height = clHeight + "px";
 		theContent.style.paddingBottom = bottomPad + "px";
 	});
 
