@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2015 at 04:08 AM
+-- Generation Time: Jan 06, 2015 at 01:37 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -48,6 +48,7 @@ CREATE TABLE IF NOT EXISTS tbl_pages (
   pages_navlvl tinyint(1) NOT NULL DEFAULT '2',
   pages_haskids tinyint(1) NOT NULL DEFAULT '0',
   pages_navprnt varchar(50) DEFAULT NULL,
+  pages_hascontroller tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (pages_id)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 
@@ -55,16 +56,17 @@ CREATE TABLE IF NOT EXISTS tbl_pages (
 -- Dumping data for table 'tbl_pages'
 --
 
-INSERT INTO tbl_pages (pages_id, pages_slug, pages_title, pages_meta, pages_content, pages_navlvl, pages_haskids, pages_navprnt) VALUES
-(1, 'home', 'Home', '', '<p>Barker Blagrave & Associates Dietetics Professional Corporation (BB&A) is a team of qualified health care professionals who specialize in providing dietitian services to Long Term Care Homes. Currently, the Directors and Associates consult to 23 Long Term Care Homes in Central-West, Central-South and South-West Ontario.</p> \r\n\r\n<p>Our unique expertise and long term care (LTC) experience ensure the provision of high quality comprehensive dietetic services including resident clinical nutrition care, administrative support, quality management and audits, dietetic resource development and staff education. We are committed to excellence in dietetic practice and believe that Registered Dietitians are an essential component of the health care team.</p>\r\n\r\n<p>We provide dietetic services on both a long-term contract basis, for resident nutrition care in LTC Homes, and on a short term contract basis, for dietary services reviews/regulation compliance, nutrient analysis of residents’ menus, menu development, program audit and evaluation, and staff education sessions.</p>\r\n\r\n<p>All Directors and Associates of BB&A are Registered Dietitians and members of both the College of Dietitians of Ontario (the regulatory body for dietitians in Ontario) and the professional association, Dietitians of Canada. We are very familiar with the Ministry of Health and LTC Regulations for nutrition and hydration care and for dietary services, and with Accreditation processes through Accreditation Canada or CARF.</p>\r\n\r\n<p>The Directors of BB&A have extensive experience in resource development and in professional presentations for dietitians working in LTC. Our publications/resources include: Quality Management tools and resources for the interdisciplinary care team; Policies and Procedures for clinical nutrition and dietary services administrative; In-service Education power points; Documentation tools; and Information Brochures for residents and families on a range of pertinent topics.</p>', 1, 0, NULL),
-(2, 'about', 'About', '', 'About - Coming Soon', 1, 0, NULL),
-(3, 'resources', 'Resources', '', 'Resources - Coming Soon', 1, 0, NULL),
-(4, 'orderform', 'Order Form', '', 'Order Form - Coming Soon', 1, 0, NULL),
-(5, 'mission-values', 'Mission and Values', '', 'Mission and Values - Coming Soon', 0, 0, NULL),
-(6, 'contact-us', 'Contact Us', '', 'Contact Us - Coming Soon', 2, 0, NULL),
-(7, 'job-openings', 'Job Openings', '', 'Job Openings - Coming Soon', 2, 0, NULL),
-(8, 'staff-contact', 'Staff Contact Info', '', 'Staff Contact Info - Coming Soon', 2, 0, NULL),
-(9, 'testimonials', 'Testimonials', '', 'Testimonials - Coming Soon', 3, 0, 'about');
+INSERT INTO tbl_pages (pages_id, pages_slug, pages_title, pages_meta, pages_content, pages_navlvl, pages_haskids, pages_navprnt, pages_hascontroller) VALUES
+(1, 'home', 'Home', '', '', 1, 0, NULL, 1),
+(2, 'about', 'About', '', 'About - Coming Soon', 1, 0, NULL, 0),
+(3, 'resources', 'Resources', '', 'Resources - Coming Soon', 1, 0, NULL, 0),
+(4, 'orderform', 'Order Form', '', 'Order Form - Coming Soon', 1, 0, NULL, 0),
+(5, 'mission-values', 'Mission and Values', '', 'Mission and Values - Coming Soon', 0, 0, NULL, 0),
+(6, 'contact-us', 'Contact Us', '', 'Contact Us - Coming Soon', 2, 0, NULL, 0),
+(7, 'job-openings', 'Job Openings', '', 'Job Openings - Coming Soon', 2, 0, NULL, 0),
+(8, 'staff-contact', 'Staff Contact Info', '', 'Staff Contact Info - Coming Soon', 2, 0, NULL, 0),
+(9, 'testimonials', 'Testimonials', '', '', 3, 0, 'about', 1),
+(10, 'staff', 'Staff Bios', '', '', 3, 0, 'about', 1);
 
 -- --------------------------------------------------------
 

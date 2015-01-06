@@ -26,6 +26,6 @@
 
 	<aside id="mobile-nav" class="right-off-canvas-menu">
 		<ul class="off-canvas-list">
-			<?php echo $navmenu; ?>
+			<?php echo $mobmenu; ?>
 		</ul>
 	</aside>

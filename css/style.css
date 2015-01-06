@@ -9,6 +9,7 @@ html, body {
 body {
 	font-family: 'Roboto', sans-serif !important;
 	background: url('../img/bg-curves.png') left bottom;
+	background-attachment: fixed;
 }
 
 #homeSlider {
@@ -27,8 +28,8 @@ header {
 	z-index: 999;
 	background-color: #3e4450;
 	border-bottom: 4px solid #648a8b;
-	box-shadow: 0 -3px 20px rgb(25, 25, 25), 0 75px 103px -29px rgb(50, 50, 50) inset;
-	box-shadow: 0 -3px 20px rgba(0, 0, 0, .8), 0 75px 103px -29px rgba(0, 0, 0, .5) inset;
+	box-shadow: 0 -3px 20px rgb(25, 25, 25), 0 75px 103px -29px rgb(20, 20, 20) inset;
+	box-shadow: 0 -3px 20px rgba(0, 0, 0, .8), 0 75px 103px -29px rgba(0, 0, 0, .2) inset;
 }
 
 #logo {
@@ -56,6 +57,7 @@ main {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
+	box-shadow: 2px -2px 17px rgba(5, 5, 5, .8);
 }
 
 #ocbutton {
@@ -76,8 +78,15 @@ main {
 	border-left: 1px solid #3e4450;
 	border-right: 1px solid #999;
 	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
 	-o-transition: all .2s ease-in-out;
 	transition: all .2s ease-in-out;
+}
+
+#desktop-nav a {
+	text-shadow: 1px 1px #333;
+	color: #eee;
+	font-weight: bold;
 }
 
 #desktop-nav ul.left > li:hover {
@@ -90,7 +99,11 @@ main {
 }
 
 #desktop-nav ul.left > li:last-child {
-	border-right: none;
+	border-right: 1px solid transparent;
+}
+
+#desktop-nav ul.left > li:last-child:hover {
+	border-right-color: #999;
 }
 
 #desktop-nav ul li {
@@ -99,10 +112,41 @@ main {
 
 #desktop-nav ul.dropdown {
 	background: #648a8b;
+	box-shadow: 3px 4px 5px rgb(50, 50, 50);
+	box-shadow: 3px 4px 5px rgba(0, 0, 0, .5);
+}
+
+#desktop-nav ul.dropdown li {
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+#desktop-nav ul.dropdown li:hover {
+	box-shadow: 0 -15px 15px -5px #666a73 inset;
 }
 
 #desktop-nav ul li a {
 	background: none;
+}
+
+.right-submenu,
+#mobile-nav {
+	background: #666a73;
+}
+
+.right-submenu .back > a {
+	background: #3e4450;
+}
+
+#mobile-nav ul li a {
+	border-bottom: 1px solid #3e4450;
+	border-top: 1px solid #999;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
 }
 
 .fade h2 {
