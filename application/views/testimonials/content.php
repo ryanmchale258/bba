@@ -1,6 +1,6 @@
-<section>
+<section id="testimonials" class="row">
 	<?php foreach($arrTestimonials as $row): ?>
-		<div>
+		<article class="small-12 columns">
 			<?php echo $row->testimonials_content; ?>
 			<span>
 				<?php echo $row->testimonials_author; ?>
@@ -23,6 +23,6 @@
 				}
 				?>
 			</span>
-		</div>
+		</article>
 	<?php endforeach; ?>
 </section>

@@ -13,7 +13,6 @@ body {
 }
 
 #homeSlider {
-	padding: 0;
 	margin: 0;
 }
 
@@ -158,11 +157,11 @@ main {
 }
 
 .slick-prev {
-	left: 10px;
+	left: 20px;
 }
 
 .slick-next {
-	right: 10px;
+	right: 20px;
 }
 
 .slick-dots {
@@ -193,16 +192,45 @@ main {
 	background-color: #ececec;
 }
 
+.bio {
+	padding: 10px;
+	text-align: center;
+}
+
 .bio:nth-child(even) {
 	background-color: #ececec;
 }
 
-.bio:nth-child(odd) img {
+.bio:nth-child(even) img {
 	float: left;
 }
 
-.bio:nth-child(even) img {
+.bio:nth-child(odd) img {
 	float: right;
+}
+
+.bio h2 {
+	font-size: 1.6em;
+}
+
+.bio p {
+	margin: 10px;
+}
+
+.bio p:nth-child(even) {
+	clear: both;
+}
+
+#testimonials {
+	margin: 0;
+}
+
+#testimonials article {
+	padding: 20px;
+}
+
+#testimonials article:nth-child(even) {
+	background-color: #ececec;
 }
 
 footer {
@@ -244,7 +272,8 @@ footer p {
 
 .slick-dots li button:before {
 	content: " ";
-	background: blue;
-	border: 1px solid red;
+	background: #648a8b;
+	border: 1px solid #666a73;
 	border-radius: 50%;
+	transition: all .3s;
 }
