@@ -240,6 +240,14 @@ main {
 	background-color: #ececec;
 }
 
+.staffContact:nth-child(even) {
+	background-color: #ececec;
+}
+
+.staffContact h2{
+	font-size: 1.4em;
+}
+
 footer {
 	background-color: #648a8b;
 	padding-bottom: 15px;
@@ -281,4 +289,18 @@ footer p {
 	border: 1px solid #666a73;
 	border-radius: 50%;
 	transition: all .3s;
+}
+
+@media screen and (min-width:640px){
+	.staffContact:nth-child(even) {
+		background-color: #f9f9f9;
+	}
+
+	.staffContact:last-child{
+		background-color: #ececec;
+	}
+
+	.staffContact:nth-last-child(2){
+		background-color: #ececec;
+	}
 }
