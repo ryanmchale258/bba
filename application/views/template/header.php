@@ -1,6 +1,5 @@
 <header>
 	<section class="row small-collapse header-inner">
-	<a id="ocbutton" href="#mobile-nav" role="button" aria-controls="mobile-nav" aria-expanded="false" class="right-off-canvas-toggle">Menu</a>	
 	
 	<div id="logocontainer" class="small-10 medium-4 large-4 columns">
 		<img id="logo" src="<?php echo base_url(); ?>img/logo.png" alt="Barker Blagrave &amp; Associates Logo">
@@ -15,6 +14,11 @@
 						</ul>
 					</section>
 				</nav>
+				<div class="navinner">
+					<div id="navbutton">
+						<a id="ocbutton" href="#mobile-nav" role="button" aria-controls="mobile-nav" aria-expanded="false" class="right-off-canvas-toggle">Menu</a>
+					</div>
+				</div>
 			</div>
 		</div>
 
@@ -26,7 +30,7 @@
 		<main class="off-canvas-wrap" data-offcanvas>
 			<div id="content" class="inner-wrap">
 
-	<aside id="mobile-nav" class="right-off-canvas-menu">
+	<aside id="mobile-nav" class="right-off-canvas-menu hide-for-large">
 		<ul class="off-canvas-list">
 			<?php echo $mobmenu; ?>
 		</ul>
