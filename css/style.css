@@ -204,7 +204,7 @@ main {
 	text-align: center;
 }
 
-.bio:nth-child(even) {
+.bio:nth-child(odd) {
 	background-color: #ececec;
 }
 
@@ -296,11 +296,11 @@ footer p {
 		background-color: #f9f9f9;
 	}
 
-	.staffContact:last-child{
+	.staffContact:nth-child(4n+2){
 		background-color: #ececec;
 	}
 
-	.staffContact:nth-last-child(2){
+	.staffContact:nth-child(4n+3){
 		background-color: #ececec;
 	}
 }

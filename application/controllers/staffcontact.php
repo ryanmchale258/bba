@@ -13,6 +13,7 @@ class StaffContact extends CI_Controller {
 		$data['mobmenu'] = $this->navigation_model->getMobNav();
 		
 		$data['stafflist'] = $this->staffbio_model->getAll();
+		$data['company'] = $this->staffbio_model->getCompany();
 		$data['bodyclass'] = 'staff';
 		$this->load->view('template/head', $data);
 		$this->load->view('template/header');
