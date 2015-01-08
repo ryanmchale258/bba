@@ -1,10 +1,12 @@
 <header>
-	<section class="row small-collapse">
+	<section class="row small-collapse header-inner">
 	<a id="ocbutton" href="#mobile-nav" role="button" aria-controls="mobile-nav" aria-expanded="false" class="right-off-canvas-toggle">Menu</a>	
 	
-		<img id="logo" class="small-10 small-centered medium-4 medium-uncentered large-3 columns" src="<?php echo base_url(); ?>img/logo.jpg" alt="Barker Blagrave &amp; Associates Logo">
+	<div id="logocontainer" class="small-10 medium-4 large-4 columns">
+		<img id="logo" src="<?php echo base_url(); ?>img/logo.png" alt="Barker Blagrave &amp; Associates Logo">
+	</div>
 
-		<div id="navcontainer" class="hide-for-small medium-8 large-9 columns">
+		<div id="navcontainer" class="hide-for-small medium-8 large-8 columns">
 			<div class="navinner">
 				<nav id="desktop-nav" class="top-bar" data-topbar role="navigation">
 					<section class="top-bar-section">

@@ -4,8 +4,7 @@
 		theLogo = document.querySelector('#logo'),
 		navWrap = document.querySelector('#navcontainer'),
 		ocMain = document.querySelector('main'),
-		mobNav = document.querySelector('#mobile-nav ul.off-canvas-list'),
-		theFooter = document.querySelector('footer');
+		mobNav = document.querySelector('#mobile-nav ul.off-canvas-list');
 
 	var logoHeight = theLogo.offsetHeight;
 	
@@ -13,14 +12,12 @@
 
 	var	topPad = theHeader.offsetHeight,
 		logoHeight = theLogo.offsetHeight,
-		clHeight = window.innerHeight,
-		bottomPad = theFooter.offsetHeight;
+		clHeight = window.innerHeight;
 
 	navWrap.style.height = logoHeight + "px";
 
 	ocMain.style.paddingTop = topPad + "px";
 	ocMain.style.minHeight = clHeight + "px";
-	ocMain.style.marginBottom = bottomPad + "px";
 
 	window.addEventListener('resize', function(){
 		var logoHeight = theLogo.offsetHeight;
@@ -29,14 +26,12 @@
 
 		var	topPad = theHeader.offsetHeight,
 			logoHeight = theLogo.offsetHeight,
-			clHeight = window.innerHeight,
-			bottomPad = theFooter.offsetHeight;
+			clHeight = window.innerHeight;
 
 		navWrap.style.height = logoHeight + "px";
 
 		ocMain.style.paddingTop = topPad + "px";
 		ocMain.style.minHeight = clHeight + "px";
-		ocMain.style.marginBottom = bottomPad + "px";
 	}, false);
 
 	window.addEventListener('scroll', function(){

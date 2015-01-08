@@ -11,7 +11,6 @@ class Staff extends CI_Controller {
 	public function index() {
 		$data['navmenu'] = $this->navigation_model->getTopNav();
 		$data['mobmenu'] = $this->navigation_model->getMobNav();
-		$data['footermenu'] = $this->navigation_model->getFtNav();
 		
 		$data['stafflist'] = $this->staffbio_model->getAll();
 		$data['bodyclass'] = 'staff';

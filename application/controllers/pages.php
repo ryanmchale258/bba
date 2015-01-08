@@ -12,7 +12,6 @@ class Pages extends CI_Controller {
 	public function display_page($slug) {	
 		$data['navmenu'] = $this->navigation_model->getTopNav();
 		$data['mobmenu'] = $this->navigation_model->getMobNav();
-		$data['footermenu'] = $this->navigation_model->getFtNav();
 		$data['pgdata'] = $this->pages_model->getPage($slug)->row();
 		
 		$data['bodyclass'] = 'page';
