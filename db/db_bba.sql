@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
+-- version 4.0.6
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 06, 2015 at 01:37 AM
--- Server version: 5.6.17
--- PHP Version: 5.5.12
+-- Host: localhost
+-- Generation Time: Jan 08, 2015 at 01:32 PM
+-- Server version: 5.5.33
+-- PHP Version: 5.2.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table 'tbl_links'
 --
 
-CREATE TABLE IF NOT EXISTS tbl_links (
+CREATE TABLE tbl_links (
   links_id smallint(3) unsigned NOT NULL AUTO_INCREMENT,
   links_text varchar(75) NOT NULL,
   links_url varchar(100) NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS tbl_links (
 -- Table structure for table 'tbl_pages'
 --
 
-CREATE TABLE IF NOT EXISTS tbl_pages (
+CREATE TABLE tbl_pages (
   pages_id smallint(3) unsigned NOT NULL AUTO_INCREMENT,
   pages_slug varchar(50) NOT NULL,
   pages_title varchar(100) NOT NULL,
@@ -62,11 +62,11 @@ INSERT INTO tbl_pages (pages_id, pages_slug, pages_title, pages_meta, pages_cont
 (3, 'resources', 'Resources', '', 'Resources - Coming Soon', 1, 0, NULL, 0),
 (4, 'orderform', 'Order Form', '', 'Order Form - Coming Soon', 1, 0, NULL, 0),
 (5, 'mission-values', 'Mission and Values', '', 'Mission and Values - Coming Soon', 0, 0, NULL, 0),
-(6, 'contact-us', 'Contact Us', '', 'Contact Us - Coming Soon', 2, 0, NULL, 0),
-(7, 'job-openings', 'Job Openings', '', 'Job Openings - Coming Soon', 2, 0, NULL, 0),
-(8, 'staff-contact', 'Staff Contact Info', '', 'Staff Contact Info - Coming Soon', 2, 0, NULL, 0),
-(9, 'testimonials', 'Testimonials', '', '', 3, 0, 'about', 1),
-(10, 'staff', 'Staff Bios', '', '', 3, 0, 'about', 1);
+(6, 'contact', 'Contact Us', '', 'Contact Us - Coming Soon', 1, 0, NULL, 0),
+(7, 'job-openings', 'Job Openings', '', 'Job Openings - Coming Soon', 2, 0, 'contact', 0),
+(8, 'staff-contact', 'Staff Contact Info', '', 'Staff Contact Info - Coming Soon', 2, 0, 'contact', 0),
+(9, 'testimonials', 'Testimonials', '', '', 2, 0, 'about', 1),
+(10, 'staff', 'Staff Bios', '', '', 2, 0, 'about', 1);
 
 -- --------------------------------------------------------
 
@@ -74,7 +74,7 @@ INSERT INTO tbl_pages (pages_id, pages_slug, pages_title, pages_meta, pages_cont
 -- Table structure for table 'tbl_staffbios'
 --
 
-CREATE TABLE IF NOT EXISTS tbl_staffbios (
+CREATE TABLE tbl_staffbios (
   staffbios_id tinyint(2) unsigned NOT NULL AUTO_INCREMENT,
   staffbios_name varchar(100) NOT NULL,
   staffbios_degree varchar(20) NOT NULL,
@@ -101,7 +101,7 @@ INSERT INTO tbl_staffbios (staffbios_id, staffbios_name, staffbios_degree, staff
 -- Table structure for table 'tbl_testimonials'
 --
 
-CREATE TABLE IF NOT EXISTS tbl_testimonials (
+CREATE TABLE tbl_testimonials (
   testimonials_id tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
   testimonials_content text NOT NULL,
   testimonials_author varchar(75) NOT NULL,
@@ -125,3 +125,4 @@ INSERT INTO tbl_testimonials (testimonials_id, testimonials_content, testimonial
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+         
