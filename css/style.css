@@ -72,14 +72,15 @@ main {
 	box-shadow: 2px -2px 17px rgba(5, 5, 5, .8);
 }
 
-#ocbutton {
-	z-index: 9999;
+#navbutton {
+	display: none;
 }
 
 #desktop-nav {
 	background-color: #666a73;
 	box-shadow: 0 20px 35px rgb(100, 100, 100) inset;
-	box-shadow: 0 20px 35px rgba(200, 200, 200, 0.1) inset
+	box-shadow: 0 20px 35px rgba(200, 200, 200, 0.1) inset;
+	display: block !important;
 }
 
 #desktop-nav ul.left > li {
@@ -293,6 +294,14 @@ footer p {
 	transition: all .3s;
 }
 
+.off-canvas-wrap {
+	overflow: hidden;
+}
+
+#mobile-nav {
+	display: block !important;
+}
+
 @media screen and (min-width:640px){
 	.staffContact:nth-child(even) {
 		background-color: #f9f9f9;
@@ -304,5 +313,65 @@ footer p {
 
 	.staffContact:nth-child(4n+3){
 		background-color: #ececec;
+	}
+}
+
+@media screen and (min-width:733px){
+	.off-canvas-wrap {
+		overflow: visible;
+	}
+
+	#mobile-nav {
+		display: none !important;
+	}
+
+	#desktop-nav {
+		display: block !important;
+	}
+	
+}
+
+@media screen and (min-width: 1050px) {
+	#homeSlider {
+		background: #fff;
+		padding: 10px;
+	}
+
+	#sliderwrapper {
+		position: relative;
+		height: 336px;
+		z-index: 10;
+	}
+
+	#sliderwrapper:before,
+	#sliderwrapper:after {
+		z-index: -1;
+		position: absolute;
+		content: "";
+		bottom: 15px;
+		left: 10px;
+		width: 50%;
+		top: 80%;
+		max-width:300px;
+		height: 50px;
+		background: #777;
+		-webkit-box-shadow: 0 15px 10px #777;
+		-moz-box-shadow: 0 15px 10px #777;
+		box-shadow: 0 15px 10px #777;
+		-webkit-transform: rotate(-3deg);
+		-moz-transform: rotate(-3deg);
+		-o-transform: rotate(-3deg);
+		-ms-transform: rotate(-3deg);
+		transform: rotate(-3deg);
+	}
+
+	#sliderwrapper:after {
+		-webkit-transform: rotate(3deg);
+		-moz-transform: rotate(3deg);
+		-o-transform: rotate(3deg);
+		-ms-transform: rotate(3deg);
+		transform: rotate(3deg);
+		right: 10px;
+		left: auto;
 	}
 }
