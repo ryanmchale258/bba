@@ -1,4 +1,4 @@
-<section>
+<div class="row">
 	<?php foreach($arrTestimonials as $row): ?>
 		<div>
 			<?php echo $row->testimonials_content; ?>
@@ -25,4 +25,3 @@
 			</span>
 		</div>
 	<?php endforeach; ?>
-</section>

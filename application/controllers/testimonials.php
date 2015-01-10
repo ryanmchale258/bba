@@ -13,7 +13,7 @@ class Testimonials extends CI_Controller {
 		$data['mobmenu'] = $this->navigation_model->getMobNav();
 		$data['arrTestimonials'] = $this->testimonials_model->getAll();
 		$data['footermenu'] = $this->navigation_model->getFtNav();
-		$data['bodyclass'] = "home";
+		$data['bodyclass'] = "testimonials";
 		$this->load->view('template/head', $data);
 		$this->load->view('template/header');
 		$this->load->view('testimonials/content');

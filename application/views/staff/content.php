@@ -1,3 +1,4 @@
+<div class="row">
 <?php foreach($stafflist as $row): ?>
 	<article class="small-12 columns bio">
 		<img src="<?php echo base_url() . 'img/' . $row->staffbios_photo; ?>">
