@@ -13,7 +13,6 @@ body {
 }
 
 #homeSlider {
-	padding: 0;
 	margin: 0;
 }
 
@@ -32,6 +31,13 @@ header {
 	box-shadow: 0 -3px 20px rgba(0, 0, 0, .8), 0 75px 103px -29px rgba(0, 0, 0, .2) inset;
 }
 
+#logocontainer {
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-top: 1.5%;
+	margin-bottom: -1.5%;
+}
+
 #logo {
 	display: block;
 }
@@ -40,6 +46,7 @@ main {
 	min-height: 100%;
 	background-color: #f9f9f9;
 	box-shadow: -5px 0 30px #666, 5px 0 30px #666;
+	padding-bottom: 54px;
 }
 
 .content-wrap {
@@ -53,6 +60,11 @@ main {
 	height: 100%;
 }
 
+.buttoncontainer {
+	position: relative;
+	height: 100%;
+}
+
 .navinner {
 	position: absolute;
 	bottom: 0;
@@ -61,10 +73,6 @@ main {
 }
 
 #ocbutton {
-	background: red;
-	position: absolute;
-	top: 0;
-	right: 0;
 	z-index: 9999;
 }
 
@@ -158,11 +166,11 @@ main {
 }
 
 .slick-prev {
-	left: 10px;
+	left: 20px;
 }
 
 .slick-next {
-	right: 10px;
+	right: 20px;
 }
 
 .slick-dots {
@@ -193,28 +201,63 @@ main {
 	background-color: #ececec;
 }
 
-.bio:nth-child(even) {
+.bio {
+	padding: 10px;
+	text-align: center;
+}
+
+.bio:nth-child(odd) {
 	background-color: #ececec;
 }
 
-.bio:nth-child(odd) img {
+.bio:nth-child(even) img {
 	float: left;
 }
 
-.bio:nth-child(even) img {
+.bio:nth-child(odd) img {
 	float: right;
+}
+
+.bio h2 {
+	font-size: 1.6em;
+}
+
+.bio p {
+	margin: 10px;
+}
+
+.bio p:nth-child(even) {
+	clear: both;
+}
+
+#testimonials {
+	margin: 0;
+}
+
+#testimonials article {
+	padding: 20px;
+}
+
+#testimonials article:nth-child(even) {
+	background-color: #ececec;
+}
+
+.staffContact:nth-child(even) {
+	background-color: #ececec;
+}
+
+.staffContact h2{
+	font-size: 1.4em;
 }
 
 footer {
 	background-color: #648a8b;
-	padding-bottom: 10px;
-	width: 100%;
-	z-index: 999;
-	position: fixed;
-	bottom: 0;
+	padding-bottom: 15px;
+	padding-top: 15px;
 	border-top: 4px solid #666a73;
-	box-shadow: 0 3px 20px rgb(25, 25, 25);
-	box-shadow: 0 3px 20px rgba(0, 0, 0, .8);
+	position: absolute;
+	width: 100%;
+	bottom: 0;
 }
 
 footer ul {
@@ -244,7 +287,22 @@ footer p {
 
 .slick-dots li button:before {
 	content: " ";
-	background: blue;
-	border: 1px solid red;
+	background: #648a8b;
+	border: 1px solid #666a73;
 	border-radius: 50%;
+	transition: all .3s;
+}
+
+@media screen and (min-width:640px){
+	.staffContact:nth-child(even) {
+		background-color: #f9f9f9;
+	}
+
+	.staffContact:nth-child(4n+2){
+		background-color: #ececec;
+	}
+
+	.staffContact:nth-child(4n+3){
+		background-color: #ececec;
+	}
 }

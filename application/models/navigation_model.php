@@ -14,7 +14,7 @@ class Navigation_model extends CI_Model {
 		$navall = $this->db->get('tbl_pages')->result();
 
 		$this->db->select('*');
-		$this->db->or_where('pages_navlvl', 3);
+		$this->db->or_where('pages_navlvl', 2);
 		$navkids = $this->db->get('tbl_pages')->result();
 
 
@@ -61,7 +61,7 @@ class Navigation_model extends CI_Model {
 		$navall = $this->db->get('tbl_pages')->result();
 
 		$this->db->select('*');
-		$this->db->or_where('pages_navlvl', 3);
+		$this->db->or_where('pages_navlvl', 2);
 		$navkids = $this->db->get('tbl_pages')->result();
 
 
@@ -104,27 +104,6 @@ class Navigation_model extends CI_Model {
 		}
 
 		return $mobmenu;
-	}
-
-	public function getFtNav() {
-		$this->db->select('*');
-		$this->db->where('pages_navlvl', 2);
-		$ftnav = $this->db->get('tbl_pages')->result();
-			$ftmenu = '<ul>';
-
-		foreach($ftnav as $row) {
-			if($row->pages_hascontroller == 1){
-				$ftmenu .= '<li><a href="' . base_url() . 'index.php/' . $row->pages_slug . '">';
-			}else{
-				$ftmenu .= '<li><a href="' . base_url() . 'index.php/page/' . $row->pages_slug . '">';
-			}
-			$ftmenu .= $row->pages_title;
-			$ftmenu .= '</a></li>';
-		}
-
-		$ftmenu .= '</ul>';
-
-		return $ftmenu;
 	}
 
 }

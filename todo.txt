@@ -1,3 +1,7 @@
 To Do:
 
--javascript to detect header and footer heights at any given time and alter content-wrap padding top and bottom
+- mobile menu icon
+- mission values drop menu top
+- slider styling for frame
+- slider text solution
+- header slogan

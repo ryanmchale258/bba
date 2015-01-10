@@ -11,4 +11,9 @@ class Staffbio_model extends CI_Model {
 		return $staffbios->result();
 	}
 
+	public function getCompany(){
+		$companyInfo = $this->db->get('tbl_company');
+		return $companyInfo->row();
+	}
+
 }

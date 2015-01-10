@@ -20,7 +20,7 @@
 
 	ocMain.style.paddingTop = topPad + "px";
 	ocMain.style.minHeight = clHeight + "px";
-	ocMain.style.marginBottom = bottomPad + "px";
+	ocMain.style.paddingBottom = bottomPad + "px";
 
 	window.addEventListener('resize', function(){
 		var logoHeight = theLogo.offsetHeight;
@@ -36,7 +36,7 @@
 
 		ocMain.style.paddingTop = topPad + "px";
 		ocMain.style.minHeight = clHeight + "px";
-		ocMain.style.marginBottom = bottomPad + "px";
+		ocMain.style.paddingBottom = bottomPad + "px";
 	}, false);
 
 	window.addEventListener('scroll', function(){
