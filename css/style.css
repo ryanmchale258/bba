@@ -72,10 +72,6 @@ main {
 	box-shadow: 2px -2px 17px rgba(5, 5, 5, .8);
 }
 
-#navbutton {
-	display: none;
-}
-
 #desktop-nav {
 	background-color: #666a73;
 	box-shadow: 0 20px 35px rgb(100, 100, 100) inset;
@@ -318,6 +314,12 @@ footer p {
 	display: block;
 }
 
+#navbutton {
+	background-color: #666a73;
+	box-shadow: 0 20px 35px rgb(100, 100, 100) inset;
+	box-shadow: 0 20px 35px rgba(200, 200, 200, 0.1) inset;
+}
+
 @media screen and (min-width:640px){
 	.staffContact:nth-child(even) {
 		background-color: #f9f9f9;
@@ -330,6 +332,20 @@ footer p {
 	.staffContact:nth-child(4n+3){
 		background-color: #ececec;
 	}
+}
+
+@media screen and (min-width: 641px) and (max-width: 736px){
+	.top-bar-section li:not(.has-form) a:not(.button) {
+		padding: 0 0.4rem;
+	}
+}
+
+.menu-icon span {
+	width: 30px;
+	height: 40px;
+	background: url('../img/icon-menu.png') no-repeat center center;
+	display: block;
+	margin-left: 10px;
 }
 
 @media screen and (min-width:733px){
