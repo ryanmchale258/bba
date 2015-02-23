@@ -80,7 +80,7 @@ main {
 	background-color: #666a73;
 	box-shadow: 0 20px 35px rgb(100, 100, 100) inset;
 	box-shadow: 0 20px 35px rgba(200, 200, 200, 0.1) inset;
-	display: block !important;
+	display: block;
 }
 
 #desktop-nav ul.left > li {
@@ -316,7 +316,7 @@ footer p {
 }
 
 #mobile-nav {
-	display: block !important;
+	display: block;
 }
 
 @media screen and (min-width:640px){
@@ -337,14 +337,6 @@ footer p {
 	.off-canvas-wrap {
 		overflow: visible;
 	}
-
-	#mobile-nav {
-		display: none !important;
-	}
-
-	#desktop-nav {
-		display: block !important;
-	}
 	
 }
 
@@ -358,6 +350,8 @@ footer p {
 		position: relative;
 		height: 336px;
 		z-index: 10;
+		width: 104%;
+		left: -2%;
 	}
 
 	#sliderwrapper:before,

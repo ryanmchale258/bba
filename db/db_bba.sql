@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 08, 2015 at 08:47 PM
+-- Generation Time: Feb 23, 2015 at 07:41 PM
 -- Server version: 5.5.33
 -- PHP Version: 5.5.3
 
@@ -76,6 +76,7 @@ CREATE TABLE tbl_pages (
   pages_haskids tinyint(1) NOT NULL DEFAULT '0',
   pages_navprnt varchar(50) DEFAULT NULL,
   pages_hascontroller tinyint(1) NOT NULL DEFAULT '0',
+  pages_weight tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (pages_id)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 
@@ -83,17 +84,17 @@ CREATE TABLE tbl_pages (
 -- Dumping data for table 'tbl_pages'
 --
 
-INSERT INTO tbl_pages (pages_id, pages_slug, pages_title, pages_meta, pages_content, pages_navlvl, pages_haskids, pages_navprnt, pages_hascontroller) VALUES
-(1, 'home', 'Home', '', '', 1, 0, NULL, 1),
-(2, 'about', 'About', '', 'About - Coming Soon', 1, 0, NULL, 0),
-(3, 'resources', 'Resources', '', 'Resources - Coming Soon', 1, 0, NULL, 0),
-(4, 'orderform', 'Order Form', '', 'Order Form - Coming Soon', 1, 0, NULL, 0),
-(5, 'mission-values', 'Mission and Values', '', 'Mission and Values - Coming Soon', 0, 0, NULL, 0),
-(6, 'contact', 'Contact Us', '', 'Contact Us - Coming Soon', 1, 0, NULL, 0),
-(7, 'job-openings', 'Job Openings', '', 'Job Openings - Coming Soon', 2, 0, 'contact', 0),
-(8, 'staffcontact', 'Staff Contact Info', '', 'Staff Contact Info - Coming Soon', 2, 0, 'contact', 1),
-(9, 'testimonials', 'Testimonials', '', '', 2, 0, 'about', 1),
-(10, 'staff', 'Staff Bios', '', '', 2, 0, 'about', 1);
+INSERT INTO tbl_pages (pages_id, pages_slug, pages_title, pages_meta, pages_content, pages_navlvl, pages_haskids, pages_navprnt, pages_hascontroller, pages_weight) VALUES
+(1, 'home', 'Home', '', '', 1, 0, NULL, 1, 0),
+(2, 'about', 'About', '', 'About - Coming Soon', 1, 0, NULL, 0, 0),
+(3, 'resources', 'Resources', '', 'Resources - Coming Soon', 1, 0, NULL, 0, 0),
+(4, 'orderform', 'Order Form', '', 'Order Form - Coming Soon', 1, 0, NULL, 0, 0),
+(5, 'mission-values', 'Mission and Values', '', 'Mission and Values - Coming Soon', 0, 0, NULL, 0, 0),
+(6, 'contact', 'Contact Us', '', 'Contact Us - Coming Soon', 1, 0, NULL, 0, 0),
+(7, 'job-openings', 'Job Openings', '', 'Job Openings - Coming Soon', 2, 0, 'contact', 0, 1),
+(8, 'staffcontact', 'Staff Contact Info', '', 'Staff Contact Info - Coming Soon', 2, 0, 'contact', 1, 2),
+(9, 'testimonials', 'Testimonials', '', '', 2, 0, 'about', 1, 0),
+(10, 'staff', 'Staff Bios', '', '', 2, 0, 'about', 1, 0);
 
 -- --------------------------------------------------------
 

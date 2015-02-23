@@ -15,6 +15,7 @@ class Navigation_model extends CI_Model {
 
 		$this->db->select('*');
 		$this->db->or_where('pages_navlvl', 2);
+		$this->db->order_by('pages_weight', 'DESC');
 		$navkids = $this->db->get('tbl_pages')->result();
 
 
@@ -31,7 +32,11 @@ class Navigation_model extends CI_Model {
 					}
 				}
 			if($row->pages_haskids == 1){
-				$menu .= '<li class="has-dropdown"><a href="' . base_url() . 'index.php/' . $row->pages_slug . '">';
+				if($row->pages_hascontroller == 0){
+					$menu .= '<li class="has-dropdown"><a href="' . base_url() . 'index.php/page/' . $row->pages_slug . '">';
+				}else{
+					$menu .= '<li class="has-dropdown"><a href="' . base_url() . 'index.php/' . $row->pages_slug . '">';
+				}
 				$menu .= $row->pages_title . '</a>';
 				$menu .= '<ul class="dropdown">';
 					foreach($children as $kids){
@@ -44,7 +49,11 @@ class Navigation_model extends CI_Model {
 				$menu .= '</ul>';
 				$menu .= '</li>';
 			}else{
-				$menu .= '<li><a href="' . base_url() . 'index.php/' . $row->pages_slug . '">';
+				if($row->pages_hascontroller == 0){
+					$menu .= '<li><a href="' . base_url() . 'index.php/page/' . $row->pages_slug . '">';
+				}else{
+					$menu .= '<li><a href="' . base_url() . 'index.php/' . $row->pages_slug . '">';
+				}
 				$menu .= $row->pages_title;
 				$menu .= '</a></li>';
 			}
@@ -78,7 +87,11 @@ class Navigation_model extends CI_Model {
 					}
 				}
 			if($row->pages_haskids == 1){
-				$mobmenu .= '<li class="has-submenu"><a href="' . base_url() . 'index.php/' . $row->pages_slug . '">';
+				if($row->pages_hascontroller == 0){
+					$mobmenu .= '<li class="has-submenu"><a href="' . base_url() . 'index.php/page/' . $row->pages_slug . '">';
+				}else{
+					$mobmenu .= '<li class="has-submenu"><a href="' . base_url() . 'index.php/' . $row->pages_slug . '">';
+				}
 				$mobmenu .= $row->pages_title . '</a>';
 				$mobmenu .= '<ul class="right-submenu">';
 					$mobmenu .= '<li><a href="' . base_url() . 'index.php/page/' . $row->pages_slug . '">';
@@ -97,7 +110,11 @@ class Navigation_model extends CI_Model {
 				$mobmenu .= '</ul>';
 				$mobmenu .= '</li>';
 			}else{
-				$mobmenu .= '<li><a href="' . base_url() . 'index.php/' . $row->pages_slug . '">';
+				if($row->pages_hascontroller == 0){
+					$mobmenu .= '<li><a href="' . base_url() . 'index.php/page/' . $row->pages_slug . '">';
+				}else{
+					$mobmenu .= '<li><a href="' . base_url() . 'index.php/' . $row->pages_slug . '">';
+				}
 				$mobmenu .= $row->pages_title;
 				$mobmenu .= '</a></li>';
 			}
