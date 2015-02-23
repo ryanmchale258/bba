@@ -26,7 +26,7 @@
 
 </header>
 
-<div class="content-wrap row">
+<div class="content-wrap row collapse">
 		<main class="off-canvas-wrap" data-offcanvas>
 			<div id="content" class="inner-wrap">
 
