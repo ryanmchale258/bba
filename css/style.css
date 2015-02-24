@@ -89,7 +89,7 @@ main {
 .navinner {
 	position: absolute;
 	bottom: 0;
-	width: 100%;
+	width: 50px;
 	box-shadow: 2px -2px 17px rgba(5, 5, 5, .8);
 }
 
@@ -155,6 +155,19 @@ main {
 
 #desktop-nav ul li a {
 	background: none;
+}
+
+#desktop-nav .dropdown li a {
+	border-top: 1px solid #3e4450;
+	border-bottom: 1px solid #999;
+}
+
+#desktop-nav .dropdown li:nth-child(3) a {
+	border-top: none;
+}
+
+#desktop-nav .dropdown li:last-child a {
+	border-bottom: none;
 }
 
 .right-submenu,
@@ -348,6 +361,39 @@ footer p {
 	padding: 20px;
 }
 
+.move-left .exit-off-canvas {
+	background: rgba(0, 0, 0, 0.6);
+}
+
+#loginbox {
+	width: 40%;
+	padding: 20px;
+	position: relative;
+	border-radius: 20px;
+	margin: 30px auto;
+	background-color: #666a73;
+	box-shadow: 0 20px 35px rgb(100, 100, 100) inset, 0 0 35px rgb(100, 100, 100);
+	box-shadow: 0 20px 35px rgba(200, 200, 200, 0.1) inset, 0 0 35px rgb(100, 100, 100);
+}
+
+#loginbox h2,
+#loginbox label {
+	color: #fff;
+}
+
+#loginbox input[type="submit"] {
+	border: none;
+	outline: none;
+	padding: 5px 10px;
+	background: #fff;
+	font-family: 'Roboto Slab', serif !important;;
+	border-radius: 5px;
+	font-size: 1rem;
+	display: block;
+	margin: 0 auto;
+	cursor: pointer;
+}
+
 @media screen and (min-width:640px){
 	.staffContact:nth-child(even) {
 		background-color: #f9f9f9;
@@ -359,6 +405,16 @@ footer p {
 
 	.staffContact:nth-child(4n+3){
 		background-color: #ececec;
+	}
+
+	.navinner {
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: 412px) and (max-width: 641px){
+	#logocontainer img {
+		width: 50%;
 	}
 }
 

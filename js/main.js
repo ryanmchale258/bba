@@ -5,7 +5,7 @@
 		navWrap = document.querySelector('#navcontainer'),
 		ocMain = document.querySelector('main'),
 		mobNav = document.querySelector('#mobile-nav ul.off-canvas-list'),
-		subNav = document.querySelector('.right-submenu'),
+		subNav = $('.right-submenu'),
 		theFooter = document.querySelector('footer');
 
 	var logoHeight = theLogo.offsetHeight;
@@ -40,9 +40,12 @@
 		ocMain.style.paddingBottom = bottomPad + "px";
 	}, false);
 
+	mobNav.style.marginTop = window.pageYOffset + "px";
+	subNav.css('margin-top', window.pageYOffset + 'px');
+
 	window.addEventListener('scroll', function(){
 		mobNav.style.marginTop = window.pageYOffset + "px";
-		subNav.style.marginTop = window.pageYOffset + "px";
+		subNav.css('margin-top', window.pageYOffset + 'px');
 	}, false);
 
 
