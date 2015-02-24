@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Staff extends CI_Controller {
+class Structure extends CI_Controller {
 	
 	public function __construct(){
 		parent::__construct();
@@ -16,7 +16,7 @@ class Staff extends CI_Controller {
 		$data['bodyclass'] = 'staff';
 		$this->load->view('template/head', $data);
 		$this->load->view('template/header');
-		$this->load->view('staff/content');
+		$this->load->view('about/structure');
 
 		$this->load->view('template/footer');
 

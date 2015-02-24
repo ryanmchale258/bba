@@ -2,13 +2,13 @@
 	<section class="about row" data-equalizer>
 		<h1>What we do</h1>
 		<p>
-			All Directors and Associates of BB&amp;A are Registered Dietitians and members of both the College of Dietitians of Ontario (the regulatory body for dietitians in Ontario) and the professional association, Dietitians of Canada. We are very familiar with the Ministry of Health and LTC Regulations for nutrition and hydration care and for dietary services, and with Accreditation processes through Accreditation Canada or CARF.  All of our Dietitians are also well versed in the latest electronic resident charting systems such as Point Click Care and Med e-Care.
+			<span class="boldItalics">All Directors and Associates of BB&amp;A are Registered Dietitians</span> and members of both the College of Dietitians of Ontario (the regulatory body for dietitians in Ontario) and the professional association, Dietitians of Canada. We are very familiar with the Ministry of Health and LTC Regulations for nutrition and hydration care and for dietary services, and with Accreditation processes through Accreditation Canada or CARF.  All of our Dietitians are also well versed in the latest electronic resident charting systems such as Point Click Care and Med e-Care.
 		</p>
 		<p>
-			The team of Registered Dietitians at Barker Blagrave&amp; Associates Dietetics Professional Corporation provides comprehensive Resident Clinical Nutrition Services, delivered with compassion and integrity in a manner that optimizes quality of care.
+			The team of Registered Dietitians at <span class="boldItalics">Barker Blagrave&amp; Associates Dietetics Professional Corporation</span> provides comprehensive <span class="boldItalics">Resident Clinical Nutrition Services</span>, delivered with compassion and integrity in a manner that optimizes quality of care.
 		</p>
 		<p>
-			Our team also provides Administrative Support to Homes as needed, Quality Management tools and expertise and can provide Dietetic Resources and / or Teaching for staff in-service and ongoing education as well as Information Brochures for residents and families.
+			Our team also provides <span class="boldItalics">Administrative Support</span> to Homes as needed, <span class="boldItalics">Quality Management</span> tools and expertise and can provide <span class="boldItalics">Dietetic Resources and / or Teaching</span> for staff in-service and ongoing education as well as Information Brochures for residents and families.
 		</p>
 		<h2>Services:</h2>
 		<article class="services small-12 medium-6 columns" data-equalizer-watch>
@@ -61,4 +61,14 @@
 				<li>Information brochures for residents/families</li>
 			</ul>
 		</article>
+
+		<section class="rates">
+			<h2>Service Rates:</h2>
+			<p>
+				We offer quality work at competitive rates and our fee structure includes direct dietitian services to Homes as well as BB&amp;A corporate support/services, professional liability insurance, training and continuing education for Associate Dietitians and routine travel expenses.
+			</p>
+			<p>
+				Quotes for any of our services are available on request.
+			</p>
+		</section>
 	</section>
