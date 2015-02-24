@@ -33,6 +33,11 @@ h3 {
 	font-size: 20px;
 }
 
+.boldItalics {
+	font-style: italic;
+	font-weight: 700;
+}
+
 #homeSlider {
 	margin: 0;
 }
@@ -258,7 +263,6 @@ main {
 
 .bio {
 	padding: 10px;
-	text-align: center;
 }
 
 .bio:nth-child(odd) {
@@ -267,10 +271,12 @@ main {
 
 .bio:nth-child(even) img {
 	float: left;
+	margin-right: 10px;
 }
 
 .bio:nth-child(odd) img {
 	float: right;
+	margin-left: 10px;
 }
 
 .bio h2 {
@@ -354,7 +360,16 @@ footer p {
 	box-shadow: 0 20px 35px rgba(200, 200, 200, 0.1) inset;
 }
 
+.about p:nth-child(odd) {
+	background-color: #ececec;
+}
+
 .services {
+	color: #648a8b;
+}
+
+.services:nth-child(odd) {
+	background-color: #ececec;
 }
 
 .bodycontent {
@@ -394,6 +409,18 @@ footer p {
 	cursor: pointer;
 }
 
+.mission {
+	color: #648a8b;
+}
+
+.structure {
+	color: #648a8b;
+}
+
+.accordion-navigation a{
+	transition: all .3s ease;
+}
+
 @media screen and (min-width:640px){
 	.staffContact:nth-child(even) {
 		background-color: #f9f9f9;
@@ -416,6 +443,11 @@ footer p {
 	#logocontainer img {
 		width: 50%;
 	}
+
+	.services:nth-child(odd){
+		background-color: transparent;
+	}
+
 }
 
 @media screen and (min-width: 641px) and (max-width: 736px){
