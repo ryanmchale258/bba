@@ -13,10 +13,10 @@
 		<h2>Bios:</h2>
 	<?php foreach($stafflist as $row): ?>
 		<article class="small-12 columns bio">
-			<img src="<?php echo base_url() . 'img/' . $row->staffbios_photo; ?>">
 			<h3><?php echo $row->staffbios_name.', '; ?>
 			<?php echo $row->staffbios_degree.', '; ?>
 			<?php echo $row->staffbios_designation; ?></h3>
+			<img class="small-12 medium-6 large-4 columns" src="<?php echo base_url() . 'img/' . $row->staffbios_photo; ?>">
 			<p><?php echo $row->staffbios_bio; ?></p>
 		</article>
 	<?php endforeach; ?>

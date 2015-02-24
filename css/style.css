@@ -265,18 +265,27 @@ main {
 	padding: 10px;
 }
 
+.bio img {
+	max-width: 300px;
+	float: none !important;
+	display: block;
+	margin: 0 auto;
+}
+
+.bio h3 {
+	text-align:center;
+}
+
 .bio:nth-child(odd) {
 	background-color: #ececec;
 }
 
 .bio:nth-child(even) img {
 	float: left;
-	margin-right: 10px;
 }
 
 .bio:nth-child(odd) img {
 	float: right;
-	margin-left: 10px;
 }
 
 .bio h2 {
