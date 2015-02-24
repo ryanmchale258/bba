@@ -250,7 +250,6 @@ main {
 
 .bio {
 	padding: 10px;
-	text-align: center;
 }
 
 .bio:nth-child(odd) {
@@ -259,10 +258,12 @@ main {
 
 .bio:nth-child(even) img {
 	float: left;
+	margin-right: 10px;
 }
 
 .bio:nth-child(odd) img {
 	float: right;
+	margin-left: 10px;
 }
 
 .bio h2 {
@@ -363,6 +364,10 @@ footer p {
 }
 
 .mission {
+	color: #648a8b;
+}
+
+.structure {
 	color: #648a8b;
 }
 
