@@ -7,6 +7,7 @@ class Login extends CI_Controller {
 		$this->load->model('navigation_model');
 		$this->load->model('testimonials_model');
 		$this->load->helper('form');
+		$this->load->model('login_model');
 	}	
 
 	public function index() {
@@ -32,6 +33,32 @@ class Login extends CI_Controller {
 
 		$this->load->view('template/scripts');
 		$this->load->view('template/close');
+	}
+
+	public function submit() {
+		$user = $_GET['username'];
+		$pass = $_GET['password'];
+
+		$result = $this->login_model->verify($user,$pass);
+
+		if($result == "confirmed"){
+			$data['navmenu'] = $this->navigation_model->getTopNav();
+			$data['mobmenu'] = $this->navigation_model->getMobNav();
+
+			$data['bodyclass'] = "adminhome";
+			$this->load->view('template/head', $data);
+			$this->load->view('template/header');
+			$this->load->view('home/content');
+			$this->load->view('template/footer');
+
+			$this->load->view('template/scripts');
+			$this->load->view('template/close');
+		}
+	}
+
+	public function logout() {
+		$this->login_model->logout();
+		$this->index();
 	}
 	
 }
