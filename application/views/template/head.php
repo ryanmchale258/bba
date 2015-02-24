@@ -10,6 +10,6 @@
     <script src="<?php echo base_url(); ?>js/vendor/modernizr.js"></script>
     <!-- fonts -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:900,400' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:700,400' rel='stylesheet' type='text/css'>
   </head>
       <body class="<?php if(isset($bodyclass)){ echo $bodyclass; } ?>">
