@@ -1,4 +1,4 @@
-<div id="staffContact-wrap">
+<div id="staffContact-wrap" class="bodycontent">
 	<article class="small-12 text-center columns companyContact">
 		<h2><?php echo $company->company_name; ?></h2>
 		<p>

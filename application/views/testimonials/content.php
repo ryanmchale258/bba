@@ -1,4 +1,5 @@
-<div id="testimonials" class="row">
+<div id="testimonials" class="row bodycontent">
+	<h1>Testimonials</h1>
 	<?php foreach($arrTestimonials as $row): ?>
 		<article class="small-12 columns">
 			<?php echo $row->testimonials_content; ?>

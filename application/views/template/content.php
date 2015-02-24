@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row bodycontent">
 
 		<h1><?php echo $pgdata->pages_title; ?></h1>
 	<div>

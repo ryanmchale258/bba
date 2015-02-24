@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row bodycontent">
 	<div id="pagecontent" class="small-12 medium-8 columns">
 		<p>
 			Barker Blagrave &amp; Associates Dietetics Professional Corporation (BB&amp;A) is a team of qualified health care professionals who specialize in providing dietitian services to Long Term Care Homes. Currently, the Directors and Associates consult to several Long Term Care Homes across central and South-Western Ontario.

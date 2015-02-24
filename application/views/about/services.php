@@ -1,4 +1,4 @@
-<div>
+<div class="bodycontent">
 	<section class="about row" data-equalizer>
 		<h1>What we do</h1>
 		<p>
