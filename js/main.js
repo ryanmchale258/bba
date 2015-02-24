@@ -5,6 +5,7 @@
 		navWrap = document.querySelector('#navcontainer'),
 		ocMain = document.querySelector('main'),
 		mobNav = document.querySelector('#mobile-nav ul.off-canvas-list'),
+		subNav = document.querySelector('.right-submenu'),
 		theFooter = document.querySelector('footer');
 
 	var logoHeight = theLogo.offsetHeight;
@@ -41,6 +42,7 @@
 
 	window.addEventListener('scroll', function(){
 		mobNav.style.marginTop = window.pageYOffset + "px";
+		subNav.style.marginTop = window.pageYOffset + "px";
 	}, false);
 
 
