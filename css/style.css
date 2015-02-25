@@ -267,7 +267,7 @@ main {
 
 .bio img {
 	max-width: 300px;
-	float: none !important;
+	float: none;
 	display: block;
 	margin: 0 auto;
 }
@@ -278,14 +278,6 @@ main {
 
 .bio:nth-child(odd) {
 	background-color: #ececec;
-}
-
-.bio:nth-child(even) img {
-	float: left;
-}
-
-.bio:nth-child(odd) img {
-	float: right;
 }
 
 .bio h2 {
@@ -410,7 +402,7 @@ footer p {
 	outline: none;
 	padding: 5px 10px;
 	background: #fff;
-	font-family: 'Roboto Slab', serif !important;;
+	font-family: 'Roboto Slab', serif !important;
 	border-radius: 5px;
 	font-size: 1rem;
 	display: block;
@@ -426,8 +418,24 @@ footer p {
 	color: #648a8b;
 }
 
+.structure ul {
+	padding-left: 10%;
+}
+
 .accordion-navigation a{
 	transition: all .3s ease;
+}
+
+.resources ul {
+	padding-left: 10%;
+}
+
+.resources p:nth-child(2n+4){
+	background-color: #ececec;
+}
+
+.jobs ul {
+	padding-left: 10%;
 }
 
 @media screen and (min-width:640px){
@@ -446,15 +454,27 @@ footer p {
 	.navinner {
 		width: 100%;
 	}
+
+	.services:nth-child(odd){
+		background-color: transparent;
+	}
+
+	.services:nth-child(1n+8){
+		background-color: #ececec;
+	}
+
+	.bio:nth-child(even) img {
+		float: left;
+	}
+
+	.bio:nth-child(odd) img {
+		float: right;
+	}
 }
 
 @media screen and (min-width: 412px) and (max-width: 641px){
 	#logocontainer img {
 		width: 50%;
-	}
-
-	.services:nth-child(odd){
-		background-color: transparent;
 	}
 
 }
