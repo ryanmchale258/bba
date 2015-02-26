@@ -10,7 +10,32 @@
 				<nav id="desktop-nav" class="top-bar hide-for-small" data-topbar role="navigation">
 					<section class="top-bar-section">
 						<ul class="left">
-							
+							<li><a href="<?php echo base_url() ?>index.php/login/logout">View Site</a></li>
+							<li class="has-dropdown"><a href="#">Pages</a>
+								<ul class="dropdown">
+									<li><a href="<?php echo base_url() ?>index.php/pages/add">Add</a></li>
+									<li><a href="<?php echo base_url() ?>index.php/home">Edit</a></li>
+								</ul>
+							</li>
+							<li class="has-dropdown"><a href="#">Staff</a>
+								<ul class="dropdown">
+									<li><a href="<?php echo base_url() ?>index.php/home">Add</a></li>
+									<li><a href="<?php echo base_url() ?>index.php/home">Edit</a></li>
+								</ul>
+							</li>
+							<li class="has-dropdown"><a href="#">Testimonials</a>
+								<ul class="dropdown">
+									<li><a href="<?php echo base_url() ?>index.php/home">Add</a></li>
+									<li><a href="<?php echo base_url() ?>index.php/home">Edit</a></li>
+								</ul>
+							</li>
+							<li class="has-dropdown"><a href="#">Job Postings</a>
+								<ul class="dropdown">
+									<li><a href="<?php echo base_url() ?>index.php/home">Add</a></li>
+									<li><a href="<?php echo base_url() ?>index.php/home">Edit</a></li>
+								</ul>
+							</li>
+							<li><a href="<?php echo base_url() ?>index.php/login/logout">Log Out</a></li>
 						</ul>
 					</section>
 				</nav>
@@ -32,6 +57,6 @@
 
 	<aside id="mobile-nav" class="right-off-canvas-menu hide-for-large-up">
 		<ul class="off-canvas-list">
-			<li><a href="<?php echo base_url ?>home"
+			<li><a href="<?php echo base_url() ?>index.php/home">Add Page</a></li>
 		</ul>
 	</aside>

@@ -438,6 +438,16 @@ footer p {
 	padding-left: 10%;
 }
 
+.cmslabel {
+	font-size: .875rem;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+#metadesc {
+	resize: none;
+}
+
 @media screen and (min-width:640px){
 	.staffContact:nth-child(even) {
 		background-color: #f9f9f9;

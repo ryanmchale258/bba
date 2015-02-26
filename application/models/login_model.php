@@ -9,25 +9,34 @@ class Login_model extends CI_Model {
 	public function verify($u,$p){
 		//just filler login verification ------------------
 		if($u != null && $p != null){
-			$this->getAdminData($u,$p);
-			return "confirmed";
+			$loginstate = $this->getAdminData($u, $p);
+			return $loginstate;
 		}else{
-			return "confirmed";
+			return "missingvalues";
 		}
 		//-------------------------------------------------
 	}
 
-	public function getStudentData($u,$p){
-		$userQuery = $this->db->get_where('tbl_admin', array('admin_username' => $u, 'admin_password' => $p));
-		$userResult = $userQuery->row();
-		$userArray = array(
-					'username' => $u,
-					'users_name' => $userResult->admin_firstname,
-					'sId' => $userResult->admin_id,
-					'logged_in' => TRUE
-				);
+	public function getAdminData($u, $p){
+		$this->db->where('admin_username', $u);
+		$this->db->where('admin_password', $p);
+		$userQuery = $this->db->get('tbl_admin');
+		$userrow = $userQuery->row();
 
-		$this->session->set_userdata($userArray);
+		if(!empty($userrow)){
+			$userResult = $userQuery->row();
+			$userArray = array(
+						'username' => $u,
+						'name' => $userResult->admin_firstname,
+						'sId' => $userResult->admin_id,
+						'logged_in' => TRUE
+					);
+
+			$this->session->set_userdata($userArray);
+			return 1;
+		}else{
+			return 0;
+		}
 	}
 
 	public function logout(){
