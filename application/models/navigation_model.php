@@ -123,4 +123,9 @@ class Navigation_model extends CI_Model {
 		return $mobmenu;
 	}
 
+	public function getParents(){
+		$parents = $this->db->get_where('tbl_pages', array( 'pages_navlvl' => 1 ));
+		return $parents->result();
+	}
+
 }

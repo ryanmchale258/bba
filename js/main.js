@@ -48,5 +48,8 @@
 		subNav.css('margin-top', window.pageYOffset + 'px');
 	}, false);
 
+	$('#metadesc').keyup(function(){
+		$('#wordcount').html(150 - $(this).val().length);
+	});
 
 })();

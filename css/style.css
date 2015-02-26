@@ -470,6 +470,15 @@ footer p {
 .columnRight {
 	float: right;
 	width: 50%;
+
+.cmslabel {
+	font-size: .875rem;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+#metadesc {
+	resize: none;
 }
 
 @media screen and (min-width:640px){
