@@ -12,6 +12,7 @@
 	<?php foreach($stafflist as $row): ?>
 		<article class="small-12 medium-6 text-center columns staffContact">
 			<h2><?php echo $row->staffbios_name.', '; ?>
+			<?php echo $row->staffbios_degree.', '; ?>
 			<?php echo $row->staffbios_designation; ?></h2>
 			<p>
 				<?php echo $row->staffbios_streetnumber.' '.$row->staffbios_streetname; ?><br>
