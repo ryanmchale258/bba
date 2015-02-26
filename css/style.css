@@ -38,6 +38,10 @@ h3 {
 	font-weight: 700;
 }
 
+.bold {
+	font-weight: bold;
+}
+
 #homeSlider {
 	margin: 0;
 }
@@ -304,7 +308,7 @@ main {
 	background-color: #ececec;
 }
 
-.staffContact:nth-child(even) {
+.staffContact:nth-child(odd) {
 	background-color: #ececec;
 }
 
@@ -438,16 +442,46 @@ footer p {
 	padding-left: 10%;
 }
 
+.jobs .accordion {
+	padding-left: 0;
+}
+
+.order input {
+	display: inline-block;
+	width: 60px;
+	margin: 0;
+}
+
+.order input[type="checkbox"]{
+	width: 20px;
+}
+
+.order input[type="checkbox"]:nth-child(odd){
+}
+
+.order input[type="checkbox"]:nth-child(even){
+}
+
+.columnLeft {
+	float: left;
+	width: 50%;
+}
+
+.columnRight {
+	float: right;
+	width: 50%;
+}
+
 @media screen and (min-width:640px){
-	.staffContact:nth-child(even) {
-		background-color: #f9f9f9;
+	.staffContact:nth-child(odd) {
+		background-color: transparent;
 	}
 
-	.staffContact:nth-child(4n+2){
+	.staffContact:nth-child(3){
 		background-color: #ececec;
 	}
 
-	.staffContact:nth-child(4n+3){
+	.staffContact:nth-child(4){
 		background-color: #ececec;
 	}
 

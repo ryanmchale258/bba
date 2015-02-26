@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 25, 2015 at 09:14 PM
+-- Generation Time: Feb 26, 2015 at 10:55 PM
 -- Server version: 5.5.33
 -- PHP Version: 5.5.3
 
@@ -50,6 +50,30 @@ INSERT INTO `tbl_company` (`company_id`, `company_name`, `company_streetnumber`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_jobs`
+--
+
+CREATE TABLE `tbl_jobs` (
+  `jobs_id` smallint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `jobs_title` varchar(40) NOT NULL,
+  `jobs_type` varchar(60) NOT NULL,
+  `jobs_location` varchar(60) NOT NULL,
+  `jobs_start` date NOT NULL,
+  `jobs_desc` text NOT NULL,
+  `jobs_reqs` text NOT NULL,
+  PRIMARY KEY (`jobs_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_jobs`
+--
+
+INSERT INTO `tbl_jobs` (`jobs_id`, `jobs_title`, `jobs_type`, `jobs_location`, `jobs_start`, `jobs_desc`, `jobs_reqs`) VALUES
+(1, 'Associate Dietitian', 'Maternity Leave coverage/contract', 'Northern Huron County', '2015-04-01', 'The incumbent(s) would work as Associate Dietitians under contract to BB&A, with support and advice as needed, a comprehensive set of clinical and administrative policies, procedures & documentation tools, vacation relief and regular team / education meetings.\r\n<br>\r\nThe Directors of BB&A, Paula Blagrave, Christine Barker, Julie Urbshott and Sarah Faulds work closely with their Associate Dietitians and have developed a strong team of professionals dedicated to the provision of high quality, comprehensive nutrition care services for LTC residents. \r\n', '<ul>\r\n<li>Ability to work independently, with support from the BB&A team</li>\r\n<li>Excellent communication (verbal & written) and computer skills</li>\r\n<li>Demonstrated time management skills and organizational ability</li>\r\n<li>Registration with the College of Dietitians of Ontario</li>\r\n<li>Member of Dietitians of Canada and the the Gerontology Network</li>\r\n<li>Current Professional Liability Insurance</li>\r\n<li>Previous experience in Long Term Care</li>\r\n<li>Applicants must have their own vehicle and be prepared to travel</li>\r\n</ul>');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_links`
 --
 
@@ -88,7 +112,7 @@ INSERT INTO `tbl_pages` (`pages_id`, `pages_slug`, `pages_title`, `pages_meta`, 
 (1, 'home', 'Home', '', '', 1, 0, NULL, 1, 0),
 (2, 'about', 'About', '', 'About - Coming Soon', 1, 0, NULL, 0, 0),
 (3, 'resources', 'Resources', '', 'Resources - Coming Soon', 1, 0, NULL, 1, 0),
-(4, 'orderform', 'Order Form', '', 'Order Form - Coming Soon', 1, 0, NULL, 0, 0),
+(4, 'orderform', 'Order Form', '', 'Order Form - Coming Soon', 1, 0, NULL, 1, 0),
 (5, 'mission-values', 'Mission and Values', '', 'Mission and Values - Coming Soon', 0, 0, NULL, 0, 0),
 (6, 'contact', 'Contact Us', '', 'Contact Us - Coming Soon', 1, 0, NULL, 0, 0),
 (7, 'jobopenings', 'Job Openings', '', 'Job Openings - Coming Soon', 2, 0, 'contact', 1, 1),
@@ -131,7 +155,7 @@ CREATE TABLE `tbl_staffbios` (
 
 INSERT INTO `tbl_staffbios` (`staffbios_id`, `staffbios_name`, `staffbios_degree`, `staffbios_designation`, `staffbios_photo`, `staffbios_bio`, `staffbios_tagline`, `staffbios_streetnumber`, `staffbios_streetname`, `staffbios_city`, `staffbios_province`, `staffbios_phone`, `staffbios_fax`, `staffbios_mobile`, `staffbios_email`, `staffbios_rr`, `staffbios_postalcode`) VALUES
 (1, 'Christine Barker', 'B.A.Sc.', 'RD', 'christine.jpg', 'Christine’s career started as an outpatient dietitian at a hospital in Australia, then returned to Canada and began her 35 year career in long term care. As the Director of Food and Nutrition Services at a chronic care hospital and LTC home, she gained in-depth experience in both the clinical and administrative aspects of dietetics.  As the long standing volunteer Chair of the Dietitians of Canada LTC Action Group, Christine was actively involved in strategies to improve the nutrition care and food services provided for residents in LTC Homes.  She is committed to quality long term care and to building a skilled and dedicated team of BB&A Associate dietitians.', 'As a Director of BB&A, Christine manages the administrative and financial aspects of the corporation and is co-author of their many policy manuals and QA resources.', '1', 'Meadow Drive', 'London', 'Ontario', '(519) 433-4937', '(519) 433-4937', '', 'cbarker@rogers.com', '', 'N6A 3V7'),
-(2, 'Paula Blagave', 'B.Sc.', 'RD', 'paula.jpg', 'After a 15 year career in acute care, Paula moved into the LTC setting. She provides expertise from both a clinical and administrative perspective and consults on a regular basis to LTC Homes and to dietitians interested in LTC. Her special interests include diabetes management, dysphagia, palliative care and total quality management and she is committed to a team approach to long term care. Paula is a certified long term care administrator. ', 'As a Director of BB&A, Paula takes the lead clinical role and \r\nco-authors their many policy manuals and QA resources.', '270', 'Victoria Avenue N.', 'Listowel', 'Ontario', '(519) 272-4758', '(519) 272-4758', '(519) 291-3156', 'blagrave@wightman.ca', '', 'N4W 1S8'),
+(2, 'Paula Blagave', 'B.Sc.', 'RD', 'paula.jpg', 'After a 15 year career in acute care, Paula moved into the LTC setting. She provides expertise from both a clinical and administrative perspective and consults on a regular basis to LTC Homes and to dietitians interested in LTC. Her special interests include diabetes management, dysphagia, palliative care and total quality management and she is committed to a team approach to long term care. Paula is a certified long term care administrator. ', 'As a Director of BB&A, Paula takes the lead clinical role and \r\nco-authors their many policy manuals and QA resources.', '270', 'Victoria Avenue N.', 'Listowel', 'Ontario', '(519) 291-3156', '(519) 291-3156', '(519) 272-4758', 'blagrave@wightman.ca', '', 'N4W 1S8'),
 (3, 'Julie Urbshott', 'B.Sc.', 'RD', 'julie.jpg', 'Julie brings a wide range of both clinical and administrative skills to her position with BB&A. Julie’s career began as a dietary aide while she studied to be a Nutrition Manager.  After working for 5 years as a Nutrition Manager, she returned to school to pursue a dream of becoming a Registered Dietitian.  For more than 8 years, Julie worked as an Administrative Dietitian in both acute and long term care hospital sites as well as working as a Consulting Dietitian in several LTC Homes. She is a regular guest lecturer at Brescia University College and has a passion for educating and working with internship programs at Brescia and London Health Sciences Centre.  She believes in quality improvement and a team approach, both in the provision of resident care and in the administration of BB&A.', 'As a Director of BB&A, Julie assists with the financial management and is responsible for conducting audits and pre-compliance reviews and completing QA and annual reports for all Homes.', '23814', 'Denfield Road', 'Denfield', 'Ontario', '(226) 927-7029', '(519) 666-2717', '', 'jaurbshott@urbgall.com', 'RR#1', 'N0M 1P0'),
 (4, 'Sarah Faulds', 'B.Sc.', 'RD', 'sarah.jpg', 'Sarah has a passion for Long Term Care spanning over the past 20 years.  She began her career in this sector working as a Dietary Aide, then a Foodservice Manager and finally for over the past 15 years as an Administrative and Consulting Clinical Dietitian.  Sarah is a strong advocate for resident centered approaches to nutrition care.  Through dealing with her own family’s health and nutrition challenges, Sarah brings a sense of compassion for the residents and families that she is helping. Outside of work, Sarah is a busy wife to Jamie and mom to Jack and Avery.  Sarah and her family reside in Elgin County.', '', '47940', 'Mapleton Line', 'Aylmer', 'Ontario', '(519) 765-3350', '(519) 765-3350', '', 'sarah@faulds.ca', 'RR#7', 'N5H 2R6');
 

@@ -1,6 +1,7 @@
 <div id="staffContact-wrap" class="bodycontent">
 	<article class="small-12 text-center columns companyContact">
-		<h2><?php echo $company->company_name; ?></h2>
+		<h2>Corporate Office:</h2>
+		<h3><?php echo $company->company_name; ?></h3>
 		<p>
 			<?php echo $company->company_streetnumber.' '.$company->company_streetname; ?><br>
 			<?php echo $company->company_city.', '.$company->company_province.' '.$company->company_postalcode; ?><br>
@@ -9,11 +10,12 @@
 			<?php echo 'Email: '.$company->company_email; ?><br>
 		</p>
 	</article>
+		<h2 class="text-center">Directors:</h2>
 	<?php foreach($stafflist as $row): ?>
 		<article class="small-12 medium-6 text-center columns staffContact">
-			<h2><?php echo $row->staffbios_name.', '; ?>
+			<h3><?php echo $row->staffbios_name.', '; ?>
 			<?php echo $row->staffbios_degree.', '; ?>
-			<?php echo $row->staffbios_designation; ?></h2>
+			<?php echo $row->staffbios_designation; ?></h3>
 			<p>
 				<?php echo $row->staffbios_streetnumber.' '.$row->staffbios_streetname; ?><br>
 				<?php if(isset($row->staffbios_rr) && $row->staffbios_rr != NULL ){echo $row->staffbios_rr.'<br>'; }?>

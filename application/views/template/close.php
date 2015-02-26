@@ -5,6 +5,9 @@
 		    equalize_on_stack: true
 		  }
 		});
+      	$(document).ready(function() {
+		  $('.accordion li div').removeClass('active');
+		});
     </script>
   </body>
 </html>
