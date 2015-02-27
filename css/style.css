@@ -446,6 +446,15 @@ footer p {
 	padding-left: 0;
 }
 
+label {
+	color: #666a73;
+}
+
+.product {
+	font-size: 20px;
+	font-weight: bold;
+}
+
 .order input {
 	display: inline-block;
 	width: 60px;
@@ -470,6 +479,7 @@ footer p {
 .columnRight {
 	float: right;
 	width: 50%;
+}
 
 .cmslabel {
 	font-size: .875rem;
