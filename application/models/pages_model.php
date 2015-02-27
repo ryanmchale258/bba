@@ -11,4 +11,16 @@ class Pages_model extends CI_Model {
 		return $page;
 	}
 
+	public function getToEdit($record){
+		$page = $this->db->get_where('tbl_pages', array('pages_id' => $record));
+		return $page->row();
+	}
+
+	public function getEditList($tbl){
+		$this->db->where('pages_hascontroller', 0);
+		$this->db->where("pages_navlvl = 2 OR pages_navlvl = 0");
+		$items = $this->db->get($tbl);
+		return $items->result();
+	}
+
 }

@@ -1,6 +1,6 @@
 <?php
 
-class Insert_model extends CI_Model {
+class Update_model extends CI_Model {
 
 	public function __construct(){
 		parent::__construct();
@@ -22,7 +22,8 @@ class Insert_model extends CI_Model {
 					'pages_weight' => $_POST['weight']
 				);
 
-		$this->db->insert('tbl_pages', $record);
+		$this->db->where('pages_id', $_POST['id']);
+		$this->db->update('tbl_pages', $record);
 	}
 
 }

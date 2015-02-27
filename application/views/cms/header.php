@@ -10,11 +10,11 @@
 				<nav id="desktop-nav" class="top-bar hide-for-small" data-topbar role="navigation">
 					<section class="top-bar-section">
 						<ul class="left">
-							<li><a href="<?php echo base_url() ?>index.php/login/logout">View Site</a></li>
+							<li><a href="<?php echo base_url() ?>index.php/home">View Site</a></li>
 							<li class="has-dropdown"><a href="#">Pages</a>
 								<ul class="dropdown">
 									<li><a href="<?php echo base_url() ?>index.php/pages/add">Add</a></li>
-									<li><a href="<?php echo base_url() ?>index.php/home">Edit</a></li>
+									<li><a href="<?php echo base_url() ?>index.php/pages/edit">Edit</a></li>
 								</ul>
 							</li>
 							<li class="has-dropdown"><a href="#">Staff</a>

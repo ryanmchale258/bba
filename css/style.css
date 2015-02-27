@@ -446,6 +446,10 @@ footer p {
 	padding-left: 0;
 }
 
+#editlist .accordion {
+	margin: 0;
+}
+
 label {
 	color: #666a73;
 }
@@ -489,6 +493,107 @@ label {
 
 #metadesc {
 	resize: none;
+}
+
+.accordion .content.active {
+	position: relative;
+}
+
+.controls {
+	background: #e8e8e8;
+	padding: 5px 8px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	position: absolute;
+	top: 0;
+	right: 20px;
+}
+
+.controls a {
+	padding-left: 5px;
+	padding-right: 5px;
+	display: inline-block;
+}
+
+.controls .del {
+	border-left: 1px solid #3e4450;
+}
+
+#popup {
+	background-color: #65666a;
+	position: fixed;
+	z-index: 99;
+	opacity: 0;
+	color: #fff;
+	-webkit-transform: translateY(50px);
+	-moz-transform: translateY(50px);
+	-o-transform: translateY(50px);
+	transform: translateY(50px);
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+	visibility: hidden;
+	display: none;
+	/*margin-top: -350px;*/
+	border-radius: 30px;
+	box-shadow: 0 0 35px rgb(100, 100, 100);
+	padding-bottom: 20px;
+}
+
+.modalup {
+	opacity: 0.9 !important;
+	visibility: visible !important;
+	-webkit-transform: translateY(0) !important;
+	-moz-transform: translateY(0) !important;
+	-o-transform: translateY(0) !important;
+	transform: translateY(0) !important;
+}
+
+p#deleteNot {
+	font-size: 1.1em;
+	text-align: center;
+	margin-top: 20px;
+	color: #fff;
+	/*margin-right: 50px; why?? */
+}
+
+#deleteOpt {
+	display: inline-block;
+	margin: 0;
+}
+
+#deleteOpt li {
+	float: left;
+	list-style-type: none;
+	margin-right: 20px; 
+}
+
+#deleteOpt li:last-child {
+	margin-right: 0;
+}
+
+#deleteNot span,
+#deleteOpt li a {
+	padding: 5px 12px;
+	border: 2px solid #fff;
+	color: #fff;
+	border-radius: 10px;
+}
+
+#deleteNot span {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	display: inline-block;
+}
+
+#deleteOpt li a:hover {
+	background: #fff;
+	color: #65666a;
+}
+
+.optionholder {
+	text-align: center;
 }
 
 @media screen and (min-width:640px){
