@@ -1,51 +1,34 @@
-(function(){
+$(document).ready(function(){
 
-	var theHeader = document.querySelector('header'),
-		theLogo = document.querySelector('#logo'),
-		navWrap = document.querySelector('#navcontainer'),
-		ocMain = document.querySelector('main'),
-		mobNav = document.querySelector('#mobile-nav ul.off-canvas-list'),
-		subNav = $('.right-submenu'),
-		theFooter = document.querySelector('footer');
-
-	var logoHeight = theLogo.offsetHeight;
-	
-	theHeader.style.height = logoHeight;
-
-	var	topPad = theHeader.offsetHeight,
-		logoHeight = theLogo.offsetHeight,
-		clHeight = window.innerHeight,
-		bottomPad = theFooter.offsetHeight;
-
-	navWrap.style.height = logoHeight + "px";
-
-	ocMain.style.paddingTop = topPad + "px";
-	ocMain.style.minHeight = clHeight + "px";
-	ocMain.style.paddingBottom = bottomPad + "px";
-
-	window.addEventListener('resize', function(){
-		var logoHeight = theLogo.offsetHeight;
+	function setHeights(){
+		var logoHeight = $('#logo').outerHeight();
 		
-		theHeader.style.height = logoHeight;
+		$('header').css('height', logoHeight);
 
-		var	topPad = theHeader.offsetHeight,
-			logoHeight = theLogo.offsetHeight,
-			clHeight = window.innerHeight,
-			bottomPad = theFooter.offsetHeight;
+		var	topPad = $('header').outerHeight(),
+			logoHeight = $('#logo').outerHeight(),
+			clHeight = $(window).height(),
+			bottomPad = $('footer').outerHeight();
 
-		navWrap.style.height = logoHeight + "px";
+		$('#navcontainer').css('height', logoHeight);
 
-		ocMain.style.paddingTop = topPad + "px";
-		ocMain.style.minHeight = clHeight + "px";
-		ocMain.style.paddingBottom = bottomPad + "px";
-	}, false);
+		$('main').css({
+			'padding-top' : topPad,
+			'min-height' : clHeight,
+			'padding-bottom' : bottomPad
+		});
+	}
 
-	mobNav.style.marginTop = window.pageYOffset + "px";
-	subNav.css('margin-top', window.pageYOffset + 'px');
+	$('#logo').on('load', setHeights());
+
+	window.addEventListener('resize', setHeights, false);
+
+	$('#mobile-nav ul.off-canvas-list').css('margin-top', window.pageYOffset + "px");
+	$('.right-submenu').css('margin-top', window.pageYOffset + 'px');
 
 	window.addEventListener('scroll', function(){
-		mobNav.style.marginTop = window.pageYOffset + "px";
-		subNav.css('margin-top', window.pageYOffset + 'px');
+		$('#mobile-nav ul.off-canvas-list').css('margin-top', window.pageYOffset + "px");
+		$('.right-submenu').css('margin-top', window.pageYOffset + "px");
 	}, false);
 
 	$('#metadesc').keyup(function(){
@@ -74,4 +57,8 @@
 		});
 	});
 
-})();
+	$(window).bind('load', function(){
+		setHeights();
+	});
+
+});
