@@ -1,15 +1,21 @@
 <div class="bodycontent">
 	<h1>BB&amp;A Resource Order Form</h1>
-	<form class="order">
-		<label class="product">1. Quality Care Audits, 1st Edition, September 2014</label>
-		<p>25 audits in the areas of Residents’ Dining, Food Production and Nutrition Care to support the Home’s Continuous Quality Improvement program</p>
-		CD <input type="number" name="quantity" min="0"> x $75.00
-		<br><br>
-		
-		<label class="product">2. Diabetes Update P&amp;P</label>
-		<p>Updated Policies &amp; Procedures Based on the 2013 Clinical Practice Guidelines</p>
-		CD <input type="number" name="quantity" min="0"> x $25.00 &nbsp;&nbsp;&nbsp;&nbsp;Email <input type="number" name="quantity" min="0"> x $25.00
-		<br><br>
+	<form class="order row">
+		<div class="product">
+			<label class="productTitle">1. Quality Care Audits, 1st Edition, September 2014</label>
+			<p>25 audits in the areas of Residents’ Dining, Food Production and Nutrition Care to support the Home’s Continuous Quality Improvement program</p>
+			CD <input class="price" type="number" name="quantity" min="0"> x $<span class="mod">75</span>.00
+			<p class="right total">$0.00</p>
+			<br><br>
+		</div>
+		<div class="product">
+			<label class="productTitle">2. Diabetes Update P&amp;P</label>
+			<p>Updated Policies &amp; Procedures Based on the 2013 Clinical Practice Guidelines</p>
+			CD <input class="price" type="number" name="quantity" min="0"> x $<span class="mod">25</span>.00 &nbsp;&nbsp;&nbsp;&nbsp;
+			Email <input class ="price" type="number" name="quantity" min="0"> x $25.00
+			<p class="right total">$0.00</p>
+			<br><br>
+		</div>
 		
 		<label class="product">3. Education Essentials, 1st Edition</label>
 		<p>PP Presentations &amp; Participant Quizzes for Ensuring Quality Nutrition &amp; Hydration in LTC</p>
@@ -40,29 +46,40 @@
 		Each $10.00 <input type="number" name="quantity" min="0">
 		3 for $25.00 <input type="number" name="quantity" min="0">&nbsp;&nbsp;&nbsp;&nbsp;
 		22 (full CD) for $100 <input type="number" name="quantity" min="0">
+		<p class="right">$0.00</p>
 		<br><br>
-		<label class="product">4. Policy Pointers I, 4th Edition</label>
-		<p>Policies and Procedures for Nutrition and Hydration in Long Term Care</p>
-		CD <input type="number" name="quantity" min="0"> x $85.00
-		Manual <input type="number" name="quantity" min="0"> x $150.00<br>
-		Manual plus CD <input type="number" name="quantity" min="0"> x $195.00
-		<br><br>
-		<label class="product">5. Policy Pointers II, 4th Edition</label>
-		<p>Policies and Procedures for Dietary Services Administration in Long Term Care</p>
-		CD <input type="number" name="quantity" min="0"> x $85.00
-		Manual <input type="number" name="quantity" min="0"> x $135.00<br>
-		Manual plus CD <input type="number" name="quantity" min="0"> x $180.00
-		<br><br>
+
+		<div class="product">
+			<label class="productTitle">4. Policy Pointers I, 4th Edition</label>
+			<p>Policies and Procedures for Nutrition and Hydration in Long Term Care</p>
+			CD <input type="number" name="quantity" min="0"> x $<span class="mod">85</span>.00
+			Manual <input type="number" name="quantity" min="0"> x $<span class="mod">150</span>.00<br>
+			Manual plus CD <input type="number" name="quantity" min="0"> x $<span class="mod">195</span>.00
+			<p class="right total">$0.00</p>
+			<br><br>
+		</div>
+		
+		<div class="product">
+			<label class="productTitle">5. Policy Pointers II, 4th Edition</label>
+			<p>Policies and Procedures for Dietary Services Administration in Long Term Care</p>
+			CD <input type="number" name="quantity" min="0"> x $<span class="mod">85</span>.00
+			Manual <input type="number" name="quantity" min="0"> x $<span class="mod">135</span>.00<br>
+			Manual plus CD <input type="number" name="quantity" min="0"> x $<span class="mod">180</span>.00
+			<p class="right total">$0.00</p>
+			<br><br>
+		</div>
+
 		<label class="product">6. Algorithms, Protocols &amp; Tools</label>
 		<div class="small-12 medium-6 columns">
-			<label><input type="checkbox" name="presentations" value="hypoMant">Man't of Hypoglycemia</label>
-			<label><input type="checkbox" name="presentations" value="hydrationMant">Ass't &amp; Man't of Hydration</label>
+			<label><input type="checkbox" name="presentations" value="hypoMnt">Maintenance of Hypoglycemia</label>
+			<label><input type="checkbox" name="presentations" value="hydrationMnt">Assistance &amp; Maintenance of Hydration</label>
 			<label><input type="checkbox" name="presentations" value="nutritionDelivery">Delivery of Nutrition Care</label>
 		</div>
 		<div class="small-12 medium-6 columns">
-			<label><input type="checkbox" name="presentations" value="skinMant">Man't of Impared Skin Integrity</label>
+			<label><input type="checkbox" name="presentations" value="skinMnt">Maintenance of Impared Skin Integrity</label>
 			<label><input type="checkbox" name="presentations" value="enteralFeeding">Enteral Feeding Protocol</label>
 			Each $7.50 <input type="number" name="quantity" min="0">
 		</div>
+		<p class="right">$0.00</p>
 
 	</form>
