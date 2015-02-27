@@ -4,7 +4,7 @@
 		<div class="product">
 			<label class="productTitle">1. Quality Care Audits, 1st Edition, September 2014</label>
 			<p>25 audits in the areas of Residents’ Dining, Food Production and Nutrition Care to support the Home’s Continuous Quality Improvement program</p>
-			CD <input class="price" type="number" name="quantity" min="0"> x $<span class="mod">75</span>.00
+			CD <input class="price" type="text" name="quantity" min="0"> x $<span class="mod">75</span>.00
 			<p class="right total">$0.00</p>
 			<br><br>
 		</div>
@@ -12,8 +12,8 @@
 		<div class="product">
 			<label class="productTitle">2. Diabetes Update P&amp;P</label>
 			<p>Updated Policies &amp; Procedures Based on the 2013 Clinical Practice Guidelines</p>
-			CD <input class="price" type="number" name="quantity" min="0"> x $<span class="mod">25</span>.00 &nbsp;&nbsp;&nbsp;&nbsp;
-			Email <input class ="price" type="number" name="quantity" min="0"> x $<span class="mod">25</span>.00
+			CD <input class="price" type="text" name="quantity" min="0"> x $<span class="mod">25</span>.00 &nbsp;&nbsp;&nbsp;&nbsp;
+			Email <input class ="price" type="text" name="quantity" min="0"> x $<span class="mod">25</span>.00
 			<p class="right total">$0.00</p>
 			<br><br>
 		</div>
@@ -44,18 +44,18 @@
 			<label><input type="checkbox" name="presentations" value="menu">Menu Plannning in LTC</label>
 			<label><input type="checkbox" name="presentations" value="ethics">Ethical Nutrition Considerations</label>
 		</div><br><br>
-		Each $10.00 <input type="number" name="quantity" min="0">
-		3 for $25.00 <input type="number" name="quantity" min="0">&nbsp;&nbsp;&nbsp;&nbsp;
-		22 (full CD) for $100 <input type="number" name="quantity" min="0">
+		Each $10.00 <input type="text" name="quantity" min="0">
+		3 for $25.00 <input type="text" name="quantity" min="0">&nbsp;&nbsp;&nbsp;&nbsp;
+		22 (full CD) for $100 <input type="text" name="quantity" min="0">
 		<p class="right">$0.00</p>
 		<br><br>
 
 		<div class="product">
 			<label class="productTitle">4. Policy Pointers I, 4th Edition</label>
 			<p>Policies and Procedures for Nutrition and Hydration in Long Term Care</p>
-			CD <input type="number" name="quantity" min="0"> x $<span class="mod">85</span>.00
-			Manual <input type="number" name="quantity" min="0"> x $<span class="mod">150</span>.00<br>
-			Manual plus CD <input type="number" name="quantity" min="0"> x $<span class="mod">195</span>.00
+			CD <input type="text" name="quantity" min="0"> x $<span class="mod">85</span>.00
+			Manual <input type="text" name="quantity" min="0"> x $<span class="mod">150</span>.00<br>
+			Manual plus CD <input type="text" name="quantity" min="0"> x $<span class="mod">195</span>.00
 			<p class="right total">$0.00</p>
 			<br><br>
 		</div>
@@ -63,9 +63,9 @@
 		<div class="product">
 			<label class="productTitle">5. Policy Pointers II, 4th Edition</label>
 			<p>Policies and Procedures for Dietary Services Administration in Long Term Care</p>
-			CD <input type="number" name="quantity" min="0"> x $<span class="mod">85</span>.00
-			Manual <input type="number" name="quantity" min="0"> x $<span class="mod">135</span>.00<br>
-			Manual plus CD <input type="number" name="quantity" min="0"> x $<span class="mod">180</span>.00
+			CD <input type="text" name="quantity" min="0"> x $<span class="mod">85</span>.00
+			Manual <input type="text" name="quantity" min="0"> x $<span class="mod">135</span>.00<br>
+			Manual plus CD <input type="text" name="quantity" min="0"> x $<span class="mod">180</span>.00
 			<p class="right total">$0.00</p>
 			<br><br>
 		</div>
@@ -79,7 +79,7 @@
 		<div class="small-12 medium-6 columns">
 			<label><input type="checkbox" name="presentations" value="skinMnt">Maintenance of Impared Skin Integrity</label>
 			<label><input type="checkbox" name="presentations" value="enteralFeeding">Enteral Feeding Protocol</label>
-			Each $7.50 <input type="number" name="quantity" min="0">
+			Each $7.50 <input type="text" name="quantity" min="0">
 		</div>
 		<p class="right">$0.00</p>
 

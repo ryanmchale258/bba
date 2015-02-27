@@ -10,7 +10,7 @@
 			<li>staff education</li>
 			<li>dietetic resource development</li>
 		</ul>
-		<p><span class="boldItalics">Positions with BB&amp;</span>A are posted below as they become available.</p>
+		<p><span class="boldItalics">Positions with BB&amp;A</span> are posted below as they become available.</p>
 
 		<h2>Current / Upcoming Openings</h2>
 		<ul class="accordion" data-accordion>

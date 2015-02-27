@@ -58,13 +58,17 @@
 			var arrPrice = jQuery.makeArray();
 			inputFields = $(this).parent().find('input');
 			priceModifiers = $(this).parent().find('.mod');
-			console.log(priceModifiers);
+			//console.log(priceModifiers);
 			for(i=0; i<inputFields.length; i++){
 				arrPrice.push( ($(inputFields[i]).val() * parseInt($(priceModifiers[i]).html())) );
 				//console.log(arrPrice[i]);
 				totalPrice = totalPrice + arrPrice[i];
-				//console.log(totalPrice);
-				$(this).parent().find('.total').html('$' + (totalPrice).toFixed(2));
+				console.log($(this).val());
+				if( totalPrice.toFixed(2) == "NaN" || $(inputFields[i]).val() % 1){
+					$(this).parent().find('.total').html("Please enter a whole number.");
+				}else{
+					$(this).parent().find('.total').html('$' + (totalPrice).toFixed(2));
+				}
 				/*$(this).parent().find('.total').html('$' + ($(this).val() * parseInt($(this).parent().find('.mod').html())).toFixed(2));*/
 			}
 		});
