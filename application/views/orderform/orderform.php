@@ -8,11 +8,12 @@
 			<p class="right total">$0.00</p>
 			<br><br>
 		</div>
+
 		<div class="product">
 			<label class="productTitle">2. Diabetes Update P&amp;P</label>
 			<p>Updated Policies &amp; Procedures Based on the 2013 Clinical Practice Guidelines</p>
 			CD <input class="price" type="number" name="quantity" min="0"> x $<span class="mod">25</span>.00 &nbsp;&nbsp;&nbsp;&nbsp;
-			Email <input class ="price" type="number" name="quantity" min="0"> x $25.00
+			Email <input class ="price" type="number" name="quantity" min="0"> x $<span class="mod">25</span>.00
 			<p class="right total">$0.00</p>
 			<br><br>
 		</div>

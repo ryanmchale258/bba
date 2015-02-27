@@ -58,7 +58,7 @@
 			var arrPrice = jQuery.makeArray();
 			inputFields = $(this).parent().find('input');
 			priceModifiers = $(this).parent().find('.mod');
-			//console.log(priceModifiers);
+			console.log(priceModifiers);
 			for(i=0; i<inputFields.length; i++){
 				arrPrice.push( ($(inputFields[i]).val() * parseInt($(priceModifiers[i]).html())) );
 				//console.log(arrPrice[i]);
