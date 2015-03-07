@@ -5,11 +5,25 @@ class Orderform extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('navigation_model');
+		$this->load->model('orderform_model');
 	}	
 
 	public function index() {
 		$data['navmenu'] = $this->navigation_model->getTopNav();
 		$data['mobmenu'] = $this->navigation_model->getMobNav();
+		$data['arrResources'] = $this->orderform_model->getAll();
+		$resources = $this->orderform_model->getAll();
+		$resourceId = 3;
+		//$data['arrPresentations'] = $this->orderform_model->getPresentations($resourceId);
+		$data['arrPresentations'] = $this->orderform_model->getPresentations($resourceId);
+
+
+		foreach($resources as $row):
+			if($row->presentation_id != null){
+				//print_r($row->resource_id);
+				//$data['arrPresentations'] = $this->orderform_model->getPresentations($row->resource_id);
+			}
+		endforeach;
 		
 		$data['bodyclass'] = 'services';
 		$this->load->view('template/head', $data);

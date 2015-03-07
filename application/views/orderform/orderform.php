@@ -1,6 +1,40 @@
 <div class="bodycontent">
 	<h1>BB&amp;A Resource Order Form</h1>
 	<form class="order row">
+		<?php foreach($arrResources as $row): ?>
+		<div class="product">
+			<label class="productTitle"><?php echo $row->resource_name;?></label>
+			<p><?php echo $row->resource_desc;?></p>
+			<?php 
+				if($row->presentation_id != null){
+					foreach($arrPresentations as $row):
+						echo '<label><input type="checkbox" name="presentations" value="'.$row->presentation_name.'">'.$row->presentation_name.'</label>';
+					endforeach;
+					echo '<br>';
+				}
+			?>
+			<?php
+			if($row->resource_cdprice != null){
+				echo '<input class ="price" type="text" name="quantity" min="0"> x $<span class="mod">'.$row->resource_cdprice.'</span> for CD<br><br>';
+			}
+			if($row->resource_emailprice != null){
+				echo '<input class ="price" type="text" name="quantity" min="0"> x $<span class="mod">'.$row->resource_emailprice.'</span> for Email<br><br>';
+			}
+			if($row->resource_manualprice != null){
+				echo '<input class ="price" type="text" name="quantity" min="0"> x $<span class="mod">'.$row->resource_manualprice.'</span> for Manual<br><br>';
+			}
+			if($row->resource_individualprice != null){
+				echo '<input class ="price" type="text" name="quantity" min="0"> x $<span class="mod">'.$row->resource_individualprice.'</span> Each<br><br>';
+			}
+			if($row->resource_comboprice != null){
+				echo '<input class ="price" type="text" name="quantity" min="0"> x $<span class="mod">'.$row->resource_comboprice.'</span> for both<br><br>';
+			}
+			?>
+			<p class="right total">$0.00</p>
+			<br><br>
+		</div>
+		<?php endforeach; ?>
+
 		<div class="product">
 			<label class="productTitle">1. Quality Care Audits, 1st Edition, September 2014</label>
 			<p>25 audits in the areas of Residents’ Dining, Food Production and Nutrition Care to support the Home’s Continuous Quality Improvement program</p>
@@ -18,7 +52,7 @@
 			<br><br>
 		</div>
 		
-		<label class="product">3. Education Essentials, 1st Edition</label>
+		<label class="productTitle">3. Education Essentials, 1st Edition</label>
 		<p>PP Presentations &amp; Participant Quizzes for Ensuring Quality Nutrition &amp; Hydration in LTC</p>
 		<div class="small-12 medium-6 columns">
 			<label><input type="checkbox" name="presentations" value="constipation">Constipation</label>
@@ -70,7 +104,7 @@
 			<br><br>
 		</div>
 
-		<label class="product">6. Algorithms, Protocols &amp; Tools</label>
+		<label class="productTitle">6. Algorithms, Protocols &amp; Tools</label>
 		<div class="small-12 medium-6 columns">
 			<label><input type="checkbox" name="presentations" value="hypoMnt">Maintenance of Hypoglycemia</label>
 			<label><input type="checkbox" name="presentations" value="hydrationMnt">Assistance &amp; Maintenance of Hydration</label>
