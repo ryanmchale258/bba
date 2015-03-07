@@ -5,9 +5,13 @@
 		<div class="product">
 			<label class="productTitle"><?php echo $row->resource_name;?></label>
 			<p><?php echo $row->resource_desc;?></p>
-			<?php 
+			<?php
+				$rid = $row->resource_id;
+				echo $rid;
+				//$arrPresentations = '$arrPresentations'.$rid;
 				if($row->presentation_id != null){
-					foreach($arrPresentations as $row):
+					//echo $arrPresentations;
+					foreach($arrPresentations.$rid as $row):
 						echo '<label><input type="checkbox" name="presentations" value="'.$row->presentation_name.'">'.$row->presentation_name.'</label>';
 					endforeach;
 					echo '<br>';
