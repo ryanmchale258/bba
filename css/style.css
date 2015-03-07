@@ -596,6 +596,27 @@ p#deleteNot {
 	text-align: center;
 }
 
+input.formsubmit {
+	outline: none;
+	background: #648a8b;
+	color: #fff;
+	padding: 10px 15px;
+	border-radius: 10px;
+	border: 2px solid #666a73;
+	margin: 10px auto;
+	display: block;
+	cursor: pointer;
+}
+
+.textareacont {
+	margin-bottom: 10px;
+}
+
+.formerror p {
+	color: red !important;
+	font-weight: bold;
+}
+
 @media screen and (min-width:640px){
 	.staffContact:nth-child(odd) {
 		background-color: transparent;
