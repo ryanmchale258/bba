@@ -25,4 +25,17 @@ class Insert_model extends CI_Model {
 		$this->db->insert('tbl_pages', $record);
 	}
 
+	public function admin($encpass) {
+		$record = array(
+					'admin_firstname' => $_POST['fname'],
+					'admin_lastname' => $_POST['lname'],
+					'admin_username' => $_POST['username'],
+					'admin_password' => $encpass,
+					'admin_email' => $_POST['email'],
+					'admin_level' => $_POST['level']
+				);
+
+		$this->db->insert('tbl_admin', $record);
+	}
+
 }

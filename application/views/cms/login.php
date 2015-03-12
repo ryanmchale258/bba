@@ -1,7 +1,13 @@
 <div id="login" class="bodycontent">
 
 	<div id="loginbox">
-		<h2>Please enter your username and password to login.</h2>
+		<?php
+			if(isset($errormsg)){
+				echo '<h2>' . $errormsg . '</h2>';
+			}else{
+				echo '<h2>Please enter your username and password to login.</h2>';
+			}
+		?>
 		<?php echo $formstart; ?>
 		<div class="loginset">
 			<label>Username:</label>
