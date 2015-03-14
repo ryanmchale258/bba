@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 12, 2015 at 02:22 AM
+-- Generation Time: Mar 14, 2015 at 11:20 PM
 -- Server version: 5.5.33
 -- PHP Version: 5.5.3
 
@@ -41,7 +41,11 @@ CREATE TABLE ci_sessions (
 --
 
 INSERT INTO ci_sessions (session_id, ip_address, user_agent, last_activity, user_data) VALUES
-('716b6574d8525a3f632e874b83ce1d7c', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36', 1426123349, '');
+('053dd28e61996ca09e5554e939fd7e8d', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36', 1426371565, 'a:6:{s:9:"user_data";s:0:"";s:8:"username";s:10:"ryanmchale";s:4:"name";s:4:"Ryan";s:3:"sId";s:1:"1";s:5:"level";s:1:"0";s:12:"is_logged_in";b:1;}'),
+('75f364f572f231ad1b8ad0afb0ddd15c', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36', 1426365132, 'a:5:{s:8:"username";s:10:"ryanmchale";s:4:"name";s:4:"Ryan";s:3:"sId";s:1:"1";s:5:"level";s:1:"0";s:12:"is_logged_in";b:1;}'),
+('95b80c0edaa20eed542de56c7f1560b7', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36', 1426366348, 'a:6:{s:9:"user_data";s:0:"";s:8:"username";s:10:"ryanmchale";s:4:"name";s:4:"Ryan";s:3:"sId";s:1:"1";s:5:"level";s:1:"0";s:12:"is_logged_in";b:1;}'),
+('e16d831183aacb26cee6f85373503352', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36', 1426370928, 'a:6:{s:9:"user_data";s:0:"";s:8:"username";s:10:"ryanmchale";s:4:"name";s:4:"Ryan";s:3:"sId";s:1:"1";s:5:"level";s:1:"0";s:12:"is_logged_in";b:1;}'),
+('ef6c99048db5912b68e1e676805441df', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36', 1426365657, 'a:6:{s:9:"user_data";s:0:"";s:8:"username";s:10:"ryanmchale";s:4:"name";s:4:"Ryan";s:3:"sId";s:1:"1";s:5:"level";s:1:"0";s:12:"is_logged_in";b:1;}');
 
 -- --------------------------------------------------------
 
@@ -66,8 +70,8 @@ CREATE TABLE tbl_admin (
 --
 
 INSERT INTO tbl_admin (admin_id, admin_username, admin_password, admin_firstname, admin_lastname, admin_email, admin_level, admin_lastsession) VALUES
-(1, 'ryanmchale', 'd66fcc742cc640480ace083585445fd5cb3ea224', 'Ryan', 'McHale', '', 0, '796e0497d437cca78309f801109d8882'),
-(2, 'chrissyboy', '1b4acd8178dfcb9bf959262309690b5985f7b612', 'Chris', 'Robins', 'ryan.mchale258@gmail.com', 0, '');
+(1, 'ryanmchale', 'd66fcc742cc640480ace083585445fd5cb3ea224', 'Ryan', 'McHale', '', 0, 'd6949e179a02ef4e20381788b2cdf236'),
+(2, 'chris', '81b06facd90fe7a6e9bbd9cee59736a79105b7be', 'Chris', 'Robins', 'chrisprobins87@gmail.com', 0, '18f726b31ef4a258a6c72d258aacedde');
 
 -- --------------------------------------------------------
 
@@ -162,14 +166,15 @@ INSERT INTO tbl_pages (pages_id, pages_slug, pages_title, pages_meta, pages_cont
 (2, 'about', 'About', '', 'About - Coming Soon', 1, 0, NULL, 0, 0),
 (3, 'resources', 'Resources', '', 'Resources - Coming Soon', 1, 0, NULL, 1, 0),
 (4, 'orderform', 'Order Form', '', 'Order Form - Coming Soon', 1, 0, NULL, 1, 0),
-(5, 'mission-values', 'Mission and Values', '', 'Mission and Values - Coming Soon', 0, 0, NULL, 0, 0),
+(5, 'mission-values', 'Mission and Values', 'pewp', '<p>Mission and Values - Coming Soon</p>', 2, 0, 'null', 0, 0),
 (6, 'contact', 'Contact Us', '', 'Contact Us - Coming Soon', 1, 0, NULL, 0, 0),
 (7, 'jobopenings', 'Job Openings', '', 'Job Openings - Coming Soon', 2, 0, 'contact', 1, 1),
 (8, 'staffcontact', 'Staff Contact Info', '', 'Staff Contact Info - Coming Soon', 2, 0, 'contact', 1, 2),
 (9, 'testimonials', 'Testimonials', '', '', 2, 0, 'about', 1, 0),
 (10, 'structure', 'Who We Are', '', '', 2, 0, 'about', 1, 0),
 (11, 'services', 'What We Do', '', '', 2, 0, 'about', 1, 5),
-(12, 'mission', 'How We Do It', '', '', 2, 0, 'about', 1, 4);
+(12, 'mission', 'How We Do It', '', '', 2, 0, 'about', 1, 4),
+(13, 'test', 'test', 'prerew', '<p>bliggity blah</p>', 2, 0, 'about', 0, 3);
 
 -- --------------------------------------------------------
 

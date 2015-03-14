@@ -3,26 +3,21 @@
 	
 <?php echo $formstart; ?>
 	<div class="row">
-		<p>Chrissyboy password: <?php echo $password; ?></p>
 		<label>First Name</label>
 		<span class="formerror"><?php echo form_error('fname'); ?></span>
 		<?php echo $fname; ?>
 		
-
 		<label>Last Name</label>
 		<?php echo $lname; ?>
-		
 
 		<label>Username</label>
 		<span class="formerror"><?php echo form_error('username'); ?></span>
 		<?php echo $username; ?>
 		
-
 		<label>Email</label>
 		<span class="formerror"><?php echo form_error('email'); ?></span>
 		<?php echo $email; ?>
 		
-
 		<label>Confirm Email</label>
 		<span class="formerror"><?php echo form_error('emailconf'); ?></span>
 		<?php echo $emailconf; ?>

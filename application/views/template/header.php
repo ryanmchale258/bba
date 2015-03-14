@@ -6,6 +6,17 @@
 	</div>
 
 		<div id="navcontainer" class="small-2 medium-8 large-8 columns">
+			<?php if($this->session->userdata('is_logged_in')){
+				echo '<div class="cmslinks">';
+					echo '<ul>';
+						echo '<li><a href="'. base_url() . index_page() . '/dashboard">ADMIN</a></li>';
+						if(isset($pgdata->pages_id)){
+							echo '<li><a href="'. base_url() . index_page() . '/pages/edit/' . $pgdata->pages_id . '">EDIT PAGE</a></li>';
+						}
+						echo '<li><a href="'. base_url() . index_page() . '/login/logout">LOGOUT</a></li>';
+					echo '</ul>';
+				echo '</div>';
+			} ?>
 			<div class="navinner">
 				<nav id="desktop-nav" class="top-bar hide-for-small" data-topbar role="navigation">
 					<section class="top-bar-section">

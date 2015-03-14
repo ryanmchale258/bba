@@ -617,6 +617,57 @@ input.formsubmit {
 	font-weight: bold;
 }
 
+.cmslinks {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.cmslinks ul {
+	list-style-type: none;
+	clear: none;
+	float: left;
+}
+
+.cmslinks ul li {
+	float: left;
+	margin-right: 5px;
+	margin-left: 5px;
+	background-color: #666a73;
+	box-shadow: 0 20px 35px rgb(100, 100, 100) inset;
+	box-shadow: 0 20px 35px rgba(200, 200, 200, 0.1) inset;
+}
+
+.cmslinks ul li:hover {
+	background: #648a8b;
+	box-shadow: 0 15px 15px -5px #666a73 inset;
+}
+
+.cmslinks ul li:first-child {
+	margin-left: 0;
+}
+
+.cmslinks ul li:last-child {
+	margin-right: 0;
+}
+
+.cmslinks a {
+	display: inline-block;
+	padding: 5px 10px;
+	margin: 0;
+	color: #fff;
+	text-shadow: 1px 1px #333;
+	text-transform: uppercase;
+}
+
+.cmslinks p {
+	color: #fff;
+	text-shadow: 1px 1px #333;
+	padding: 5px 10px;
+	float: left;
+	margin: 0;
+}
+
 @media screen and (min-width:640px){
 	.staffContact:nth-child(odd) {
 		background-color: transparent;

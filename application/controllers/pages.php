@@ -253,9 +253,11 @@ class Pages extends CI_Controller {
 		$this->load->model('update_model');
 		if($this->form_validation->run() != FALSE){
 			$this->update_model->$function();
+			$this->edit();
+		}else{
+			$this->edit($record);
 		}
 
-		$this->edit($record);
 	}
 
 	public function delete_record($function, $record){

@@ -33,26 +33,26 @@ class Navigation_model extends CI_Model {
 				}
 			if($row->pages_haskids == 1){
 				if($row->pages_hascontroller == 0){
-					$menu .= '<li class="has-dropdown"><a href="' . base_url() . 'index.php/page/' . $row->pages_slug . '">';
+					$menu .= '<li class="has-dropdown"><a href="' . base_url() . index_page() . '/page/' . $row->pages_slug . '">';
 				}else{
-					$menu .= '<li class="has-dropdown"><a href="' . base_url() . 'index.php/' . $row->pages_slug . '">';
+					$menu .= '<li class="has-dropdown"><a href="' . base_url() . index_page() . '/' . $row->pages_slug . '">';
 				}
 				$menu .= $row->pages_title . '</a>';
 				$menu .= '<ul class="dropdown">';
 					foreach($children as $kids){
 						if($kids['controller'] == 1){
-							$menu .= '<li><a href="' . base_url() . 'index.php/' . $kids['childlink'] . '">' . $kids['childname'] . '</a></li>';
+							$menu .= '<li><a href="' . base_url() . index_page() . '/' . $kids['childlink'] . '">' . $kids['childname'] . '</a></li>';
 						}else{
-							$menu .= '<li><a href="' . base_url() . 'index.php/page/' . $kids['childlink'] . '">' . $kids['childname'] . '</a></li>';
+							$menu .= '<li><a href="' . base_url() . index_page() . '/page/' . $kids['childlink'] . '">' . $kids['childname'] . '</a></li>';
 						}
 					}
 				$menu .= '</ul>';
 				$menu .= '</li>';
 			}else{
 				if($row->pages_hascontroller == 0){
-					$menu .= '<li><a href="' . base_url() . 'index.php/page/' . $row->pages_slug . '">';
+					$menu .= '<li><a href="' . base_url() . index_page() . '/page/' . $row->pages_slug . '">';
 				}else{
-					$menu .= '<li><a href="' . base_url() . 'index.php/' . $row->pages_slug . '">';
+					$menu .= '<li><a href="' . base_url() . index_page() . '/' . $row->pages_slug . '">';
 				}
 				$menu .= $row->pages_title;
 				$menu .= '</a></li>';
@@ -88,21 +88,21 @@ class Navigation_model extends CI_Model {
 				}
 			if($row->pages_haskids == 1){
 				if($row->pages_hascontroller == 0){
-					$mobmenu .= '<li class="has-submenu"><a href="' . base_url() . 'index.php/page/' . $row->pages_slug . '">';
+					$mobmenu .= '<li class="has-submenu"><a href="' . base_url() . index_page() . '/page/' . $row->pages_slug . '">';
 				}else{
-					$mobmenu .= '<li class="has-submenu"><a href="' . base_url() . 'index.php/' . $row->pages_slug . '">';
+					$mobmenu .= '<li class="has-submenu"><a href="' . base_url() . index_page() . '/' . $row->pages_slug . '">';
 				}
 				$mobmenu .= $row->pages_title . '</a>';
 				$mobmenu .= '<ul class="right-submenu">';
-					$mobmenu .= '<li><a href="' . base_url() . 'index.php/page/' . $row->pages_slug . '">';
+					$mobmenu .= '<li><a href="' . base_url() . index_page() . '/page/' . $row->pages_slug . '">';
 					$mobmenu .= $row->pages_title . '</a></li>';
 
 
 					foreach($children as $kids){
 						if($kids['controller'] == 1){
-							$mobmenu .= '<li><a href="' . base_url() . 'index.php/' . $kids['childlink'] . '">' . $kids['childname'] . '</a></li>';
+							$mobmenu .= '<li><a href="' . base_url() . index_page() . '/' . $kids['childlink'] . '">' . $kids['childname'] . '</a></li>';
 						}else{
-							$mobmenu .= '<li><a href="' . base_url() . 'index.php/page/' . $kids['childlink'] . '">' . $kids['childname'] . '</a></li>';
+							$mobmenu .= '<li><a href="' . base_url() . index_page() . '/page/' . $kids['childlink'] . '">' . $kids['childname'] . '</a></li>';
 						}
 					}
 					$mobmenu .= '<li class="back"><a href="#">Back</a></li>';
@@ -111,9 +111,9 @@ class Navigation_model extends CI_Model {
 				$mobmenu .= '</li>';
 			}else{
 				if($row->pages_hascontroller == 0){
-					$mobmenu .= '<li><a href="' . base_url() . 'index.php/page/' . $row->pages_slug . '">';
+					$mobmenu .= '<li><a href="' . base_url() . index_page() . '/page/' . $row->pages_slug . '">';
 				}else{
-					$mobmenu .= '<li><a href="' . base_url() . 'index.php/' . $row->pages_slug . '">';
+					$mobmenu .= '<li><a href="' . base_url() . index_page() . '/' . $row->pages_slug . '">';
 				}
 				$mobmenu .= $row->pages_title;
 				$mobmenu .= '</a></li>';
