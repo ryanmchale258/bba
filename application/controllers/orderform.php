@@ -19,10 +19,12 @@ class Orderform extends CI_Controller {
 
 
 		foreach($resources as $row):
-			$rid = $row->resource_id;
+		
 			if($row->presentation_id != null){
+				$rid = $row->resource_id;
 				//print_r($row->resource_id);
-				$data['arrPresentations'.$rid] = $this->orderform_model->getPresentations($row->resource_id);
+				$arrPresentations = 'arrPresentations'.$rid;
+				$data[$arrPresentations] = $this->orderform_model->getPresentations($row->resource_id);
 			}
 		endforeach;
 		

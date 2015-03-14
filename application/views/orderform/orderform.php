@@ -6,12 +6,11 @@
 			<label class="productTitle"><?php echo $row->resource_name;?></label>
 			<p><?php echo $row->resource_desc;?></p>
 			<?php
-				$rid = $row->resource_id;
-				echo $rid;
-				//$arrPresentations = '$arrPresentations'.$rid;
 				if($row->presentation_id != null){
-					//echo $arrPresentations;
-					foreach($arrPresentations.$rid as $row):
+					$rid = $row->resource_id;
+					$arrPresentations = 'arrPresentations'.$rid;
+					$newPresentation = eval('return $'.$arrPresentations.';');
+					foreach($newPresentation as $row):
 						echo '<label><input type="checkbox" name="presentations" value="'.$row->presentation_name.'">'.$row->presentation_name.'</label>';
 					endforeach;
 					echo '<br>';
@@ -28,10 +27,12 @@
 				echo '<input class ="price" type="text" name="quantity" min="0"> x $<span class="mod">'.$row->resource_manualprice.'</span> for Manual<br><br>';
 			}
 			if($row->resource_individualprice != null){
-				echo '<input class ="price" type="text" name="quantity" min="0"> x $<span class="mod">'.$row->resource_individualprice.'</span> Each<br><br>';
+				echo '$<span class="mod">'.$row->resource_individualprice.'</span> Each<br><br>';
 			}
-			if($row->resource_comboprice != null){
+			if($row->resource_comboprice != null && $row->presentation_id == null){
 				echo '<input class ="price" type="text" name="quantity" min="0"> x $<span class="mod">'.$row->resource_comboprice.'</span> for both<br><br>';
+			}elseif($row->resource_comboprice != null && $row->presentation_id != null){
+				echo '$<span class="mod">'.$row->resource_comboprice.'</span> for all<br><br>';
 			}
 			?>
 			<p class="right total">$0.00</p>

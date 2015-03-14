@@ -41,10 +41,8 @@ $(document).ready(function(){
 			var arrPrice = jQuery.makeArray();
 			inputFields = $(this).parent().find('input');
 			priceModifiers = $(this).parent().find('.mod');
-			//console.log(priceModifiers);
 			for(i=0; i<inputFields.length; i++){
 				arrPrice.push( ($(inputFields[i]).val() * parseInt($(priceModifiers[i]).html())) );
-				//console.log(arrPrice[i]);
 				totalPrice = totalPrice + arrPrice[i];
 				console.log($(this).val());
 				if( totalPrice.toFixed(2) == "NaN" || $(inputFields[i]).val() % 1){
@@ -52,8 +50,32 @@ $(document).ready(function(){
 				}else{
 					$(this).parent().find('.total').html('$' + (totalPrice).toFixed(2));
 				}
-				/*$(this).parent().find('.total').html('$' + ($(this).val() * parseInt($(this).parent().find('.mod').html())).toFixed(2));*/
 			}
+		});
+	});
+
+	var newPrice,
+		discountCount,
+		discount = 0,
+		totalPrice;
+
+	$('.product').each(function(){
+		$(this).find('input:checkbox').click(function(){
+			var n = $(this).parent().parent().find( "input:checked" ).length;
+			
+			if(n >= 3){
+				if(n % 3 == 0){
+					discountCount = n / 3;
+					discount = discountCount * 5;
+					totalPrice = (totalPrice - discount);
+				}
+				totalPrice = (7.50 * n) - discount;
+				$(this).parent().parent().find('.total').html('$' + (totalPrice).toFixed(2));
+			}else{
+				totalPrice = (7.50 * n);
+				$(this).parent().parent().find('.total').html('$' + (totalPrice).toFixed(2));
+			}
+			console.log(discount);
 		});
 	});
 
