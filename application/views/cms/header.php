@@ -2,7 +2,7 @@
 	<section class="row header-inner">
 	
 	<div id="logocontainer" class="small-10 medium-4 large-4 columns">
-		<img id="logo" src="<?php echo base_url(); ?>img/logo.png" alt="Barker Blagrave &amp; Associates Logo">
+		<img id="logo" src="<?php echo base_url(); ?>img/logo.svg" alt="Barker Blagrave &amp; Associates Logo">
 	</div>
 
 		<div id="navcontainer" class="small-2 medium-8 large-8 columns">
