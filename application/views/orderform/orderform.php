@@ -43,7 +43,48 @@
 		</div>
 		<?php endforeach; ?>
 
-		<h2>Subtotal</h2>
-		<p class="right subtotal">$0.00</p>
+		<div class="formPrice">
+			<h2>Subtotal</h2>
+			<p class="right subtotal">$0.00</p>
+		</div>
+		
+		<div class="formPrice">
+			<h2>Shipping and Handling</h2>
+			<?php foreach($arrShipping as $row): ?>
+				<?php
+					echo '<label>For orders totalling less than $<span class="shipReq">'.$row->shipping_level.'</span>, add $<span class="shipBelow">'.$row->shipping_below.'</span></label>';
+					echo '<label>For orders totalling more than $<span class="shipReq">'.$row->shipping_level.'</span>, add $<span class="shipAbove">'.$row->shipping_above.'</span></label>';
+				?>
+			<?php endforeach; ?>
+			<p class="right shipTotal">$0.00</p>
+		</div>
+
+		<div class="formPrice">
+			<h2>Total Order</h2>
+			<p class="right grandtotal">$0.00</p>
+		</div>
+
+		<div id="formInfo row">
+			<label class="small-6" for="name">Name: </label>
+			<input class="small-6" name="name" type="text">
+			<label class="small-6" for="title">Title: </label>
+			<input class="small-6" name="title" type="text">
+			<label class="small-6" for="homeName">LTC Home Name: </label>
+			<input class="small-6" name="homeName" type="text">
+			<label class="small-6" for="phone">Phone: </label>
+			<input class="small-6" name="phone" type="text">
+			<label class="small-6" for="ext">Ext: </label>
+			<input class="small-6" name="ext" type="text">
+			<label class="small-6" for="email">Email: </label>
+			<input class="small-6" name="email" type="text">
+			<label class="small-6" for="street">Street: </label>
+			<input class="small-6" name="street" type="text">
+			<label class="small-6" for="city">City: </label>
+			<input class="small-6" name="city" type="text">
+			<label class="small-6" for="province">Province: </label>
+			<input class="small-6" name="province" type="text">
+			<label class="small-6" for="postal">Postal Code: </label>
+			<input class="small-6" name="postal" type="text">
+		</div>
 
 	</form>

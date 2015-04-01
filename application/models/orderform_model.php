@@ -26,4 +26,10 @@ class Orderform_model extends CI_Model {
 		$presentations = $this->db->get();
 		return $presentations->result();
 	}
+
+	public function getShippingInfo(){
+		$shipping = $this->db->get('tbl_shipping');
+
+		return $shipping->result();
+	}
 }

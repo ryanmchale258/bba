@@ -79,6 +79,9 @@ $(document).ready(function(){
 				totalPrice = (p * n);
 				$(this).parent().parent().find('.total').html((totalPrice).toFixed(2));
 			}
+			if(totalPrice >= 100){
+				$(this).parent().parent().find('.total').html('100.00');
+			}
 			//console.log(discount);
 			updateTotal();
 		});
@@ -88,11 +91,39 @@ $(document).ready(function(){
 		var t = document.querySelectorAll('.total');
 		var st = 0;
 		for(i=0; i<t.length; i++){
-			console.log(t[i].innerHTML);
+			//console.log(t[i].innerHTML);
 			var nt = parseFloat(t[i].innerHTML);
 			st = nt + st;
 		}
 		$('.subtotal').html('$' + st.toFixed(2));
+		calculateShipping(st);
+	}
+
+	function calculateShipping(subtotal){
+		//console.log(subtotal);
+		var shipping = document.querySelector('.shipTotal');
+		var shipReq = parseInt($('.shipReq').html());
+		var shipCost;
+		if(subtotal >= shipReq){
+			$(shipping).html('$' + $('.shipAbove').html());
+			shipCost = parseInt($('.shipAbove').html());
+		}else if(subtotal < shipReq && subtotal > 0){
+			$(shipping).html('$' + $('.shipBelow').html());
+			shipCost = parseInt($('.shipBelow').html());
+		}else{
+			$(shipping).html('$0.00');
+		}
+		grandTotal(subtotal, shipCost);
+	}
+
+	function grandTotal(subtotal, shipCost){
+		var theGrandTotal = subtotal + shipCost;
+		if(theGrandTotal > 0){
+			$('.grandtotal').html('$' + theGrandTotal.toFixed(2));
+		}else {
+			$('.grandtotal').html('$0.00');
+		}
+		
 	}
 
 	$(window).bind('load', function(){

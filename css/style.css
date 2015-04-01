@@ -473,6 +473,11 @@ label {
 .order input[type="checkbox"]:nth-child(even){
 }
 
+.formPrice, #formInfo {
+	border-top: solid 1px #666a73;
+	clear: both;
+}
+
 .columnLeft {
 	float: left;
 	width: 50%;
