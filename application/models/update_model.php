@@ -28,12 +28,12 @@ class Update_model extends CI_Model {
 
 	public function admin_login($userId){
 		$this->db->where('admin_id', $userId);
-		$this->db->update('tbl_admin', array('admin_lastsession' => $this->session->userdata('session_id'))); 
+		$this->db->update('tbl_admin', array('admin_lastsession' => $this->session->userdata('session_id'), 'admin_lastlogin' => $this->session->userdata('last_activity'))); 
 	}
 
 	public function first_login($userId, $newpass){
 		$this->db->where('admin_id', $userId);
-		$this->db->update('tbl_admin', array('admin_password' => $newpass, 'admin_lastsession' => $this->session->userdata('session_id')));
+		$this->db->update('tbl_admin', array('admin_password' => $newpass, 'admin_lastsession' => $this->session->userdata('session_id'), 'admin_lastlogin' => $this->session->userdata('last_activity')));
 	}
 
 }

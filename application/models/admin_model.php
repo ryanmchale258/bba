@@ -29,6 +29,7 @@ class Admin_model extends CI_Model {
 
 	public function getAdmins(){
 		$users = $this->db->get('tbl_admin');
+		
 		return $users->result();
 	}
 

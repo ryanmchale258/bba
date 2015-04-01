@@ -7,6 +7,7 @@ class Admin extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		$this->load->library('encrypt');
+		$this->load->model('admin_model');
 		$this->form_validation->set_rules('fname', 'First Name', 'trim|required');
 		$this->form_validation->set_rules('lname', 'Last Name', 'trim');
 		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[4]|max_length[75]|callback_check_if_username_exists');
@@ -52,6 +53,11 @@ class Admin extends CI_Controller {
 				            'type' => 'text',
 				            'placeholder' => 'Email'
 	        ));
+	        $options = array(
+						'0'  => 'Administrator',
+						'1'  => 'Super Admin'
+	        );
+	        $data['level'] = form_dropdown('level', $options);
 			$this->load->view('cms/head', $data);
 			$this->load->view('cms/header');
 			$this->load->view('cms/adminform');
@@ -61,11 +67,12 @@ class Admin extends CI_Controller {
 			$this->load->view('template/close');
 		}else{
 			$data['success'] = true;
+			$data['items'] = $this->admin_model->getAdmins();
 			$data['header'] = "Add a New Page";
 			$this->load->view('cms/head', $data);
 			$this->load->view('cms/header');
 			$this->load->view('cms/delete_overlay');
-
+			$this->load->view('cms/adminlist');
 			$this->load->view('template/footer');
 
 			$this->load->view('template/scripts');
@@ -81,28 +88,56 @@ class Admin extends CI_Controller {
 		
 		if($record != null){
 			if($this->form_validation->run() == FALSE){
-				$pagedata = $this->pages_model->getToEdit($record);
-					$id = $pagedata->pages_id;
-					$title = $pagedata->pages_title;
-					$slug = $pagedata->pages_slug;
-					$meta = $pagedata->pages_meta;
-					$body = $pagedata->pages_content;
-					$parent = $pagedata->pages_navprnt;
-					$weight = $pagedata->pages_weight;
+				$admindata = $this->admin_model->getToEdit($record);
+					$id = $admindata->admin_id;
+					$username = $admindata->admin_username;
+					$firstname = $admindata->admin_firstname;
+					$lastname = $admindata->admin_lastname;
+					$email = $admindata->admin_email;
+					$level = $admindata->admin_level;
 				$data['bodyclass'] = "addpage";
-				$data['header'] = "Add a New Page";
+				$data['header'] = "Add a New User";
 				$navparents = $this->navigation_model->getParents();
-				$data['formstart'] = form_open('pages/update_record/pages/' . $id);
-				$data['pagename'] = form_input(array(
-					            'name' => 'pagename',
+				$data['formstart'] = form_open('admin/insert_record/admin');
+				$data['fname'] = form_input(array(
+					            'name' => 'fname',
 					            'type' => 'text',
-					            'placeholder' => 'Page Name',
-					            'value' => $title
+					            'placeholder' => 'First Name',
+					            'value' => $firstname
 		        ));
+		        $data['lname'] = form_input(array(
+					            'name' => 'lname',
+					            'type' => 'text',
+					            'placeholder' => 'Last Name',
+					            'value' => $lastname
+		        ));
+		        $data['username'] = form_input(array(
+					            'name' => 'username',
+					            'type' => 'text',
+					            'placeholder' => 'Username',
+					            'value' => $username
+		        ));
+		        $data['email'] = form_input(array(
+					            'name' => 'email',
+					            'type' => 'text',
+					            'placeholder' => 'Email',
+					            'value' => $email
+		        ));
+		        $data['emailconf'] = form_input(array(
+					            'name' => 'emailconf',
+					            'type' => 'text',
+					            'placeholder' => 'Email'
+		        ));
+		        $options = array(
+							'0'  => 'Administrator',
+							'1'  => 'Super Admin'
+		        );
+		        $data['level'] = form_dropdown('level', $options, $level);
+
 		        $data['id'] = form_hidden('id', $id);
 				$this->load->view('cms/head', $data);
 				$this->load->view('cms/header');
-				$this->load->view('cms/pagesform');
+				$this->load->view('cms/adminform');
 				$this->load->view('template/footer');
 
 				$this->load->view('template/scripts');
@@ -112,47 +147,50 @@ class Admin extends CI_Controller {
 				$data['bodyclass'] = "addpage";
 				$data['header'] = "Add a New Page";
 				$navparents = $this->navigation_model->getParents();
-				$data['formstart'] = form_open('pages/update_record/pages' . $id);
-				$data['pagename'] = form_input(array(
-					            'name' => 'pagename',
+				$data['bodyclass'] = "createadmin";
+				$data['header'] = "Add a New Admin";
+				$data['formstart'] = form_open('admin/insert_record/admin');
+				$data['fname'] = form_input(array(
+					            'name' => 'fname',
 					            'type' => 'text',
-					            'placeholder' => 'Page Name',
-					            'value' => set_value('pagename')
+					            'placeholder' => 'First Name',
+					            'value' => set_value('fname')
 		        ));
-		        $data['slug'] = form_input(array(
-					            'name' => 'slug',
+		        $data['lname'] = form_input(array(
+					            'name' => 'lname',
 					            'type' => 'text',
-					            'placeholder' => 'URL Segment',
-					            'value' => set_value('slug')
+					            'placeholder' => 'Last Name',
+					            'value' => set_value('lname')
 		        ));
-		        $data['metadesc'] = form_textarea(array(
-					            'name' => 'metadesc',
-					            'id' => 'metadesc',
-					            'rows' => '3',
-					            'placeholder' => 'Meta Description',
-					            'value' => set_value('metadesc')
+		        $data['username'] = form_input(array(
+					            'name' => 'username',
+					            'type' => 'text',
+					            'placeholder' => 'Username',
+					            'value' => set_value('username')
 		        ));
-		        $navoptions = array('null' => 'Orphan');
-		        foreach($navparents as $row){
-		        	$navoptions[$row->pages_slug] = $row->pages_title;
-		        }
-		        $data['parent'] = form_dropdown('parent', $navoptions, $parent);
+		        $data['email'] = form_input(array(
+					            'name' => 'email',
+					            'type' => 'text',
+					            'placeholder' => 'Email',
+					            'value' => set_value('email')
+		        ));
+		        $data['emailconf'] = form_input(array(
+					            'name' => 'emailconf',
+					            'type' => 'text',
+					            'placeholder' => 'Email'
+		        ));
 		        $options = array(
-								'0'  => '0',
-								'1'  => '1',
-								'2'  => '2',
-								'3'  => '3',
-								'4'  => '4',
-								'5'  => '5',
-								'6'  => '6'
-	            );
-	            $data['weight'] = form_dropdown('weight', $options, $weight);
-		        $data['body'] = form_textarea(array(
-					            'name' => 'content',
-					            'class' => 'richtext',
-					            'value' => set_value('content')
-		        ));
-		        $data['id'] = form_hidden('id', $id);
+							'0'  => 'Administrator',
+							'1'  => 'Super Admin'
+		        );
+		        $data['level'] = form_dropdown('level', $options, $level);
+				$this->load->view('cms/head', $data);
+				$this->load->view('cms/header');
+				$this->load->view('cms/adminform');
+				$this->load->view('template/footer');
+
+				$this->load->view('template/scripts');
+				$this->load->view('template/close');
 				$this->load->view('cms/head', $data);
 				$this->load->view('cms/header');
 				$this->load->view('cms/pagesform');
@@ -163,12 +201,12 @@ class Admin extends CI_Controller {
 				$this->load->view('template/close');
 			}
 		}else{
-			$data['items'] = $this->pages_model->getEditList('tbl_pages');
+			$data['items'] = $this->admin_model->getAdmins();
 			$data['header'] = "Add a New Page";
 			$this->load->view('cms/head', $data);
 			$this->load->view('cms/header');
 			$this->load->view('cms/delete_overlay');
-			$this->load->view('cms/editlist');
+			$this->load->view('cms/adminlist');
 			$this->load->view('template/footer');
 
 			$this->load->view('template/scripts');
