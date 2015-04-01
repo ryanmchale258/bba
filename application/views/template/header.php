@@ -9,11 +9,11 @@
 			<?php if($this->session->userdata('is_logged_in')){
 				echo '<div class="cmslinks">';
 					echo '<ul>';
-						echo '<li><a href="'. base_url() . index_page() . '/dashboard">ADMIN</a></li>';
+						echo '<li><a href="'. base_url() . index_page() . 'dashboard">ADMIN</a></li>';
 						if(isset($pgdata->pages_id)){
-							echo '<li><a href="'. base_url() . index_page() . '/pages/edit/' . $pgdata->pages_id . '">EDIT PAGE</a></li>';
+							echo '<li><a href="'. base_url() . index_page() . 'pages/edit/' . $pgdata->pages_id . '">EDIT PAGE</a></li>';
 						}
-						echo '<li><a href="'. base_url() . index_page() . '/login/logout">LOGOUT</a></li>';
+						echo '<li><a href="'. base_url() . index_page() . 'login/logout">LOGOUT</a></li>';
 					echo '</ul>';
 				echo '</div>';
 			} ?>

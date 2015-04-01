@@ -9,8 +9,8 @@
 			<div class="cmslinks">
 				<p><?php echo $this->session->userdata('name'); ?>'s Admin Panel</p>
 				<ul>
-					<li><a href="<?php echo base_url() ?>index.php/home">View Site</a></li>
-					<li><a href="<?php echo base_url() ?>index.php/login/logout">Log Out</a></li>
+					<li><a href="<?php echo base_url() . index_page() ?>home">View Site</a></li>
+					<li><a href="<?php echo base_url() . index_page() ?>login/logout">Log Out</a></li>
 			</div>
 			<div class="navinner">
 				<nav id="desktop-nav" class="top-bar hide-for-small" data-topbar role="navigation">
@@ -18,32 +18,34 @@
 						<ul class="left">
 							<li class="has-dropdown"><a href="#">Pages</a>
 								<ul class="dropdown">
-									<li><a href="<?php echo base_url() . index_page() ?>/pages/add">Add</a></li>
-									<li><a href="<?php echo base_url() . index_page() ?>/pages/edit">Edit</a></li>
+									<li><a href="<?php echo base_url() . index_page() ?>pages/add">Add</a></li>
+									<li><a href="<?php echo base_url() . index_page() ?>pages/edit">Edit</a></li>
 								</ul>
 							</li>
 							<li class="has-dropdown"><a href="#">Staff</a>
 								<ul class="dropdown">
-									<li><a href="<?php echo base_url() . index_page() ?>/home">Add</a></li>
-									<li><a href="<?php echo base_url() . index_page() ?>/home">Edit</a></li>
+									<li><a href="<?php echo base_url() . index_page() ?>home">Add</a></li>
+									<li><a href="<?php echo base_url() . index_page() ?>home">Edit</a></li>
 								</ul>
 							</li>
+							<?php if($this->session->userdata('level') == 1): ?>
 							<li class="has-dropdown"><a href="#">Admins</a>
 								<ul class="dropdown">
-									<li><a href="<?php echo base_url() . index_page() ?>/admin/add">Add</a></li>
-									<li><a href="<?php echo base_url() . index_page() ?>/admin/edit">Edit</a></li>
+									<li><a href="<?php echo base_url() . index_page() ?>admin/add">Add</a></li>
+									<li><a href="<?php echo base_url() . index_page() ?>admin/edit">Edit</a></li>
 								</ul>
 							</li>
+							<?php endif; ?>
 							<li class="has-dropdown"><a href="#">Testimonials</a>
 								<ul class="dropdown">
-									<li><a href="<?php echo base_url() . index_page() ?>/home">Add</a></li>
-									<li><a href="<?php echo base_url() . index_page() ?>/home">Edit</a></li>
+									<li><a href="<?php echo base_url() . index_page() ?>home">Add</a></li>
+									<li><a href="<?php echo base_url() . index_page() ?>home">Edit</a></li>
 								</ul>
 							</li>
 							<li class="has-dropdown"><a href="#">Job Postings</a>
 								<ul class="dropdown">
-									<li><a href="<?php echo base_url() . index_page() ?>/home">Add</a></li>
-									<li><a href="<?php echo base_url() . index_page() ?>/home">Edit</a></li>
+									<li><a href="<?php echo base_url() . index_page() ?>home">Add</a></li>
+									<li><a href="<?php echo base_url() . index_page() ?>home">Edit</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -67,6 +69,6 @@
 
 	<aside id="mobile-nav" class="right-off-canvas-menu hide-for-large-up">
 		<ul class="off-canvas-list">
-			<li><a href="<?php echo base_url() ?>index.php/home">Add Page</a></li>
+			<li><a href="<?php echo base_url() . index_page() ?>home">Add Page</a></li>
 		</ul>
 	</aside>

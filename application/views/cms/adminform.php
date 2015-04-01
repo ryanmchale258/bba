@@ -13,6 +13,9 @@
 		<label>Username</label>
 		<span class="formerror"><?php echo form_error('username'); ?></span>
 		<?php echo $username; ?>
+
+		<label>Admin Level</label>
+		<?php echo $level; ?>
 		
 		<label>Email</label>
 		<span class="formerror"><?php echo form_error('email'); ?></span>

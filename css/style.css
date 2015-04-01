@@ -513,8 +513,12 @@ label {
 	display: inline-block;
 }
 
-.controls .del {
-	border-left: 1px solid #3e4450;
+.controls a {
+	border-right: 1px solid #3e4450;
+}
+
+.controls a:last-child {
+	border-right: none;
 }
 
 #popup {

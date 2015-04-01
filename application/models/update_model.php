@@ -26,6 +26,28 @@ class Update_model extends CI_Model {
 		$this->db->update('tbl_pages', $record);
 	}
 
+	public function admin() {
+		$record = array(
+					'admin_firstname' => $_POST['fname'],
+					'admin_lastname' => $_POST['lname'],
+					'admin_username' => $_POST['username'],
+					'admin_email' => $_POST['email'],
+					'admin_level' => $_POST['level']
+				);
+
+		$this->db->where('admin_id', $_POST['id']);
+		$this->db->update('tbl_admin', $record);
+	}
+
+	public function newpass($id, $encpass) {
+		$record = array(
+					'admin_password' => $encpass
+				);
+
+		$this->db->where('admin_id', $id);
+		$this->db->update('tbl_admin', $record);
+	}
+
 	public function admin_login($userId){
 		$this->db->where('admin_id', $userId);
 		$this->db->update('tbl_admin', array('admin_lastsession' => $this->session->userdata('session_id'), 'admin_lastlogin' => $this->session->userdata('last_activity'))); 
