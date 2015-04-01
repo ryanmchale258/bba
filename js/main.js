@@ -48,9 +48,10 @@ $(document).ready(function(){
 				if( totalPrice.toFixed(2) == "NaN" || $(inputFields[i]).val() % 1){
 					$(this).parent().find('.total').html("Please enter a whole number.");
 				}else{
-					$(this).parent().find('.total').html('$' + (totalPrice).toFixed(2));
+					$(this).parent().find('.total').html((totalPrice).toFixed(2));
 				}
 			}
+			updateTotal();
 		});
 	});
 
@@ -62,22 +63,37 @@ $(document).ready(function(){
 	$('.product').each(function(){
 		$(this).find('input:checkbox').click(function(){
 			var n = $(this).parent().parent().find( "input:checked" ).length;
+			var p = $(this).parent().parent().find('.individualPrice').html();
+			var d = $(this).parent().parent().find('.discount').html();
+			var r = $(this).parent().parent().find('.discountReq').html();
 			
-			if(n >= 3){
-				if(n % 3 == 0){
-					discountCount = n / 3;
-					discount = discountCount * 5;
+			if(n >= r){
+				if(n % r == 0){
+					discountCount = n / r;
+					discount = discountCount * d;
 					totalPrice = (totalPrice - discount);
 				}
-				totalPrice = (7.50 * n) - discount;
-				$(this).parent().parent().find('.total').html('$' + (totalPrice).toFixed(2));
+				totalPrice = (p * n) - discount;
+				$(this).parent().parent().find('.total').html((totalPrice).toFixed(2));
 			}else{
-				totalPrice = (7.50 * n);
-				$(this).parent().parent().find('.total').html('$' + (totalPrice).toFixed(2));
+				totalPrice = (p * n);
+				$(this).parent().parent().find('.total').html((totalPrice).toFixed(2));
 			}
-			console.log(discount);
+			//console.log(discount);
+			updateTotal();
 		});
 	});
+
+	function updateTotal(){
+		var t = document.querySelectorAll('.total');
+		var st = 0;
+		for(i=0; i<t.length; i++){
+			console.log(t[i].innerHTML);
+			var nt = parseFloat(t[i].innerHTML);
+			st = nt + st;
+		}
+		$('.subtotal').html('$' + st.toFixed(2));
+	}
 
 	$(window).bind('load', function(){
 		setHeights();
