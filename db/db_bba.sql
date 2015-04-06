@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 14, 2015 at 11:20 PM
+-- Generation Time: Apr 06, 2015 at 11:54 PM
 -- Server version: 5.5.33
 -- PHP Version: 5.5.3
 
@@ -41,11 +41,9 @@ CREATE TABLE ci_sessions (
 --
 
 INSERT INTO ci_sessions (session_id, ip_address, user_agent, last_activity, user_data) VALUES
-('053dd28e61996ca09e5554e939fd7e8d', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36', 1426371565, 'a:6:{s:9:"user_data";s:0:"";s:8:"username";s:10:"ryanmchale";s:4:"name";s:4:"Ryan";s:3:"sId";s:1:"1";s:5:"level";s:1:"0";s:12:"is_logged_in";b:1;}'),
-('75f364f572f231ad1b8ad0afb0ddd15c', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36', 1426365132, 'a:5:{s:8:"username";s:10:"ryanmchale";s:4:"name";s:4:"Ryan";s:3:"sId";s:1:"1";s:5:"level";s:1:"0";s:12:"is_logged_in";b:1;}'),
-('95b80c0edaa20eed542de56c7f1560b7', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36', 1426366348, 'a:6:{s:9:"user_data";s:0:"";s:8:"username";s:10:"ryanmchale";s:4:"name";s:4:"Ryan";s:3:"sId";s:1:"1";s:5:"level";s:1:"0";s:12:"is_logged_in";b:1;}'),
-('e16d831183aacb26cee6f85373503352', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36', 1426370928, 'a:6:{s:9:"user_data";s:0:"";s:8:"username";s:10:"ryanmchale";s:4:"name";s:4:"Ryan";s:3:"sId";s:1:"1";s:5:"level";s:1:"0";s:12:"is_logged_in";b:1;}'),
-('ef6c99048db5912b68e1e676805441df', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36', 1426365657, 'a:6:{s:9:"user_data";s:0:"";s:8:"username";s:10:"ryanmchale";s:4:"name";s:4:"Ryan";s:3:"sId";s:1:"1";s:5:"level";s:1:"0";s:12:"is_logged_in";b:1;}');
+('24611330de14c94bacf1f1e5dbdf5397', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36', 1428357000, ''),
+('8461acd265f046ef6e8d7d26a6e4ff4d', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36', 1428353446, 'a:5:{s:8:"username";s:10:"ryanmchale";s:4:"name";s:4:"Ryan";s:3:"sId";s:1:"1";s:5:"level";s:1:"1";s:12:"is_logged_in";b:1;}'),
+('d9cca993c90133bf017a30043da50c45', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36', 1428351044, 'a:5:{s:8:"username";s:10:"ryanmchale";s:4:"name";s:4:"Ryan";s:3:"sId";s:1:"1";s:5:"level";s:1:"1";s:12:"is_logged_in";b:1;}');
 
 -- --------------------------------------------------------
 
@@ -61,6 +59,7 @@ CREATE TABLE tbl_admin (
   admin_lastname varchar(75) NOT NULL,
   admin_email varchar(75) NOT NULL,
   admin_level tinyint(1) NOT NULL,
+  admin_lastlogin int(10) NOT NULL,
   admin_lastsession varchar(150) NOT NULL,
   PRIMARY KEY (admin_id)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
@@ -69,9 +68,9 @@ CREATE TABLE tbl_admin (
 -- Dumping data for table 'tbl_admin'
 --
 
-INSERT INTO tbl_admin (admin_id, admin_username, admin_password, admin_firstname, admin_lastname, admin_email, admin_level, admin_lastsession) VALUES
-(1, 'ryanmchale', 'd66fcc742cc640480ace083585445fd5cb3ea224', 'Ryan', 'McHale', '', 0, 'd6949e179a02ef4e20381788b2cdf236'),
-(2, 'chris', '81b06facd90fe7a6e9bbd9cee59736a79105b7be', 'Chris', 'Robins', 'chrisprobins87@gmail.com', 0, '18f726b31ef4a258a6c72d258aacedde');
+INSERT INTO tbl_admin (admin_id, admin_username, admin_password, admin_firstname, admin_lastname, admin_email, admin_level, admin_lastlogin, admin_lastsession) VALUES
+(1, 'ryanmchale', 'd66fcc742cc640480ace083585445fd5cb3ea224', 'Ryan', 'McHale', 'r_mchale2@fanshaweonline.ca', 1, 1428352747, '521d7eec8d9d5d8097cd590969db7a3b'),
+(2, 'poohbear', '9a1707652eaad2c7ee84830d5ff6c45ada6735dc', 'Chris', 'Robins', 'christo@gmail.com', 0, 1427917357, '28292db6a75b38e7b33bafe5fd3bce50');
 
 -- --------------------------------------------------------
 
@@ -163,18 +162,16 @@ CREATE TABLE tbl_pages (
 
 INSERT INTO tbl_pages (pages_id, pages_slug, pages_title, pages_meta, pages_content, pages_navlvl, pages_haskids, pages_navprnt, pages_hascontroller, pages_weight) VALUES
 (1, 'home', 'Home', '', '', 1, 0, NULL, 1, 0),
-(2, 'about', 'About', '', 'About - Coming Soon', 1, 0, NULL, 0, 0),
+(2, 'services', 'What We Do', '', '', 1, 0, NULL, 1, 0),
 (3, 'resources', 'Resources', '', 'Resources - Coming Soon', 1, 0, NULL, 1, 0),
 (4, 'orderform', 'Order Form', '', 'Order Form - Coming Soon', 1, 0, NULL, 1, 0),
 (5, 'mission-values', 'Mission and Values', 'pewp', '<p>Mission and Values - Coming Soon</p>', 2, 0, 'null', 0, 0),
-(6, 'contact', 'Contact Us', '', 'Contact Us - Coming Soon', 1, 0, NULL, 0, 0),
+(6, 'contact', 'Contact Us', '', '', 1, 0, NULL, 1, 0),
 (7, 'jobopenings', 'Job Openings', '', 'Job Openings - Coming Soon', 2, 0, 'contact', 1, 1),
 (8, 'staffcontact', 'Staff Contact Info', '', 'Staff Contact Info - Coming Soon', 2, 0, 'contact', 1, 2),
-(9, 'testimonials', 'Testimonials', '', '', 2, 0, 'about', 1, 0),
-(10, 'structure', 'Who We Are', '', '', 2, 0, 'about', 1, 0),
-(11, 'services', 'What We Do', '', '', 2, 0, 'about', 1, 5),
-(12, 'mission', 'How We Do It', '', '', 2, 0, 'about', 1, 4),
-(13, 'test', 'test', 'prerew', '<p>bliggity blah</p>', 2, 0, 'about', 0, 3);
+(9, 'testimonials', 'Testimonials', '', '', 2, 0, 'services', 1, 0),
+(10, 'structure', 'Who We Are', '', '', 2, 0, 'services', 1, 2),
+(12, 'mission', 'How We Do It', '', '', 2, 0, 'services', 1, 5);
 
 -- --------------------------------------------------------
 
@@ -235,6 +232,8 @@ CREATE TABLE tbl_resource (
   resource_comboprice varchar(10) NOT NULL,
   resource_manualprice varchar(10) NOT NULL,
   resource_individualprice varchar(10) NOT NULL,
+  resource_discount varchar(10) NOT NULL,
+  resource_discountreq smallint(3) NOT NULL,
   PRIMARY KEY (resource_id)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 
@@ -242,13 +241,34 @@ CREATE TABLE tbl_resource (
 -- Dumping data for table 'tbl_resource'
 --
 
-INSERT INTO tbl_resource (resource_id, resource_name, resource_desc, resource_cdprice, resource_emailprice, resource_comboprice, resource_manualprice, resource_individualprice) VALUES
-(1, 'Quality Care Audits, 1st Edition, September 2014', '25 audits in the areas of Residents'' Dining, Food Production and Nutrition Care to support the Home''s Continuous Quality Improvement program', '75.00', '', '', '', ''),
-(2, 'Diabetes Update P&amp;P', 'Updated Policies and Procedures Based on the 2013 Clinical Practice Guidelines', '25.00', '25.00', '', '', ''),
-(3, 'Education Essentials, 1st Edition', 'PP Presentations and Participant Quizzes for Ensuring Quality Nutrition and Hydration in LTC', '', '', '100.00', '', '10.00'),
-(4, 'Policy Pointers I, 4th Edition', 'Policies and Procedures for Nutrition and Hydration in Long Term Care', '85.00', '', '195.00', '150.00', ''),
-(5, 'Policy Pointers II, 4th Edition', 'Policies and Procedures for Dietary Services Administration in Long Term Care', '85.00', '', '180.00', '135.00', ''),
-(6, 'Algorithms, Protocols &amp; Tools', '', '', '', '', '', '7.50');
+INSERT INTO tbl_resource (resource_id, resource_name, resource_desc, resource_cdprice, resource_emailprice, resource_comboprice, resource_manualprice, resource_individualprice, resource_discount, resource_discountreq) VALUES
+(1, 'Quality Care Audits, 1st Edition, September 2014', '25 audits in the areas of Residents'' Dining, Food Production and Nutrition Care to support the Home''s Continuous Quality Improvement program', '75.00', '', '', '', '', '', 0),
+(2, 'Diabetes Update P&amp;P', 'Updated Policies and Procedures Based on the 2013 Clinical Practice Guidelines', '25.00', '25.00', '', '', '', '', 0),
+(3, 'Education Essentials, 1st Edition', 'PP Presentations and Participant Quizzes for Ensuring Quality Nutrition and Hydration in LTC', '', '', '100.00', '', '10.00', '5.00', 3),
+(4, 'Policy Pointers I, 4th Edition', 'Policies and Procedures for Nutrition and Hydration in Long Term Care', '85.00', '', '195.00', '150.00', '', '', 0),
+(5, 'Policy Pointers II, 4th Edition', 'Policies and Procedures for Dietary Services Administration in Long Term Care', '85.00', '', '180.00', '135.00', '', '', 0),
+(6, 'Algorithms, Protocols &amp; Tools', '', '', '', '', '', '7.50', '', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table 'tbl_shipping'
+--
+
+CREATE TABLE tbl_shipping (
+  shipping_id mediumint(6) unsigned NOT NULL AUTO_INCREMENT,
+  shipping_level varchar(20) NOT NULL,
+  shipping_above varchar(12) NOT NULL,
+  shipping_below varchar(20) NOT NULL,
+  PRIMARY KEY (shipping_id)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table 'tbl_shipping'
+--
+
+INSERT INTO tbl_shipping (shipping_id, shipping_level, shipping_above, shipping_below) VALUES
+(1, '40.00', '16.00', '8.00');
 
 -- --------------------------------------------------------
 
@@ -282,9 +302,9 @@ CREATE TABLE tbl_staffbios (
 --
 
 INSERT INTO tbl_staffbios (staffbios_id, staffbios_name, staffbios_degree, staffbios_designation, staffbios_photo, staffbios_bio, staffbios_tagline, staffbios_streetnumber, staffbios_streetname, staffbios_city, staffbios_province, staffbios_phone, staffbios_fax, staffbios_mobile, staffbios_email, staffbios_rr, staffbios_postalcode) VALUES
-(1, 'Christine Barker', 'B.A.Sc.', 'RD', 'christine.jpg', 'Christine’s career started as an outpatient dietitian at a hospital in Australia, then returned to Canada and began her 35 year career in long term care. As the Director of Food and Nutrition Services at a chronic care hospital and LTC home, she gained in-depth experience in both the clinical and administrative aspects of dietetics.  As the long standing volunteer Chair of the Dietitians of Canada LTC Action Group, Christine was actively involved in strategies to improve the nutrition care and food services provided for residents in LTC Homes.  She is committed to quality long term care and to building a skilled and dedicated team of BB&A Associate dietitians.', 'As a Director of BB&A, Christine manages the administrative and financial aspects of the corporation and is co-author of their many policy manuals and QA resources.', '1', 'Meadow Drive', 'London', 'Ontario', '(519) 433-4937', '(519) 433-4937', '', 'cbarker@rogers.com', '', 'N6A 3V7'),
-(2, 'Paula Blagave', 'B.Sc.', 'RD', 'paula.jpg', 'After a 15 year career in acute care, Paula moved into the LTC setting. She provides expertise from both a clinical and administrative perspective and consults on a regular basis to LTC Homes and to dietitians interested in LTC. Her special interests include diabetes management, dysphagia, palliative care and total quality management and she is committed to a team approach to long term care. Paula is a certified long term care administrator. ', 'As a Director of BB&A, Paula takes the lead clinical role and \r\nco-authors their many policy manuals and QA resources.', '270', 'Victoria Avenue N.', 'Listowel', 'Ontario', '(519) 291-3156', '(519) 291-3156', '(519) 272-4758', 'blagrave@wightman.ca', '', 'N4W 1S8'),
-(3, 'Julie Urbshott', 'B.Sc.', 'RD', 'julie.jpg', 'Julie brings a wide range of both clinical and administrative skills to her position with BB&A. Julie’s career began as a dietary aide while she studied to be a Nutrition Manager.  After working for 5 years as a Nutrition Manager, she returned to school to pursue a dream of becoming a Registered Dietitian.  For more than 8 years, Julie worked as an Administrative Dietitian in both acute and long term care hospital sites as well as working as a Consulting Dietitian in several LTC Homes. She is a regular guest lecturer at Brescia University College and has a passion for educating and working with internship programs at Brescia and London Health Sciences Centre.  She believes in quality improvement and a team approach, both in the provision of resident care and in the administration of BB&A.', 'As a Director of BB&A, Julie assists with the financial management and is responsible for conducting audits and pre-compliance reviews and completing QA and annual reports for all Homes.', '23814', 'Denfield Road', 'Denfield', 'Ontario', '(226) 927-7029', '(519) 666-2717', '', 'jaurbshott@urbgall.com', 'RR#1', 'N0M 1P0'),
+(1, 'Christine Barker', 'B.A.Sc.', 'RD', 'christine.jpg', 'Christine’s career started as an outpatient dietitian at a hospital in Australia, then returned to Canada and began her 35 year career in long term care. As the Director of Food and Nutrition Services at a chronic care hospital and LTC home, she gained in-depth experience in both the clinical and administrative aspects of dietetics.  As the long standing volunteer Chair of the Dietitians of Canada LTC Action Group, Christine was actively involved in strategies to improve the nutrition care and food services provided for residents in LTC Homes.  She is committed to quality long term care and to building a skilled and dedicated team of <strong><i>BB&A</i></strong> Associate dietitians.', 'As a Director of BB&A, Christine manages the administrative and financial aspects of the corporation and is co-author of their many policy manuals and QA resources.', '1', 'Meadow Drive', 'London', 'Ontario', '(519) 433-4937', '(519) 433-4937', '', 'cbarker@rogers.com', '', 'N6A 3V7'),
+(2, 'Paula Blagave', 'B.Sc.', 'RD', 'paula.jpg', 'After a 15 year career in acute care, Paula moved into the LTC setting. She provides expertise from both a clinical and administrative perspective and consults on a regular basis to LTC Homes and to dietitians interested in LTC. Her special interests include diabetes management, dysphagia, palliative care and total quality management and she is committed to a team approach to long term care. Paula is a certified long term care administrator.  ', 'As a Director of BB&A, Paula takes the lead clinical role and \r\nco-authors their many policy manuals and QA resources.', '270', 'Victoria Avenue N.', 'Listowel', 'Ontario', '(519) 291-3156', '(519) 291-3156', '(519) 272-4758', 'blagrave@wightman.ca', '', 'N4W 1S8'),
+(3, 'Julie Urbshott', 'B.Sc.', 'RD', 'julie.jpg', 'Julie brings a wide range of both clinical and administrative skills to her position with <strong><i>BB&A</i></strong>. Julie’s career began as a dietary aide while she studied to be a Nutrition Manager.  After working for 5 years as a Nutrition Manager, she returned to school to pursue a dream of becoming a Registered Dietitian.  For more than 8 years, Julie worked as an Administrative Dietitian in both acute and long term care hospital sites as well as working as a <strong><i>BB&A</i></strong> Associate Dietitian in several LTC Homes. She is a regular guest lecturer at Brescia University College and has a passion for educating and working with internship programs at Brescia and London Health Sciences Centre.  She believes in quality improvement and a team approach, both in the provision of resident care and in the administration of <strong><i>BB&A</i></strong>.', 'As a Director of BB&A, Julie assists with the financial management and is responsible for conducting audits and pre-compliance reviews and completing QA and annual reports for all Homes.', '23814', 'Denfield Road', 'Denfield', 'Ontario', '(226) 927-7029', '(519) 666-2717', '', 'jaurbshott@urbgall.com', 'RR#1', 'N0M 1P0'),
 (4, 'Sarah Faulds', 'B.Sc.', 'RD', 'sarah.jpg', 'Sarah has a passion for Long Term Care spanning over the past 20 years.  She began her career in this sector working as a Dietary Aide, then a Foodservice Manager and finally for over the past 15 years as an Administrative and Consulting Clinical Dietitian.  Sarah is a strong advocate for resident centered approaches to nutrition care.  Through dealing with her own family’s health and nutrition challenges, Sarah brings a sense of compassion for the residents and families that she is helping. Outside of work, Sarah is a busy wife to Jamie and mom to Jack and Avery.  Sarah and her family reside in Elgin County.', '', '47940', 'Mapleton Line', 'Aylmer', 'Ontario', '(519) 765-3350', '(519) 765-3350', '', 'sarah@faulds.ca', 'RR#7', 'N5H 2R6');
 
 -- --------------------------------------------------------

@@ -17,6 +17,7 @@
 					echo '</ul>';
 				echo '</div>';
 			} ?>
+			<p class="headertag">Consulting Dietitians Specializing in LTC</p>
 			<div class="navinner">
 				<nav id="desktop-nav" class="top-bar hide-for-small" data-topbar role="navigation">
 					<section class="top-bar-section">

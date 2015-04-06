@@ -6,17 +6,20 @@ class Structure extends CI_Controller {
 		parent::__construct();
 		$this->load->model('navigation_model');
 		$this->load->model('staffbio_model');
+		$this->load->model('testimonials_model');
 	}	
 
 	public function index() {
 		$data['navmenu'] = $this->navigation_model->getTopNav();
 		$data['mobmenu'] = $this->navigation_model->getMobNav();
+		$data['randTestimonial'] = $this->testimonials_model->getRandom();
 		
 		$data['stafflist'] = $this->staffbio_model->getAll();
 		$data['bodyclass'] = 'staff';
 		$this->load->view('template/head', $data);
 		$this->load->view('template/header');
 		$this->load->view('about/structure');
+		$this->load->view('home/sidebar');
 
 		$this->load->view('template/footer');
 
