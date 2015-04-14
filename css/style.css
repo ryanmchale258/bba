@@ -680,7 +680,8 @@ input.formsubmit {
 }
 
 .sidebar-testimonials p {
-	background: #648a8b;
+	background: url('../img/quote-strt.png') no-repeat top left, #648a8b url('../img/quote-end.png') no-repeat bottom right;
+	background-size: 20%;
 	color: #fff !important;
 	padding: 40px !important;
 	font-style: italic;
