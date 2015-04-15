@@ -5,9 +5,9 @@
 		<p>
 			<?php echo $company->company_streetnumber.' '.$company->company_streetname; ?><br>
 			<?php echo $company->company_city.', '.$company->company_province.' '.$company->company_postalcode; ?><br>
-			<?php echo 'Tel: '.$company->company_phone; ?><br>
+			Tel: <a href="tel:+<?php echo preg_replace('/\D+/', '', $company->company_phone); ?>"><?php echo $company->company_phone; ?></a><br>
 			<?php echo 'Fax: '.$company->company_fax; ?><br>
-			<?php echo 'Email: '.$company->company_email; ?><br>
+			Email: <a href="mailto:<?php echo $company->company_email; ?>"><?php echo $company->company_email; ?></a><br>
 		</p>
 	</article>
 		<h2 class="text-center">Directors:</h2>
@@ -20,10 +20,10 @@
 				<?php echo $row->staffbios_streetnumber.' '.$row->staffbios_streetname; ?><br>
 				<?php if(isset($row->staffbios_rr) && $row->staffbios_rr != NULL ){echo $row->staffbios_rr.'<br>'; }?>
 				<?php echo $row->staffbios_city.', '.$row->staffbios_province.' '.$row->staffbios_postalcode; ?><br>
-				<?php echo 'Tel: '.$row->staffbios_phone; ?><br>
-				<?php if(isset($row->staffbios_mobile) && $row->staffbios_mobile != NULL ){echo 'Mobile: '.$row->staffbios_mobile.'<br>'; }?>
+				Tel: <a href="tel:+<?php echo preg_replace('/\D+/', '', $row->staffbios_phone); ?>"><?php echo $row->staffbios_phone; ?></a><br>
+				<?php if(isset($row->staffbios_mobile) && $row->staffbios_mobile != NULL ){echo "Mobile: <a href=\"tel:+" . preg_replace('/\D+/', '', $row->staffbios_mobile) . "\">" . $row->staffbios_mobile . "</a><br>"; }?>
 				<?php echo 'Fax: '.$row->staffbios_fax; ?><br>
-				<?php echo 'Email: '.$row->staffbios_email; ?><br>
+				Email: <a href="mailto:<?php echo $row->staffbios_email; ?>"><?php echo $row->staffbios_email; ?></a><br>
 				<?php if(isset($row->staffbios_mobile) && $row->staffbios_mobile == NULL ){echo '<br>'; }?>
 			</p>
 		</article>

@@ -25,6 +25,12 @@
 		<?php echo $message; ?>
 	</label>
 
+	<label class="captcha">
+		<?php echo $captcha['image']; ?>
+		Please enter the characters seen to the left in the box below:
+		<?php echo $cap_verify; ?>
+	</label>
+
 	<input type="submit" name="submit" value="send">
 
 	</form>

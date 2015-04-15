@@ -717,6 +717,10 @@ input.formsubmit {
 	cursor: pointer;
 }
 
+#contactform .captcha input[type="text"]{
+	margin-top: 5px;
+}
+
 @media screen and (min-width:640px){
 	.staffContact:nth-child(odd) {
 		background-color: transparent;

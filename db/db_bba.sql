@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
+-- version 4.0.6
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 15, 2015 at 02:43 AM
--- Server version: 5.6.17
--- PHP Version: 5.5.12
+-- Host: localhost
+-- Generation Time: Apr 15, 2015 at 10:15 PM
+-- Server version: 5.5.33
+-- PHP Version: 5.5.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,10 +23,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table 'captcha'
+--
+
+CREATE TABLE captcha (
+  captcha_id bigint(13) unsigned NOT NULL AUTO_INCREMENT,
+  captcha_time int(10) unsigned NOT NULL,
+  ip_address varchar(16) NOT NULL DEFAULT '0',
+  word varchar(20) NOT NULL,
+  PRIMARY KEY (captcha_id),
+  KEY word (word)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table 'ci_sessions'
 --
 
-CREATE TABLE IF NOT EXISTS ci_sessions (
+CREATE TABLE ci_sessions (
   session_id varchar(40) NOT NULL DEFAULT '0',
   ip_address varchar(45) NOT NULL DEFAULT '0',
   user_agent varchar(120) NOT NULL,
@@ -41,7 +56,8 @@ CREATE TABLE IF NOT EXISTS ci_sessions (
 --
 
 INSERT INTO ci_sessions (session_id, ip_address, user_agent, last_activity, user_data) VALUES
-('385ca1940b8c9c1b9f72b27f6729855d', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 Safari/537.36', 1429058199, '');
+('962c16bb74d1b3b968991a53a1ae375f', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36', 1429126984, ''),
+('a04a30d220868fdd634d51697348b04f', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36', 1429128811, '');
 
 -- --------------------------------------------------------
 
@@ -49,7 +65,7 @@ INSERT INTO ci_sessions (session_id, ip_address, user_agent, last_activity, user
 -- Table structure for table 'tbl_admin'
 --
 
-CREATE TABLE IF NOT EXISTS tbl_admin (
+CREATE TABLE tbl_admin (
   admin_id tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
   admin_username varchar(75) NOT NULL,
   admin_password varchar(300) NOT NULL,
@@ -76,7 +92,7 @@ INSERT INTO tbl_admin (admin_id, admin_username, admin_password, admin_firstname
 -- Table structure for table 'tbl_company'
 --
 
-CREATE TABLE IF NOT EXISTS tbl_company (
+CREATE TABLE tbl_company (
   company_id tinyint(1) unsigned NOT NULL AUTO_INCREMENT,
   company_name varchar(40) NOT NULL,
   company_streetnumber varchar(10) NOT NULL,
@@ -103,7 +119,7 @@ INSERT INTO tbl_company (company_id, company_name, company_streetnumber, company
 -- Table structure for table 'tbl_jobs'
 --
 
-CREATE TABLE IF NOT EXISTS tbl_jobs (
+CREATE TABLE tbl_jobs (
   jobs_id smallint(3) unsigned NOT NULL AUTO_INCREMENT,
   jobs_title varchar(40) NOT NULL,
   jobs_type varchar(60) NOT NULL,
@@ -127,7 +143,7 @@ INSERT INTO tbl_jobs (jobs_id, jobs_title, jobs_type, jobs_location, jobs_start,
 -- Table structure for table 'tbl_links'
 --
 
-CREATE TABLE IF NOT EXISTS tbl_links (
+CREATE TABLE tbl_links (
   links_id smallint(3) unsigned NOT NULL AUTO_INCREMENT,
   links_text varchar(75) NOT NULL,
   links_url varchar(100) NOT NULL,
@@ -140,7 +156,7 @@ CREATE TABLE IF NOT EXISTS tbl_links (
 -- Table structure for table 'tbl_pages'
 --
 
-CREATE TABLE IF NOT EXISTS tbl_pages (
+CREATE TABLE tbl_pages (
   pages_id smallint(3) unsigned NOT NULL AUTO_INCREMENT,
   pages_slug varchar(50) NOT NULL,
   pages_title varchar(100) NOT NULL,
@@ -163,7 +179,7 @@ INSERT INTO tbl_pages (pages_id, pages_slug, pages_title, pages_meta, pages_cont
 (2, 'services', 'What We Do', '', '', 1, 0, NULL, 1, 0),
 (3, 'resources', 'Resources', '', 'Resources - Coming Soon', 1, 0, NULL, 1, 0),
 (4, 'orderform', 'Order Form', '', 'Order Form - Coming Soon', 1, 0, NULL, 1, 0),
-(5, 'missiontest', 'Mission and Values', 'This is a meta description', '<p>Mission and Values - Coming Soon</p>', 2, 0, 'null', 0, 0),
+(5, 'thankyou', 'Thank You', 'This is a meta description', '<p>Thank you for your interest in Barker, Blagrave & Associates. We will respond to your inquiry promptly. If this is an emergency, please contact the approprate member of our staff via the method of your choice listed on our <a href="<?php echo base_url() . index_page() ?>staffcontact">Staff Contact page</a>.</p>', 2, 0, 'null', 0, 0),
 (6, 'contact', 'Contact Us', '', '', 1, 0, NULL, 1, 0),
 (7, 'jobopenings', 'Job Openings', '', 'Job Openings - Coming Soon', 2, 0, 'contact', 1, 1),
 (8, 'staffcontact', 'Staff Contact Info', '', 'Staff Contact Info - Coming Soon', 2, 0, 'contact', 1, 2),
@@ -177,7 +193,7 @@ INSERT INTO tbl_pages (pages_id, pages_slug, pages_title, pages_meta, pages_cont
 -- Table structure for table 'tbl_presentation'
 --
 
-CREATE TABLE IF NOT EXISTS tbl_presentation (
+CREATE TABLE tbl_presentation (
   presentation_id smallint(3) unsigned NOT NULL AUTO_INCREMENT,
   presentation_name varchar(80) NOT NULL,
   resource_id smallint(3) NOT NULL,
@@ -221,7 +237,7 @@ INSERT INTO tbl_presentation (presentation_id, presentation_name, resource_id) V
 -- Table structure for table 'tbl_resource'
 --
 
-CREATE TABLE IF NOT EXISTS tbl_resource (
+CREATE TABLE tbl_resource (
   resource_id smallint(3) unsigned NOT NULL AUTO_INCREMENT,
   resource_name varchar(80) NOT NULL,
   resource_desc text NOT NULL,
@@ -253,7 +269,7 @@ INSERT INTO tbl_resource (resource_id, resource_name, resource_desc, resource_cd
 -- Table structure for table 'tbl_shipping'
 --
 
-CREATE TABLE IF NOT EXISTS tbl_shipping (
+CREATE TABLE tbl_shipping (
   shipping_id mediumint(6) unsigned NOT NULL AUTO_INCREMENT,
   shipping_level varchar(20) NOT NULL,
   shipping_above varchar(12) NOT NULL,
@@ -274,7 +290,7 @@ INSERT INTO tbl_shipping (shipping_id, shipping_level, shipping_above, shipping_
 -- Table structure for table 'tbl_staffbios'
 --
 
-CREATE TABLE IF NOT EXISTS tbl_staffbios (
+CREATE TABLE tbl_staffbios (
   staffbios_id tinyint(2) unsigned NOT NULL AUTO_INCREMENT,
   staffbios_name varchar(100) NOT NULL,
   staffbios_degree varchar(20) NOT NULL,
@@ -311,7 +327,7 @@ INSERT INTO tbl_staffbios (staffbios_id, staffbios_name, staffbios_degree, staff
 -- Table structure for table 'tbl_testimonials'
 --
 
-CREATE TABLE IF NOT EXISTS tbl_testimonials (
+CREATE TABLE tbl_testimonials (
   testimonials_id tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
   testimonials_content text NOT NULL,
   testimonials_shrt text NOT NULL,

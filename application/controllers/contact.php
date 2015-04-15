@@ -6,6 +6,7 @@ class Contact extends CI_Controller {
 		parent::__construct();
 		$this->load->model('navigation_model');
 		$this->load->helper('form');
+		$this->load->helper('captcha');
 	}	
 
 	public function index() {
@@ -36,7 +37,15 @@ class Contact extends CI_Controller {
 			            'name' => 'message',
 			            'value' => set_value('message')
         ));
-		
+		$data['captcha'] = create_captcha(array(
+						'img_path' => './captcha/',
+						'img_url' => base_url() . 'captcha/'
+		));
+		$data['cap_verify'] = form_input(array(
+			            'name' => 'captcha',
+			            'type' => 'text',
+			            'placeholder' => 'Enter characters'
+        ));
 		$data['bodyclass'] = 'contact';
 		$this->load->view('template/head', $data);
 		$this->load->view('template/header');
