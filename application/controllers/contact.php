@@ -41,6 +41,13 @@ class Contact extends CI_Controller {
 						'img_path' => './captcha/',
 						'img_url' => base_url() . 'captcha/'
 		));
+		$captodb = array(
+					    'captcha_time'	=> $data['captcha']['time'],
+					    'ip_address'	=> $this->input->ip_address(),
+					    'word'	=> $data['captcha']['word']
+	    );
+		$query = $this->db->insert_string('captcha', $captodb);
+		$this->db->query($query);
 		$data['cap_verify'] = form_input(array(
 			            'name' => 'captcha',
 			            'type' => 'text',
