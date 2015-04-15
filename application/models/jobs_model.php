@@ -7,7 +7,7 @@ class Jobs_model extends CI_Model {
 	}
 
 	public function getAll(){
-		$jobpostings = $this->db->get('tbl_jobs');
+		$jobpostings = $this->db->get_where('tbl_jobs');
 		return $jobpostings->result();
 	}
 

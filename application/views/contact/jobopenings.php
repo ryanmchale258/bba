@@ -13,20 +13,24 @@
 		<p><span class="boldItalics">Positions with BB&amp;A</span> are posted below as they become available.</p>
 
 		<h2>Current / Upcoming Openings</h2>
-		<ul class="accordion" data-accordion>
-			<?php foreach($jobs as $row): ?>
-				<li class="accordion-navigation">
-				    <a href="#job<?php echo $row->jobs_id;?>"><h3><?php echo $row->jobs_title;?></h3></a>
-				    <div id="job<?php echo $row->jobs_id;?>" class="content active">
-				    	<p><span class="bold">Type: </span><?php echo $row->jobs_type;?></p>
-				    	<p><span class="bold">Location: </span><?php echo $row->jobs_location;?></p>
-				    	<p><span class="bold">Start Date: </span><?php echo $row->jobs_start;?></p>
-				    	<p><span class="bold">Description: </span><?php echo $row->jobs_desc;?></p>
-				    	<p><span class="bold">Qualifications &amp; Requirements: </span><?php echo $row->jobs_reqs;?></p>
-				    </div>
-				</li>
-			<?php endforeach; ?>
-		</ul>
+		<?php if(empty($jobs)) { ?>
+			<p class="bold">There are currently no job openings available</p>
+		<?php } else { ?>
+			<ul class="accordion" data-accordion>
+				<?php foreach($jobs as $row): ?>
+					<li class="accordion-navigation">
+					    <a href="#job<?php echo $row->jobs_id;?>"><h3><?php echo $row->jobs_title;?></h3></a>
+					    <div id="job<?php echo $row->jobs_id;?>" class="content active">
+					    	<p><span class="bold">Type: </span><?php echo $row->jobs_type;?></p>
+					    	<p><span class="bold">Location: </span><?php echo $row->jobs_location;?></p>
+					    	<p><span class="bold">Start Date: </span><?php echo $row->jobs_start;?></p>
+					    	<p><span class="bold">Description: </span><?php echo $row->jobs_desc;?></p>
+					    	<p><span class="bold">Qualifications &amp; Requirements: </span><?php echo $row->jobs_reqs;?></p>
+					    </div>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		<?php } ?>
 
 		<p>Barker Blagrave &amp; Associates Dietetics Professional Association (BB&amp;A) accepts resumes to be kept on file for any future position openings.</p>
 		<p>

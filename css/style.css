@@ -473,9 +473,28 @@ label {
 .order input[type="checkbox"]:nth-child(even){
 }
 
-.formPrice, #formInfo {
+.formPrice, .formInfo {
 	border-top: solid 1px #666a73;
 	clear: both;
+}
+
+.formInfo {
+	text-align: center;
+}
+
+.formInfo input {
+	width: 80%;
+}
+
+.formInfo label {
+	text-align: left;
+	margin-top: 16px;
+}
+
+.formInfo #submit {
+	display: inline-block;
+	width: auto;
+	margin-top: 16px;
 }
 
 .columnLeft {
@@ -702,7 +721,7 @@ input.formsubmit {
 	width: 100%;
 }
 
-#contactform input[type="submit"] {
+#contactform input[type="submit"], .formInfo input[type="submit"] {
 	border: none;
 	outline: none;
 	padding: 5px 10px;
