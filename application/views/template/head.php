@@ -12,6 +12,8 @@
         }
        ?>
     " />
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>favicon.ico" type="image/x-icon">
+    <link rel="icon" href="<?php echo base_url(); ?>favicon.ico" type="image/x-icon">
     <title>
       <?php
         if(isset($pgTitle)){
