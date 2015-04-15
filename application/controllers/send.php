@@ -15,7 +15,7 @@ class Send extends CI_Controller {
 		$this->email->message($this->input->post('message'));	
 
 		if($this->email->send()){
-			redirect('home');
+			redirect('page/thankyou');
 		}else{
 			echo $this->email->print_debugger();
 		}

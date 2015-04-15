@@ -698,6 +698,25 @@ input.formsubmit {
 	color: #fff !important;
 }
 
+#contactform input[type="text"] {
+	width: 100%;
+}
+
+#contactform input[type="submit"] {
+	border: none;
+	outline: none;
+	padding: 5px 10px;
+	text-transform: uppercase;
+	background: #666a73;
+	color: #fff;
+	font-family: 'Roboto Slab', serif !important;
+	border-radius: 5px;
+	font-size: 1rem;
+	display: block;
+	margin: 0 auto;
+	cursor: pointer;
+}
+
 @media screen and (min-width:640px){
 	.staffContact:nth-child(odd) {
 		background-color: transparent;
@@ -748,6 +767,10 @@ input.formsubmit {
 		left: 10px;
 		right: -60px;
 		box-shadow: 0 0 30px -2px rgba(0, 0, 0, .7);
+	}
+
+	#contactform input[type="text"] {
+		width: 80%;
 	}
 }
 
