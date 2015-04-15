@@ -64,27 +64,38 @@
 			<p class="right grandtotal">$0.00</p>
 		</div>
 
-		<div id="formInfo row">
-			<label class="small-6" for="name">Name: </label>
-			<input class="small-6" name="name" type="text">
-			<label class="small-6" for="title">Title: </label>
-			<input class="small-6" name="title" type="text">
-			<label class="small-6" for="homeName">LTC Home Name: </label>
-			<input class="small-6" name="homeName" type="text">
-			<label class="small-6" for="phone">Phone: </label>
-			<input class="small-6" name="phone" type="text">
-			<label class="small-6" for="ext">Ext: </label>
-			<input class="small-6" name="ext" type="text">
-			<label class="small-6" for="email">Email: </label>
-			<input class="small-6" name="email" type="text">
-			<label class="small-6" for="street">Street: </label>
-			<input class="small-6" name="street" type="text">
-			<label class="small-6" for="city">City: </label>
-			<input class="small-6" name="city" type="text">
-			<label class="small-6" for="province">Province: </label>
-			<input class="small-6" name="province" type="text">
-			<label class="small-6" for="postal">Postal Code: </label>
-			<input class="small-6" name="postal" type="text">
+		<div class="formInfo row">
+			<label class="small-6 columns" for="name">Name:<br>
+				<input name="name" type="text">
+			</label>
+			<label class="small-6 columns" for="title">Title:<br>
+				<input name="title" type="text">
+			</label>
+			<label class="small-6 columns" for="homeName">LTC Home Name:<br>
+				<input name="homeName" type="text">
+			</label>
+			<label class="small-6 columns" for="phone">Phone:<br>
+				<input name="phone" type="text">
+			</label>
+			<label class="small-6 columns" for="ext">Ext:<br>
+				<input name="ext" type="text">
+			</label>
+			<label class="small-6 columns" for="email">Email:<br>
+				<input name="email" type="text">
+			</label>
+			<label class="small-6 columns" for="street">Street:<br>
+				<input name="street" type="text">
+			</label>
+			<label class="small-6 columns" for="city">City:<br>
+				<input name="city" type="text">
+			</label>
+			<label class="small-6 columns" for="province">Province:<br>
+				<input name="province" type="text">
+			</label>
+			<label class="small-6 columns" for="postal">Postal Code:<br>
+				<input name="postal" type="text">
+			</label>
+			<input id="submit" type="submit" name="submit" value="send">
 		</div>
 
 	</form>
