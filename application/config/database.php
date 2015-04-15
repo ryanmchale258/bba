@@ -48,9 +48,9 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'ohioriverboatsong258.ipagemysql.com';
-$db['default']['username'] = 'ryanmchale258';
-$db['default']['password'] = 'Z2a3r8a6!';
+$db['default']['hostname'] = 'localhost:8888';
+$db['default']['username'] = 'root';
+$db['default']['password'] = 'root';
 $db['default']['database'] = 'db_bba';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
