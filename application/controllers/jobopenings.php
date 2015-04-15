@@ -11,6 +11,8 @@ class Jobopenings extends CI_Controller {
 	public function index() {
 		$data['navmenu'] = $this->navigation_model->getTopNav();
 		$data['mobmenu'] = $this->navigation_model->getMobNav();
+		$data['pgTitle'] = "Job Openings";
+
 		
 		$data['jobs'] = $this->jobs_model->getAll();
 		$data['bodyclass'] = 'services';

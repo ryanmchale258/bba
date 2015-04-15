@@ -12,6 +12,7 @@ class Home extends CI_Controller {
 		$data['navmenu'] = $this->navigation_model->getTopNav();
 		$data['mobmenu'] = $this->navigation_model->getMobNav();
 		$data['randTestimonial'] = $this->testimonials_model->getRandom();
+		$data['pgTitle'] = "Home";
 
 		$data['bodyclass'] = "home";
 		$this->load->view('template/head', $data);

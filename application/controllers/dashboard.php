@@ -8,6 +8,8 @@ class Dashboard extends CI_Controller {
 
 	public function index() {
 		$data['bodyclass'] = "adminhome";
+		$data['pgTitle'] = "Dashboard";
+
 		$this->load->view('template/head', $data);
 		$this->load->view('cms/header');
 		$this->load->view('home/content');

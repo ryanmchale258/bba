@@ -3,7 +3,24 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation | Welcome</title>
+    <meta name="description" content="
+      <?php
+        if(isset($pgdata)){
+          echo $pgdata->pages_meta;
+        }else{
+          echo "Barker Blagrave &amp; Associates are a Dietetics Professional Corporation specializing in Long Term Care operating in the greater London Ontario area.";
+        }
+       ?>
+    " />
+    <title>
+      <?php
+        if(isset($pgTitle)){
+          echo $pgTitle;
+        }else{
+          echo $pgdata->pages_title;
+        }
+      ?>
+     | Barker, Blagrave &amp; Associates</title>
     <link rel="stylesheet" href="<?php echo base_url(); ?>css/foundation.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/style.css" />

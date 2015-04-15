@@ -11,7 +11,9 @@ class Contact extends CI_Controller {
 	public function index() {
 		$data['navmenu'] = $this->navigation_model->getTopNav();
 		$data['mobmenu'] = $this->navigation_model->getMobNav();
-		$data['formstart'] = form_open('contact/send');
+		$data['pgTitle'] = "Contact Us";
+
+		$data['formstart'] = form_open('send/contactus');
 		$data['name'] = form_input(array(
 			            'name' => 'name',
 			            'type' => 'text',

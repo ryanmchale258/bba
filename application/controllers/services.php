@@ -12,6 +12,7 @@ class Services extends CI_Controller {
 		$data['navmenu'] = $this->navigation_model->getTopNav();
 		$data['mobmenu'] = $this->navigation_model->getMobNav();
 		$data['randTestimonial'] = $this->testimonials_model->getRandom();
+		$data['pgTitle'] = "What We Do";
 		
 		$data['bodyclass'] = 'services';
 		$this->load->view('template/head', $data);

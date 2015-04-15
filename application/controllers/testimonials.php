@@ -12,6 +12,7 @@ class Testimonials extends CI_Controller {
 		$data['navmenu'] = $this->navigation_model->getTopNav();
 		$data['mobmenu'] = $this->navigation_model->getMobNav();
 		$data['arrTestimonials'] = $this->testimonials_model->getAll();
+		$data['pgTitle'] = "Testimonials";
 
 		$data['bodyclass'] = "testimonials";
 		$this->load->view('template/head', $data);

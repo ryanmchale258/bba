@@ -10,6 +10,7 @@ class Resources extends CI_Controller {
 	public function index() {
 		$data['navmenu'] = $this->navigation_model->getTopNav();
 		$data['mobmenu'] = $this->navigation_model->getMobNav();
+		$data['pgTitle'] = "Resources";
 		
 		$data['bodyclass'] = 'services';
 		$this->load->view('template/head', $data);

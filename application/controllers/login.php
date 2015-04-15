@@ -15,6 +15,7 @@ class Login extends CI_Controller {
 	public function index() {
 		$data['navmenu'] = $this->navigation_model->getTopNav();
 		$data['mobmenu'] = $this->navigation_model->getMobNav();
+		$data['pgTitle'] = "Login";
 
 		$data['formstart'] = form_open('login/submit', array(
 						'method' => 'POST',
@@ -110,6 +111,8 @@ class Login extends CI_Controller {
 			            'placeholder' => 'password'
         ));
         $data['id'] = form_hidden('id', $id);
+		$data['pgTitle'] = "First Time Logging In";
+
 		$data['bodyclass'] = "home";
 		$this->load->view('template/head', $data);
 		$this->load->view('cms/header');

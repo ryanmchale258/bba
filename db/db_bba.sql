@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.6
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Apr 06, 2015 at 11:54 PM
--- Server version: 5.5.33
--- PHP Version: 5.5.3
+-- Host: 127.0.0.1
+-- Generation Time: Apr 15, 2015 at 02:43 AM
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table 'ci_sessions'
 --
 
-CREATE TABLE ci_sessions (
+CREATE TABLE IF NOT EXISTS ci_sessions (
   session_id varchar(40) NOT NULL DEFAULT '0',
   ip_address varchar(45) NOT NULL DEFAULT '0',
   user_agent varchar(120) NOT NULL,
@@ -41,9 +41,7 @@ CREATE TABLE ci_sessions (
 --
 
 INSERT INTO ci_sessions (session_id, ip_address, user_agent, last_activity, user_data) VALUES
-('24611330de14c94bacf1f1e5dbdf5397', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36', 1428357000, ''),
-('8461acd265f046ef6e8d7d26a6e4ff4d', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36', 1428353446, 'a:5:{s:8:"username";s:10:"ryanmchale";s:4:"name";s:4:"Ryan";s:3:"sId";s:1:"1";s:5:"level";s:1:"1";s:12:"is_logged_in";b:1;}'),
-('d9cca993c90133bf017a30043da50c45', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36', 1428351044, 'a:5:{s:8:"username";s:10:"ryanmchale";s:4:"name";s:4:"Ryan";s:3:"sId";s:1:"1";s:5:"level";s:1:"1";s:12:"is_logged_in";b:1;}');
+('385ca1940b8c9c1b9f72b27f6729855d', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 Safari/537.36', 1429058199, '');
 
 -- --------------------------------------------------------
 
@@ -51,7 +49,7 @@ INSERT INTO ci_sessions (session_id, ip_address, user_agent, last_activity, user
 -- Table structure for table 'tbl_admin'
 --
 
-CREATE TABLE tbl_admin (
+CREATE TABLE IF NOT EXISTS tbl_admin (
   admin_id tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
   admin_username varchar(75) NOT NULL,
   admin_password varchar(300) NOT NULL,
@@ -69,7 +67,7 @@ CREATE TABLE tbl_admin (
 --
 
 INSERT INTO tbl_admin (admin_id, admin_username, admin_password, admin_firstname, admin_lastname, admin_email, admin_level, admin_lastlogin, admin_lastsession) VALUES
-(1, 'ryanmchale', 'd66fcc742cc640480ace083585445fd5cb3ea224', 'Ryan', 'McHale', 'r_mchale2@fanshaweonline.ca', 1, 1428352747, '521d7eec8d9d5d8097cd590969db7a3b'),
+(1, 'ryanmchale', 'd66fcc742cc640480ace083585445fd5cb3ea224', 'Ryan', 'McHale', 'r_mchale2@fanshaweonline.ca', 1, 1429037838, '80015eb649299a9a6afc86a1a71d78bb'),
 (2, 'poohbear', '9a1707652eaad2c7ee84830d5ff6c45ada6735dc', 'Chris', 'Robins', 'christo@gmail.com', 0, 1427917357, '28292db6a75b38e7b33bafe5fd3bce50');
 
 -- --------------------------------------------------------
@@ -78,7 +76,7 @@ INSERT INTO tbl_admin (admin_id, admin_username, admin_password, admin_firstname
 -- Table structure for table 'tbl_company'
 --
 
-CREATE TABLE tbl_company (
+CREATE TABLE IF NOT EXISTS tbl_company (
   company_id tinyint(1) unsigned NOT NULL AUTO_INCREMENT,
   company_name varchar(40) NOT NULL,
   company_streetnumber varchar(10) NOT NULL,
@@ -105,7 +103,7 @@ INSERT INTO tbl_company (company_id, company_name, company_streetnumber, company
 -- Table structure for table 'tbl_jobs'
 --
 
-CREATE TABLE tbl_jobs (
+CREATE TABLE IF NOT EXISTS tbl_jobs (
   jobs_id smallint(3) unsigned NOT NULL AUTO_INCREMENT,
   jobs_title varchar(40) NOT NULL,
   jobs_type varchar(60) NOT NULL,
@@ -129,7 +127,7 @@ INSERT INTO tbl_jobs (jobs_id, jobs_title, jobs_type, jobs_location, jobs_start,
 -- Table structure for table 'tbl_links'
 --
 
-CREATE TABLE tbl_links (
+CREATE TABLE IF NOT EXISTS tbl_links (
   links_id smallint(3) unsigned NOT NULL AUTO_INCREMENT,
   links_text varchar(75) NOT NULL,
   links_url varchar(100) NOT NULL,
@@ -142,7 +140,7 @@ CREATE TABLE tbl_links (
 -- Table structure for table 'tbl_pages'
 --
 
-CREATE TABLE tbl_pages (
+CREATE TABLE IF NOT EXISTS tbl_pages (
   pages_id smallint(3) unsigned NOT NULL AUTO_INCREMENT,
   pages_slug varchar(50) NOT NULL,
   pages_title varchar(100) NOT NULL,
@@ -165,7 +163,7 @@ INSERT INTO tbl_pages (pages_id, pages_slug, pages_title, pages_meta, pages_cont
 (2, 'services', 'What We Do', '', '', 1, 0, NULL, 1, 0),
 (3, 'resources', 'Resources', '', 'Resources - Coming Soon', 1, 0, NULL, 1, 0),
 (4, 'orderform', 'Order Form', '', 'Order Form - Coming Soon', 1, 0, NULL, 1, 0),
-(5, 'mission-values', 'Mission and Values', 'pewp', '<p>Mission and Values - Coming Soon</p>', 2, 0, 'null', 0, 0),
+(5, 'missiontest', 'Mission and Values', 'This is a meta description', '<p>Mission and Values - Coming Soon</p>', 2, 0, 'null', 0, 0),
 (6, 'contact', 'Contact Us', '', '', 1, 0, NULL, 1, 0),
 (7, 'jobopenings', 'Job Openings', '', 'Job Openings - Coming Soon', 2, 0, 'contact', 1, 1),
 (8, 'staffcontact', 'Staff Contact Info', '', 'Staff Contact Info - Coming Soon', 2, 0, 'contact', 1, 2),
@@ -179,7 +177,7 @@ INSERT INTO tbl_pages (pages_id, pages_slug, pages_title, pages_meta, pages_cont
 -- Table structure for table 'tbl_presentation'
 --
 
-CREATE TABLE tbl_presentation (
+CREATE TABLE IF NOT EXISTS tbl_presentation (
   presentation_id smallint(3) unsigned NOT NULL AUTO_INCREMENT,
   presentation_name varchar(80) NOT NULL,
   resource_id smallint(3) NOT NULL,
@@ -223,7 +221,7 @@ INSERT INTO tbl_presentation (presentation_id, presentation_name, resource_id) V
 -- Table structure for table 'tbl_resource'
 --
 
-CREATE TABLE tbl_resource (
+CREATE TABLE IF NOT EXISTS tbl_resource (
   resource_id smallint(3) unsigned NOT NULL AUTO_INCREMENT,
   resource_name varchar(80) NOT NULL,
   resource_desc text NOT NULL,
@@ -255,7 +253,7 @@ INSERT INTO tbl_resource (resource_id, resource_name, resource_desc, resource_cd
 -- Table structure for table 'tbl_shipping'
 --
 
-CREATE TABLE tbl_shipping (
+CREATE TABLE IF NOT EXISTS tbl_shipping (
   shipping_id mediumint(6) unsigned NOT NULL AUTO_INCREMENT,
   shipping_level varchar(20) NOT NULL,
   shipping_above varchar(12) NOT NULL,
@@ -276,7 +274,7 @@ INSERT INTO tbl_shipping (shipping_id, shipping_level, shipping_above, shipping_
 -- Table structure for table 'tbl_staffbios'
 --
 
-CREATE TABLE tbl_staffbios (
+CREATE TABLE IF NOT EXISTS tbl_staffbios (
   staffbios_id tinyint(2) unsigned NOT NULL AUTO_INCREMENT,
   staffbios_name varchar(100) NOT NULL,
   staffbios_degree varchar(20) NOT NULL,
@@ -313,9 +311,10 @@ INSERT INTO tbl_staffbios (staffbios_id, staffbios_name, staffbios_degree, staff
 -- Table structure for table 'tbl_testimonials'
 --
 
-CREATE TABLE tbl_testimonials (
+CREATE TABLE IF NOT EXISTS tbl_testimonials (
   testimonials_id tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
   testimonials_content text NOT NULL,
+  testimonials_shrt text NOT NULL,
   testimonials_author varchar(75) NOT NULL,
   testimonials_position varchar(75) NOT NULL,
   testimonials_company varchar(75) NOT NULL,
@@ -327,12 +326,12 @@ CREATE TABLE tbl_testimonials (
 -- Dumping data for table 'tbl_testimonials'
 --
 
-INSERT INTO tbl_testimonials (testimonials_id, testimonials_content, testimonials_author, testimonials_position, testimonials_company, testimonials_location) VALUES
-(1, '<p>“Since our association with BB&A began [in 2003], we have been continually impressed by the quality of service and care provided both by their dietitians and by BB&A as a company. Regular clinical services are provided by skilled and knowledgeable dietitians……Our RD is a respected and valued member of the care team whose expertise is sought and feely given.”</p>', 'Kash Ramchandani', 'Administrator/Owner', 'Royal Terrace', 'Palmerson'),
-(2, '<p>“I am always reassured that Barker, Blagrave & Associates’ resources reflect current best  practice and relevance to  MOHLTC regulations, in an easily understood, concise format which can be adapted for use in my LTC Homes. I don''t know how I would have managed over the past ~ 8 years without these resources.”</p>', 'Marilyn Jessome, RD', 'Consulting Dietitian', '', ''),
-(3, '<p>“Fordwich Village Nursing Home has had the pleasure of using this Registered Dietitian Services firm for the past 6 years. Our onsite Dietitian not only completes Resident assessments….she also attends Care Conferences, PAC meetings and offers Inservice Programs. With all due respect and pleasure, I highly recommend this business for its quality of services and professionalism, and progressive approach to Seniors’ Nutritional Services.”</p>', 'Susan Jaunzemis', 'Administrator/Director of Care', 'Fordwich Village Nursing Home', ''),
-(4, '<p>"The dietitians at BB&A provide invaluable support to our MScFN program. The Directors have led seminars with our interns to prepare them for practical training in long term care and home care. Our students have consistently found these seminars very useful, providing comments such as “eye – opening and informative” and “wonderful overview”. In addition, a number of our interns have completed placements with BB&A; the dietitians are excellent mentors and create a range of learning environments."</p>', 'Kayla Glynn MHSc, RD', 'Internship Coordinator/Faculty Lecturer', 'Division of Food & Nutritional Sciences', 'Brescia University College'),
-(5, '<p>“We have had the pleasure to have our dietetic services provided by Barker Blagrave & Associates for 6 years. Both our Home RD and BB&A are able to interpret and reinforce the MOHOTC Regulations for Nutrition care and Hydration programs and are always involved in MOHLTC inspections. Referrals and consultations are always handled promptly. Resources from BB&A have been instrumental in policy development and review.”</p>', 'Nancy Tweddle', 'Administrator', 'Exeter Villa', '');
+INSERT INTO tbl_testimonials (testimonials_id, testimonials_content, testimonials_shrt, testimonials_author, testimonials_position, testimonials_company, testimonials_location) VALUES
+(1, '<p>“Since our association with BB&A began [in 2003], we have been continually impressed by the quality of service and care provided both by their dietitians and by BB&A as a company. Regular clinical services are provided by skilled and knowledgeable dietitians……Our RD is a respected and valued member of the care team whose expertise is sought and feely given.”</p>', '<p>... We have been continually impressed by the quality of service and care...</p>', 'Kash Ramchandani', 'Administrator/Owner', 'Royal Terrace', 'Palmerson'),
+(2, '<p>“I am always reassured that Barker, Blagrave & Associates’ resources reflect current best  practice and relevance to  MOHLTC regulations, in an easily understood, concise format which can be adapted for use in my LTC Homes. I don''t know how I would have managed over the past ~ 8 years without these resources.”</p>', '<p>... I don''t know how I would have managed over the past ~ 8 years without these resources...</p>', 'Marilyn Jessome, RD', 'Consulting Dietitian', '', ''),
+(3, '<p>“Fordwich Village Nursing Home has had the pleasure of using this Registered Dietitian Services firm for the past 6 years. Our onsite Dietitian not only completes Resident assessments….she also attends Care Conferences, PAC meetings and offers Inservice Programs. With all due respect and pleasure, I highly recommend this business for its quality of services and professionalism, and progressive approach to Seniors’ Nutritional Services.”</p>', '<p>... I highly recommend [Barker, Blagrave & Associates] for its quality of services and professionalism, and progressive approach to Seniors’ Nutritional Services...</p>', 'Susan Jaunzemis', 'Administrator/Director of Care', 'Fordwich Village Nursing Home', ''),
+(4, '<p>"The dietitians at BB&A provide invaluable support to our MScFN program. The Directors have led seminars with our interns to prepare them for practical training in long term care and home care. Our students have consistently found these seminars very useful, providing comments such as “eye – opening and informative” and “wonderful overview”. In addition, a number of our interns have completed placements with BB&A; the dietitians are excellent mentors and create a range of learning environments."</p>', '<p>... BB&A''s dietitians are excellent mentors and create a range of learning environments...</p>', 'Kayla Glynn MHSc, RD', 'Internship Coordinator/Faculty Lecturer', 'Division of Food & Nutritional Sciences', 'Brescia University College'),
+(5, '<p>“We have had the pleasure to have our dietetic services provided by Barker Blagrave & Associates for 6 years. Both our Home RD and BB&A are able to interpret and reinforce the MOHOTC Regulations for Nutrition care and Hydration programs and are always involved in MOHLTC inspections. Referrals and consultations are always handled promptly. Resources from BB&A have been instrumental in policy development and review.”</p>', '<p>... Resources from BB&A have been instrumental in [our] policy development and review...</p>', 'Nancy Tweddle', 'Administrator', 'Exeter Villa', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

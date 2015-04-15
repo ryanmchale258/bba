@@ -13,6 +13,7 @@ class Structure extends CI_Controller {
 		$data['navmenu'] = $this->navigation_model->getTopNav();
 		$data['mobmenu'] = $this->navigation_model->getMobNav();
 		$data['randTestimonial'] = $this->testimonials_model->getRandom();
+		$data['pgTitle'] = "Who We Are";
 		
 		$data['stafflist'] = $this->staffbio_model->getAll();
 		$data['bodyclass'] = 'staff';

@@ -11,6 +11,7 @@ class StaffContact extends CI_Controller {
 	public function index() {
 		$data['navmenu'] = $this->navigation_model->getTopNav();
 		$data['mobmenu'] = $this->navigation_model->getMobNav();
+		$data['pgTitle'] = "Staff Contact Info";
 		
 		$data['stafflist'] = $this->staffbio_model->getAll();
 		$data['company'] = $this->staffbio_model->getCompany();

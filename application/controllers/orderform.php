@@ -12,6 +12,8 @@ class Orderform extends CI_Controller {
 		$data['navmenu'] = $this->navigation_model->getTopNav();
 		$data['mobmenu'] = $this->navigation_model->getMobNav();
 		$data['arrResources'] = $this->orderform_model->getAll();
+		$data['pgTitle'] = "Order Form";
+
 		$resources = $this->orderform_model->getAll();
 		$data['arrShipping'] = $this->orderform_model->getShippingInfo();
 		//$resourceId = 3;

@@ -14,8 +14,8 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/barker/bba/';
-//$config['base_url']	= 'http://www.ryanmchale.ca/bba/';
+//$config['base_url']	= 'http://localhost/barker/bba/';
+$config['base_url']	= 'http://www.ryanmchale.ca/bba/';
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +27,8 @@ $config['base_url']	= 'http://localhost/barker/bba/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php/';
+//$config['index_page'] = 'index.php/';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
