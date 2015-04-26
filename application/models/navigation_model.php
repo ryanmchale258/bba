@@ -94,7 +94,11 @@ class Navigation_model extends CI_Model {
 				}
 				$mobmenu .= $row->pages_title . '</a>';
 				$mobmenu .= '<ul class="right-submenu">';
-					$mobmenu .= '<li><a href="' . base_url() . index_page() . 'page/' . $row->pages_slug . '">';
+					if($row->pages_hascontroller == 0){
+						$mobmenu .= '<li><a href="' . base_url() . index_page() . 'page/' . $row->pages_slug . '">';
+					}else{
+						$mobmenu .= '<li><a href="' . base_url() . index_page() . $row->pages_slug . '">';
+					}
 					$mobmenu .= $row->pages_title . '</a></li>';
 
 
