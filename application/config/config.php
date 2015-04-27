@@ -16,6 +16,7 @@
 */
 $config['base_url']	= 'http://localhost/barker/bba/';
 //$config['base_url']	= 'http://www.ryanmchale.ca/bba/';
+//$config['base_url']	= 'http://www.barkerblagrave-rds.com/';
 
 /*
 |--------------------------------------------------------------------------

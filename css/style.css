@@ -775,14 +775,9 @@ input.formsubmit {
 
 	.headertag {
 		display: inline-block;
-		background: #666a73;
-		padding: 5px 15px;
-		border-radius: 15px;
-		color: #fff;
 		position: absolute;
 		right: 0;
 		bottom: 35px;
-		box-shadow: 0 0 30px -2px rgba(0, 0, 0, .7);
 	}
 
 	.sidebar-testimonials blockquote {
