@@ -19,4 +19,9 @@ class Testimonials_model extends CI_Model {
 		return $testimonial->row();
 	}
 
+	public function getToEdit($record){
+		$page = $this->db->get_where('tbl_testimonials', array('testimonials_id' => $record));
+		return $page->row();
+	}
+
 }

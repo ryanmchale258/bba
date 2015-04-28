@@ -13,7 +13,7 @@ class Insert_model extends CI_Model {
 			$level = 0;
 		}
 		$record = array(
-					'pages_slug' => $_POST['slug'],
+					'pages_author' => $_POST['slug'],
 					'pages_title' => $_POST['pagename'],
 					'pages_meta' => $_POST['metadesc'],
 					'pages_content' => $_POST['content'],
@@ -36,6 +36,32 @@ class Insert_model extends CI_Model {
 				);
 
 		$this->db->insert('tbl_admin', $record);
+	}
+
+	public function testimonials() {
+		$record = array(
+					'testimonials_author' => $_POST['author'],
+					'testimonials_position' => $_POST['position'],
+					'testimonials_company' => $_POST['company'],
+					'testimonials_location' => $_POST['location'],
+					'testimonials_shrt' => $_POST['shrt'],
+					'testimonials_content' => $_POST['testimonial']
+				);
+
+		$this->db->insert('tbl_testimonials', $record);
+	}
+
+	public function jobopenings() {
+		$record = array(
+					'jobs_title' => $_POST['title'],
+					'jobs_type' => $_POST['type'],
+					'jobs_location' => $_POST['location'],
+					'jobs_start' => $_POST['startdate'],
+					'jobs_desc' => $_POST['desc'],
+					'jobs_reqs' => $_POST['quals']
+				);
+
+		$this->db->insert('tbl_jobs', $record);
 	}
 
 }

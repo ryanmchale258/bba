@@ -10,8 +10,8 @@
 					$rid = $row->resource_id;
 					$arrPresentations = 'arrPresentations'.$rid;
 					$newPresentation = eval('return $'.$arrPresentations.';');
-					foreach($newPresentation as $pres):
-						echo '<label><input type="checkbox" name="' . $row->resource_slug . '[]" value="'.$pres->presentation_name.'">'.$pres->presentation_name.'</label>';
+					foreach($newPresentation as $row):
+						echo '<label><input type="checkbox" name="presentations[]" value="'.$row->presentation_name.'">'.$row->presentation_name.'</label>';
 					endforeach;
 					echo '<br>';
 				}
@@ -38,16 +38,14 @@
 				echo '$<span class="mod">'.$row->resource_comboprice.'</span> for all<br><br>';
 			}
 			?>
-			<input type="text" class="right total disabled" value="0.00" name=<?php echo '"price-' . $row->resource_slug . '"'; ?>>
-			<p class="right">$</p>
+			<p class="right">$<span class="total">0.00</span></p>
 			<br><br>
 		</div>
 		<?php endforeach; ?>
 
 		<div class="formPrice">
 			<h2>Subtotal</h2>
-			<input type="text" class="right subtotal disabled" value="0.00" name="price-subtotal">
-			<p class="right">$</p>
+			<p class="right subtotal">$0.00</p>
 		</div>
 		
 		<div class="formPrice">
@@ -58,14 +56,12 @@
 					echo '<label>For orders totalling more than $<span class="shipReq">'.$row->shipping_level.'</span>, add $<span class="shipAbove">'.$row->shipping_above.'</span></label>';
 				?>
 			<?php endforeach; ?>
-			<input type="text" class="right shipTotal disabled" value="0.00" name="price-shipping">
-			<p class="right">$</p>
+			<p class="right shipTotal">$0.00</p>
 		</div>
 
 		<div class="formPrice">
 			<h2>Total Order</h2>
-			<input type="text" class="right grandtotal disabled" value="0.00" name="price-grandtotal">
-			<p class="right">$</p>
+			<p class="right grandtotal">$0.00</p>
 		</div>
 
 		<div class="formInfo row">

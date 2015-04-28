@@ -39,18 +39,16 @@ $(document).ready(function(){
 		$(this).find('input').keyup(function(){
 			totalPrice = 0;
 			var arrPrice = jQuery.makeArray();
-			inputFields = $(this).parent().find('.price');
+			inputFields = $(this).parent().find('input');
 			priceModifiers = $(this).parent().find('.mod');
 			for(i=0; i<inputFields.length; i++){
 				arrPrice.push( ($(inputFields[i]).val() * parseInt($(priceModifiers[i]).html())) );
 				totalPrice = totalPrice + arrPrice[i];
 				console.log($(this).val());
 				if( totalPrice.toFixed(2) == "NaN" || $(inputFields[i]).val() % 1){
-					$(this).parent().find('.total').val("0.00");
-					$(this).parent().find('p.right').html("Please enter a whole number.");
+					$(this).parent().find('.total').html("Please enter a whole number.");
 				}else{
-					$(this).parent().find('.total').val((totalPrice).toFixed(2));
-					$(this).parent().find('p.right').html("$");
+					$(this).parent().find('.total').html((totalPrice).toFixed(2));
 				}
 			}
 			updateTotal();
@@ -76,13 +74,13 @@ $(document).ready(function(){
 					totalPrice = (totalPrice - discount);
 				}
 				totalPrice = (p * n) - discount;
-				$(this).parent().parent().find('.total').val((totalPrice).toFixed(2));
+				$(this).parent().parent().find('.total').html((totalPrice).toFixed(2));
 			}else{
 				totalPrice = (p * n);
-				$(this).parent().parent().find('.total').val((totalPrice).toFixed(2));
+				$(this).parent().parent().find('.total').html((totalPrice).toFixed(2));
 			}
 			if(totalPrice >= 100){
-				$(this).parent().parent().find('.total').val('100.00');
+				$(this).parent().parent().find('.total').html('100.00');
 			}
 			//console.log(discount);
 			updateTotal();
@@ -93,12 +91,11 @@ $(document).ready(function(){
 		var t = document.querySelectorAll('.total');
 		var st = 0;
 		for(i=0; i<t.length; i++){
-			var nt = parseFloat(t[i].value);
-			//console.log(nt);
+			//console.log(t[i].innerHTML);
+			var nt = parseFloat(t[i].innerHTML);
 			st = nt + st;
-			console.log(st);
 		}
-		$('.subtotal').val(parseFloat(st).toFixed(2));
+		$('.subtotal').html('$' + st.toFixed(2));
 		calculateShipping(st);
 	}
 
@@ -108,13 +105,13 @@ $(document).ready(function(){
 		var shipReq = parseInt($('.shipReq').html());
 		var shipCost;
 		if(subtotal >= shipReq){
-			$(shipping).val($('.shipAbove').html());
+			$(shipping).html('$' + $('.shipAbove').html());
 			shipCost = parseInt($('.shipAbove').html());
 		}else if(subtotal < shipReq && subtotal > 0){
-			$(shipping).val($('.shipBelow').html());
+			$(shipping).html('$' + $('.shipBelow').html());
 			shipCost = parseInt($('.shipBelow').html());
 		}else{
-			$(shipping).val('0.00');
+			$(shipping).html('$0.00');
 		}
 		grandTotal(subtotal, shipCost);
 	}
@@ -122,9 +119,9 @@ $(document).ready(function(){
 	function grandTotal(subtotal, shipCost){
 		var theGrandTotal = subtotal + shipCost;
 		if(theGrandTotal > 0){
-			$('.grandtotal').val(theGrandTotal.toFixed(2));
+			$('.grandtotal').html('$' + theGrandTotal.toFixed(2));
 		}else {
-			$('.grandtotal').val('0.00');
+			$('.grandtotal').html('$0.00');
 		}
 		
 	}

@@ -174,7 +174,7 @@ class Pages extends CI_Controller {
 				$data['bodyclass'] = "addpage";
 				$data['header'] = "Add a New Page";
 				$navparents = $this->navigation_model->getParents();
-				$data['formstart'] = form_open('pages/update_record/pages' . $id);
+				$data['formstart'] = form_open('pages/update_record/pages/' . $id);
 				$data['pagename'] = form_input(array(
 					            'name' => 'pagename',
 					            'type' => 'text',
