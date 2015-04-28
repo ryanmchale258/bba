@@ -2,7 +2,7 @@
 	<section class="row header-inner">
 	
 	<div id="logocontainer" class="small-10 medium-4 large-4 columns">
-		<a href="<?php echo base_url() . index_page() ?>dashboard"><img id="logo" src="<?php echo base_url(); ?>img/logo.svg" alt="Barker Blagrave &amp; Associates Logo"></a>
+		<img id="logo" src="<?php echo base_url(); ?>img/logo.svg" alt="Barker Blagrave &amp; Associates Logo">
 	</div>
 
 		<div id="navcontainer" class="small-2 medium-8 large-8 columns">
@@ -16,33 +16,33 @@
 				<nav id="desktop-nav" class="top-bar hide-for-small" data-topbar role="navigation">
 					<section class="top-bar-section">
 						<ul class="left">
-							<li class="has-dropdown"><a href="<?php echo base_url() . index_page() ?>pages/edit">Pages</a>
+							<li class="has-dropdown"><a href="#">Pages</a>
 								<ul class="dropdown">
 									<li><a href="<?php echo base_url() . index_page() ?>pages/add">Add</a></li>
 									<li><a href="<?php echo base_url() . index_page() ?>pages/edit">Edit</a></li>
 								</ul>
 							</li>
-							<li class="has-dropdown"><a href="<?php echo base_url() . index_page() ?>staff/edit">Staff</a>
+							<li class="has-dropdown"><a href="#">Staff</a>
 								<ul class="dropdown">
 									<li><a href="<?php echo base_url() . index_page() ?>home">Add</a></li>
 									<li><a href="<?php echo base_url() . index_page() ?>home">Edit</a></li>
 								</ul>
 							</li>
 							<?php if($this->session->userdata('level') == 1): ?>
-							<li class="has-dropdown"><a href="<?php echo base_url() . index_page() ?>admin/edit">Admins</a>
+							<li class="has-dropdown"><a href="#">Admins</a>
 								<ul class="dropdown">
 									<li><a href="<?php echo base_url() . index_page() ?>admin/add">Add</a></li>
 									<li><a href="<?php echo base_url() . index_page() ?>admin/edit">Edit</a></li>
 								</ul>
 							</li>
 							<?php endif; ?>
-							<li class="has-dropdown"><a href="<?php echo base_url() . index_page() ?>testimonials/edit">Testimonials</a>
+							<li class="has-dropdown"><a href="#">Testimonials</a>
 								<ul class="dropdown">
-									<li><a href="<?php echo base_url() . index_page() ?>testimonials/add">Add</a></li>
-									<li><a href="<?php echo base_url() . index_page() ?>testimonials/edit">Edit</a></li>
+									<li><a href="<?php echo base_url() . index_page() ?>home">Add</a></li>
+									<li><a href="<?php echo base_url() . index_page() ?>home">Edit</a></li>
 								</ul>
 							</li>
-							<li class="has-dropdown"><a href="<?php echo base_url() . index_page() ?>jobopenings/edit">Job Postings</a>
+							<li class="has-dropdown"><a href="#">Job Postings</a>
 								<ul class="dropdown">
 									<li><a href="<?php echo base_url() . index_page() ?>home">Add</a></li>
 									<li><a href="<?php echo base_url() . index_page() ?>home">Edit</a></li>

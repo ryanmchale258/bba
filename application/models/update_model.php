@@ -58,32 +58,4 @@ class Update_model extends CI_Model {
 		$this->db->update('tbl_admin', array('admin_password' => $newpass, 'admin_lastsession' => $this->session->userdata('session_id'), 'admin_lastlogin' => $this->session->userdata('last_activity')));
 	}
 
-	public function testimonials() {
-		$record = array(
-					'testimonials_author' => $_POST['author'],
-					'testimonials_position' => $_POST['position'],
-					'testimonials_company' => $_POST['company'],
-					'testimonials_location' => $_POST['location'],
-					'testimonials_shrt' => $_POST['shrt'],
-					'testimonials_content' => $_POST['testimonial']
-				);
-
-		$this->db->where('testimonials_id', $_POST['id']);
-		$this->db->update('tbl_testimonials', $record);
-	}
-
-	public function jobopenings() {
-		$record = array(
-					'jobs_title' => $_POST['title'],
-					'jobs_type' => $_POST['type'],
-					'jobs_location' => $_POST['location'],
-					'jobs_start' => $_POST['startdate'],
-					'jobs_desc' => $_POST['desc'],
-					'jobs_reqs' => $_POST['quals']
-				);
-
-		$this->db->where('jobs_id', $_POST['id']);
-		$this->db->update('tbl_jobs', $record);
-	}
-
 }

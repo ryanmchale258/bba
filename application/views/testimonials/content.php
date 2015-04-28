@@ -2,7 +2,7 @@
 	<h1>Testimonials</h1>
 	<?php foreach($arrTestimonials as $row): ?>
 		<article id="<?php echo $row->testimonials_id; ?>" class="small-12 columns">
-			<p>"<?php echo $row->testimonials_content; ?>"</p>
+			<?php echo $row->testimonials_content; ?>
 			<span>
 				<?php echo $row->testimonials_author; ?>
 			</span>
