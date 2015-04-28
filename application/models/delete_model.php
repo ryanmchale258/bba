@@ -14,4 +14,12 @@ class Delete_model extends CI_Model {
 		$this->db->delete('tbl_admin', array('admin_id' => $record));
 	}
 
+	public function testimonials($record) {
+		$this->db->delete('tbl_testimonials', array('testimonials_id' => $record));
+	}
+
+	public function jobopenings($record) {
+		$this->db->delete('tbl_jobs', array('jobs_id' => $record));
+	}
+
 }

@@ -6,6 +6,14 @@ class Testimonials extends CI_Controller {
 		parent::__construct();
 		$this->load->model('testimonials_model');
 		$this->load->model('navigation_model');
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('author', 'Author', 'trim|required');
+		$this->form_validation->set_rules('position', 'Position', 'trim');
+		$this->form_validation->set_rules('company', 'Company', 'trim');
+		$this->form_validation->set_rules('location', 'Location', 'trim');
+		$this->form_validation->set_rules('shrt', 'Testimonial Excerpt', 'trim|required');
+		$this->form_validation->set_rules('testimonial', 'Testimonial', 'trim|required');
 	}	
 
 	public function index() {
@@ -57,9 +65,13 @@ class Testimonials extends CI_Controller {
 				            'placeholder' => 'Location',
 				            'value' => set_value('location')
 	        ));
+	        $data['shrt'] = form_textarea(array(
+				            'name' => 'shrt',
+				            'rows' => 4,
+				            'value' => set_value('shrt')
+	        ));
 	        $data['testimonial'] = form_textarea(array(
 				            'name' => 'testimonial',
-				            'class' => 'richtext',
 				            'value' => set_value('testimonial')
 	        ));
 			$this->load->view('cms/head', $data);
@@ -72,7 +84,7 @@ class Testimonials extends CI_Controller {
 			$this->load->view('template/close');
 		}else{
 			$data['success'] = true;
-			$data['items'] = $this->testimonials_model->getEditList();
+			$data['items'] = $this->testimonials_model->getAll();
 			$data['header'] = "Add a New Testimonial";
 			$this->load->view('cms/head', $data);
 			$this->load->view('cms/header');
@@ -87,9 +99,124 @@ class Testimonials extends CI_Controller {
 
 	}
 
-	public function edit(){
+	public function edit($record = null){
 		if(!$this->session->userdata('is_logged_in')){
 			redirect('login');
+		}
+
+		if($record != null){
+			if($this->form_validation->run() == FALSE){
+				$testimonial = $this->testimonials_model->getToEdit($record);
+					$id = $testimonial->testimonials_id;
+					$author = $testimonial->testimonials_author;
+					$position = $testimonial->testimonials_position;
+					$company = $testimonial->testimonials_company;
+					$location = $testimonial->testimonials_location;
+					$shrt = $testimonial->testimonials_shrt;
+					$testimonial = $testimonial->testimonials_content;
+				$data['bodyclass'] = "addpage";
+				$data['header'] = "Edit Testimonial";
+				$data['formstart'] = form_open('testimonials/update_record/testimonials/' . $id);
+				$data['author'] = form_input(array(
+					            'name' => 'author',
+					            'type' => 'text',
+					            'placeholder' => 'Name',
+					            'value' => $author
+		        ));
+		        $data['position'] = form_input(array(
+					            'name' => 'position',
+					            'type' => 'text',
+					            'placeholder' => 'Position',
+					            'value' => $position
+		        ));
+		        $data['company'] = form_input(array(
+					            'name' => 'company',
+					            'type' => 'text',
+					            'placeholder' => 'Company',
+					            'value' => $company
+		        ));
+		        $data['location'] = form_input(array(
+					            'name' => 'location',
+					            'type' => 'text',
+					            'placeholder' => 'Location',
+					            'value' => $location
+		        ));
+		        $data['shrt'] = form_textarea(array(
+					            'name' => 'shrt',
+					            'rows' => 4,
+					            'value' => $shrt
+		        ));
+		        $data['testimonial'] = form_textarea(array(
+					            'name' => 'testimonial',
+					            'value' => $testimonial
+		        ));
+		        $data['id'] = form_hidden('id', $id);
+				$this->load->view('cms/head', $data);
+				$this->load->view('cms/header');
+				$this->load->view('cms/testimonialsform');
+				$this->load->view('template/footer');
+
+				$this->load->view('template/scripts');
+				$this->load->view('template/close');
+			}else{
+				$data['bodyclass'] = "addpage";
+				$data['header'] = "Edit Testimonial";
+				$data['formstart'] = form_open('testimonials/update_record/testimonials/' . $id);
+				$data['author'] = form_input(array(
+					            'name' => 'author',
+					            'type' => 'text',
+					            'placeholder' => 'Name',
+					            'value' => set_value('author')
+		        ));
+		        $data['position'] = form_input(array(
+					            'name' => 'position',
+					            'type' => 'text',
+					            'placeholder' => 'Position',
+					            'value' => set_value('position')
+		        ));
+		        $data['company'] = form_input(array(
+					            'name' => 'company',
+					            'type' => 'text',
+					            'placeholder' => 'Company',
+					            'value' => set_value('company')
+		        ));
+		        $data['location'] = form_input(array(
+					            'name' => 'location',
+					            'type' => 'text',
+					            'placeholder' => 'Location',
+					            'value' => set_value('location')
+		        ));
+		        $data['shrt'] = form_textarea(array(
+					            'name' => 'shrt',
+					            'rows' => 4,
+					            'value' => set_value('shrt')
+		        ));
+		        $data['testimonial'] = form_textarea(array(
+					            'name' => 'testimonial',
+					            'value' => set_value('testimonial')
+		        ));
+		        $data['id'] = form_hidden('id', $id);
+				$this->load->view('cms/head', $data);
+				$this->load->view('cms/header');
+				$this->load->view('cms/testimonialsform');
+				$this->load->view('template/footer');
+
+				$this->load->view('template/scripts');
+				$this->load->view('cms/tinymce-init');
+				$this->load->view('template/close');
+			}
+		}else{
+			$data['items'] = $this->testimonials_model->getAll();
+			$data['header'] = "Edit a Testimonial";
+			$this->load->view('cms/head', $data);
+			$this->load->view('cms/header');
+			$this->load->view('cms/delete_overlay');
+			$this->load->view('cms/testimonialslist');
+			$this->load->view('template/footer');
+
+			$this->load->view('template/scripts');
+			$this->load->view('cms/deletescript');
+			$this->load->view('template/close');
 		}
 
 	}

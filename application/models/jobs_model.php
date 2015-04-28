@@ -11,4 +11,9 @@ class Jobs_model extends CI_Model {
 		return $jobpostings->result();
 	}
 
+	public function getToEdit($record){
+		$job = $this->db->get_where('tbl_jobs', array('jobs_id' => $record));
+		return $job->row();
+	}
+
 }

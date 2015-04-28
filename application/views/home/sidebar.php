@@ -1,6 +1,6 @@
 <div class="sidebar-testimonials small-12 medium-4 columns">
 	<blockquote>
-		<?php echo $randTestimonial->testimonials_shrt; ?>
+		<p>... <?php echo $randTestimonial->testimonials_shrt; ?> ...</p>
 		<cite>
 			<?php
 				echo $randTestimonial->testimonials_author;
