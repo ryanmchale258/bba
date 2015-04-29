@@ -17,6 +17,13 @@ class Orderform_model extends CI_Model {
 
 	}
 
+	public function getResources(){
+
+		$resources = $this->db->get('tbl_resource');
+		return $resources->result();
+
+	}
+
 	public function getPresentations($rid){
 		$this->db->select('*');
 		$this->db->from('tbl_resource');

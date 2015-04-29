@@ -314,9 +314,55 @@ main {
 	font-size: 1.4em;
 }
 
+.dashboard-panel ul {
+	clear: both;
+}
+
 .admin-nav {
 	background-color: #666a73;
 	list-style-type: none;
+	color: #fff;
+	margin: 1px;
+	padding: 20px 0 20px 0;
+	width: 49%;
+	transition: all .3s ease;
+	-webkit-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	font-size: 2rem;
+}
+
+.admin-nav:hover{
+	background-color: #648a8b;
+}
+
+.admin-nav li {
+}
+
+.admin-nav i {
+	font-size: 3rem;
+	line-height: 2em;
+}
+
+.admin-nav a {
+	font-size: 2rem;
+	color: #fff;
+	transition: all .3s ease;
+	-webkit-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	line-height: 2em;
+}
+
+.admin-nav a:hover {
+	color: #3e4450;
+}
+
+.admin-nav:last-child {
+	float: left !important;
+}
+
+.dashboard-desc{
+	font-size: 1rem;
+	color: #fff !important;
 }
 
 footer {
@@ -657,12 +703,14 @@ input.formsubmit {
 	position: absolute;
 	top: 0;
 	right: 0;
+	display: none;
 }
 
 .cmslinks ul {
 	list-style-type: none;
 	clear: none;
 	float: left;
+	margin: 0;
 }
 
 .cmslinks ul li {
@@ -793,6 +841,14 @@ ul.accordion {
 
 
 @media screen and (min-width:640px){
+	.cmslinks {
+		display: block;
+	}
+
+	.admin-nav {
+		width: 33%;
+	}
+
 	.staffContact:nth-child(odd) {
 		background-color: transparent;
 	}
