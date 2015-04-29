@@ -77,7 +77,7 @@ class Update_model extends CI_Model {
 					'jobs_title' => $_POST['title'],
 					'jobs_type' => $_POST['type'],
 					'jobs_location' => $_POST['location'],
-					'jobs_start' => $_POST['startdate'],
+					'jobs_start' => date("Y-m-d", strtotime($_POST['startdate'])),
 					'jobs_desc' => $_POST['desc'],
 					'jobs_reqs' => $_POST['quals']
 				);

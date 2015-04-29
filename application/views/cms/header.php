@@ -44,8 +44,8 @@
 							</li>
 							<li class="has-dropdown"><a href="<?php echo base_url() . index_page() ?>jobopenings/edit">Job Postings</a>
 								<ul class="dropdown">
-									<li><a href="<?php echo base_url() . index_page() ?>home">Add</a></li>
-									<li><a href="<?php echo base_url() . index_page() ?>home">Edit</a></li>
+									<li><a href="<?php echo base_url() . index_page() ?>jobopenings/add">Add</a></li>
+									<li><a href="<?php echo base_url() . index_page() ?>jobopenings/edit">Edit</a></li>
 								</ul>
 							</li>
 						</ul>

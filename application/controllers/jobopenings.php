@@ -70,6 +70,7 @@ class Jobopenings extends CI_Controller {
 	        $data['desc'] = form_textarea(array(
 				            'name' => 'desc',
 				            'class' => 'richtext',
+				            'id' => 'jobdesc',
 				            'value' => set_value('desc')
 	        ));
 	        $data['quals'] = form_textarea(array(
@@ -146,11 +147,13 @@ class Jobopenings extends CI_Controller {
 		        ));
 		        $data['desc'] = form_textarea(array(
 					            'name' => 'desc',
-					            'rows' => 4,
+					            'class' => 'richtext',
+					            'id' => 'jobdesc',
 					            'value' => $desc
 		        ));
 		        $data['quals'] = form_textarea(array(
 					            'name' => 'quals',
+					            'class' => 'richtext',
 					            'value' => $quals
 		        ));
 		        $data['id'] = form_hidden('id', $id);
@@ -193,6 +196,7 @@ class Jobopenings extends CI_Controller {
 		        $data['desc'] = form_textarea(array(
 					            'name' => 'desc',
 					            'class' => 'richtext',
+					            'id' => 'jobdesc',
 					            'value' => set_value('desc')
 		        ));
 		        $data['quals'] = form_textarea(array(
