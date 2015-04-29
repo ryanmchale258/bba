@@ -1,4 +1,3 @@
-<div id="editlist" class="bodycontent">
 	<section class="row">
 		<ul class="accordion" data-accordion>
 		<?php foreach($items as $row): ?>

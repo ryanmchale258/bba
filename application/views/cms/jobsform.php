@@ -1,6 +1,3 @@
-<div id="addpage" class="bodycontent">
-	<h1><?php echo $header; ?></h1>
-	
 <?php echo $formstart; ?>
 	<div class="row">
 		<label>Job Title:</label>

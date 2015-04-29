@@ -23,7 +23,7 @@ class Admin extends CI_Controller {
 
 		if($this->form_validation->run() == FALSE){
 			$data['bodyclass'] = "createadmin";
-			$data['header'] = "Add a New Admin";
+			$data['header'] = "Add a New User";
 			$data['formstart'] = form_open('admin/insert_record/admin');
 			$data['fname'] = form_input(array(
 				            'name' => 'fname',
@@ -61,6 +61,7 @@ class Admin extends CI_Controller {
 	        $data['level'] = form_dropdown('level', $options, '0');
 			$this->load->view('cms/head', $data);
 			$this->load->view('cms/header');
+			$this->load->view('cms/options');
 			$this->load->view('cms/adminform');
 			$this->load->view('template/footer');
 
@@ -69,10 +70,11 @@ class Admin extends CI_Controller {
 		}else{
 			$data['success'] = true;
 			$data['items'] = $this->admin_model->getAdmins();
-			$data['header'] = "Add a New Page";
+			$data['header'] = "Choose User to Edit";
 			$this->load->view('cms/head', $data);
 			$this->load->view('cms/header');
 			$this->load->view('cms/delete_overlay');
+			$this->load->view('cms/options');
 			$this->load->view('cms/adminlist');
 			$this->load->view('template/footer');
 
@@ -103,7 +105,7 @@ class Admin extends CI_Controller {
 					$email = $admindata->admin_email;
 					$level = $admindata->admin_level;
 				$data['bodyclass'] = "addpage";
-				$data['header'] = "Add a New User";
+				$data['header'] = "Edit User";
 				$data['formstart'] = form_open('admin/update_record/admin/' . $id);
 				$data['fname'] = form_input(array(
 					            'name' => 'fname',
@@ -144,6 +146,7 @@ class Admin extends CI_Controller {
 		        $data['id'] = form_hidden('id', $id);
 				$this->load->view('cms/head', $data);
 				$this->load->view('cms/header');
+				$this->load->view('cms/options');
 				$this->load->view('cms/adminform');
 				$this->load->view('template/footer');
 
@@ -154,7 +157,7 @@ class Admin extends CI_Controller {
 				$data['bodyclass'] = "addpage";
 				$data['header'] = "Add a New Page";
 				$data['bodyclass'] = "createadmin";
-				$data['header'] = "Add a New Admin";
+				$data['header'] = "Edit User";
 				$data['formstart'] = form_open('admin/update_record/admin/' . set_value('id'));
 				$data['fname'] = form_input(array(
 					            'name' => 'fname',
@@ -193,26 +196,20 @@ class Admin extends CI_Controller {
 		        $data['level'] = form_dropdown('level', $options, set_value('level'));
 				$this->load->view('cms/head', $data);
 				$this->load->view('cms/header');
+				$this->load->view('cms/options');
 				$this->load->view('cms/adminform');
 				$this->load->view('template/footer');
 
 				$this->load->view('template/scripts');
 				$this->load->view('template/close');
-				$this->load->view('cms/head', $data);
-				$this->load->view('cms/header');
-				$this->load->view('cms/pagesform');
-				$this->load->view('template/footer');
-
-				$this->load->view('template/scripts');
-				$this->load->view('cms/tinymce-init');
-				$this->load->view('template/close');
 			}
 		}else{
 			$data['items'] = $this->admin_model->getAdmins();
-			$data['header'] = "Add a New Page";
+			$data['header'] = "Choose User to Edit";
 			$this->load->view('cms/head', $data);
 			$this->load->view('cms/header');
 			$this->load->view('cms/delete_overlay');
+			$this->load->view('cms/options');
 			$this->load->view('cms/adminlist');
 			$this->load->view('template/footer');
 
@@ -262,7 +259,7 @@ class Admin extends CI_Controller {
 			$this->email->from('no-reply@barkerblagrave-rds.com', 'Barker Blagrave & Associates');
 			$this->email->to($_POST['email']); 
 			$this->email->subject('New Administrator Signup');
-			$this->email->message('This is a test email. The password is ' .  $pass);	
+			$this->email->message('You have been registered as an administrator on barkerblagrave.com. Your username is ' . $_POST['username'] . ' and your temporary password is ' .  $pass . '. Visit barkerblagrave.com/login to sign in.');	
 			$this->email->send();
 			//echo $this->email->print_debugger();
 
@@ -316,8 +313,8 @@ class Admin extends CI_Controller {
 
 		$this->email->from('no-reply@barkerblagrave-rds.com', 'Barker Blagrave & Associates');
 		$this->email->to($emailAddress); 
-		$this->email->subject('New Administrator Signup');
-		$this->email->message('This is a test email. The password is ' .  $pass);	
+		$this->email->subject('Password Reset');
+		$this->email->message('Your password has been reset to ' .  $pass . '. Please sign in with your temporary password in order to change it to a password of your choice.');	
 		$this->email->send();
 		//echo $this->email->print_debugger();
 

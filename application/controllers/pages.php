@@ -81,6 +81,7 @@ class Pages extends CI_Controller {
 	        ));
 			$this->load->view('cms/head', $data);
 			$this->load->view('cms/header');
+			$this->load->view('cms/options');
 			$this->load->view('cms/pagesform');
 			$this->load->view('template/footer');
 
@@ -90,10 +91,11 @@ class Pages extends CI_Controller {
 		}else{
 			$data['success'] = true;
 			$data['items'] = $this->pages_model->getEditList('tbl_pages');
-			$data['header'] = "Add a New Page";
+			$data['header'] = "Choose Page to Edit";
 			$this->load->view('cms/head', $data);
 			$this->load->view('cms/header');
 			$this->load->view('cms/delete_overlay');
+			$this->load->view('cms/options');
 			$this->load->view('cms/editlist');
 			$this->load->view('template/footer');
 
@@ -119,7 +121,7 @@ class Pages extends CI_Controller {
 					$parent = $pagedata->pages_navprnt;
 					$weight = $pagedata->pages_weight;
 				$data['bodyclass'] = "addpage";
-				$data['header'] = "Add a New Page";
+				$data['header'] = "Edit Page";
 				$navparents = $this->navigation_model->getParents();
 				$data['formstart'] = form_open('pages/update_record/pages/' . $id);
 				$data['pagename'] = form_input(array(
@@ -164,6 +166,7 @@ class Pages extends CI_Controller {
 		        $data['id'] = form_hidden('id', $id);
 				$this->load->view('cms/head', $data);
 				$this->load->view('cms/header');
+				$this->load->view('cms/options');
 				$this->load->view('cms/pagesform');
 				$this->load->view('template/footer');
 
@@ -172,7 +175,7 @@ class Pages extends CI_Controller {
 				$this->load->view('template/close');
 			}else{
 				$data['bodyclass'] = "addpage";
-				$data['header'] = "Add a New Page";
+				$data['header'] = "Edit Page";
 				$navparents = $this->navigation_model->getParents();
 				$data['formstart'] = form_open('pages/update_record/pages/' . $id);
 				$data['pagename'] = form_input(array(
@@ -217,6 +220,7 @@ class Pages extends CI_Controller {
 		        $data['id'] = form_hidden('id', $id);
 				$this->load->view('cms/head', $data);
 				$this->load->view('cms/header');
+				$this->load->view('cms/options');
 				$this->load->view('cms/pagesform');
 				$this->load->view('template/footer');
 
@@ -226,10 +230,11 @@ class Pages extends CI_Controller {
 			}
 		}else{
 			$data['items'] = $this->pages_model->getEditList('tbl_pages');
-			$data['header'] = "Add a New Page";
+			$data['header'] = "Choose Page to Edit";
 			$this->load->view('cms/head', $data);
 			$this->load->view('cms/header');
 			$this->load->view('cms/delete_overlay');
+			$this->load->view('cms/options');
 			$this->load->view('cms/editlist');
 			$this->load->view('template/footer');
 
@@ -246,14 +251,16 @@ class Pages extends CI_Controller {
 			$this->insert_model->$function();
 		}
 		
-		$this->add();
+		//$this->add();
+		redirect('pages/edit/');
 	}
 
 	public function update_record($function, $record){
 		$this->load->model('update_model');
 		if($this->form_validation->run() != FALSE){
 			$this->update_model->$function();
-			$this->edit();
+			//$this->edit();
+			redirect('pages/edit/');
 		}else{
 			$this->edit($record);
 		}
@@ -264,7 +271,8 @@ class Pages extends CI_Controller {
 		$this->load->model('delete_model');
 		$this->delete_model->$function($record);
 
-		$this->edit();
+		//$this->edit();
+		redirect('pages/edit');
 	}
 
 }

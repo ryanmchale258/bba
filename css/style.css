@@ -449,10 +449,6 @@ footer p {
 	padding-left: 0;
 }
 
-#editlist .accordion {
-	margin: 0;
-}
-
 label {
 	color: #666a73;
 }
@@ -757,6 +753,44 @@ input.formsubmit {
 #mceu_14 {
 	margin-bottom: 20px;
 }
+
+.options {
+	text-align: center;
+}
+
+.options a {
+	background: #EFEFEF;
+	padding: 10px 15px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid #e8e8e8;
+	color: #666a73;
+	display: inline-block;
+}
+
+.options a i {
+	margin-right: 10px;
+}
+
+.options a:hover,
+.options a:focus {
+	background: #e8e8e8;
+	border-color: #EFEFEF;
+}
+
+.accordion {
+	clear: both;
+}
+
+ul.accordion {
+	margin-left: 0;
+}
+
+.options a.cms-active {
+	border-color: #666a73;
+}
+
 
 @media screen and (min-width:640px){
 	.staffContact:nth-child(odd) {

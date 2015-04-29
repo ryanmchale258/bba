@@ -1,5 +1,3 @@
-<div id="addpage" class="bodycontent">
-	<h1><?php echo $header; ?></h1>
 	<p>You can add new pages with this form. If you'd like the pages to appear in the menu, choose a parent menu item from the dropdown list. If no parent item is selected, the page will not be visible in any navigation menus. Choosing a higher weight from the Weight selection menu will inforce what placement the new menu item takes in the dropdown. Higher values for weight will cause the menu item to appear closer to the top.</p>
 
 	<?php echo $formstart; ?>

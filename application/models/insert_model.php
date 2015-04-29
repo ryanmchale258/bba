@@ -13,7 +13,7 @@ class Insert_model extends CI_Model {
 			$level = 0;
 		}
 		$record = array(
-					'pages_author' => $_POST['slug'],
+					'pages_slug' => $_POST['slug'],
 					'pages_title' => $_POST['pagename'],
 					'pages_meta' => $_POST['metadesc'],
 					'pages_content' => $_POST['content'],

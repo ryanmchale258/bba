@@ -76,6 +76,7 @@ class Testimonials extends CI_Controller {
 	        ));
 			$this->load->view('cms/head', $data);
 			$this->load->view('cms/header');
+			$this->load->view('cms/options');
 			$this->load->view('cms/testimonialsform');
 			$this->load->view('template/footer');
 
@@ -89,6 +90,7 @@ class Testimonials extends CI_Controller {
 			$this->load->view('cms/head', $data);
 			$this->load->view('cms/header');
 			$this->load->view('cms/delete_overlay');
+			$this->load->view('cms/options');
 			$this->load->view('cms/testimonialslist');
 			$this->load->view('template/footer');
 
@@ -153,6 +155,7 @@ class Testimonials extends CI_Controller {
 		        $data['id'] = form_hidden('id', $id);
 				$this->load->view('cms/head', $data);
 				$this->load->view('cms/header');
+				$this->load->view('cms/options');
 				$this->load->view('cms/testimonialsform');
 				$this->load->view('template/footer');
 
@@ -198,6 +201,7 @@ class Testimonials extends CI_Controller {
 		        $data['id'] = form_hidden('id', $id);
 				$this->load->view('cms/head', $data);
 				$this->load->view('cms/header');
+				$this->load->view('cms/options');
 				$this->load->view('cms/testimonialsform');
 				$this->load->view('template/footer');
 
@@ -207,10 +211,11 @@ class Testimonials extends CI_Controller {
 			}
 		}else{
 			$data['items'] = $this->testimonials_model->getAll();
-			$data['header'] = "Edit a Testimonial";
+			$data['header'] = "Choose Testimonial to Edit";
 			$this->load->view('cms/head', $data);
 			$this->load->view('cms/header');
 			$this->load->view('cms/delete_overlay');
+			$this->load->view('cms/options');
 			$this->load->view('cms/testimonialslist');
 			$this->load->view('template/footer');
 
@@ -227,14 +232,16 @@ class Testimonials extends CI_Controller {
 			$this->insert_model->$function();
 		}
 		
-		$this->add();
+		//$this->add();
+		redirect('testimonials/edit');
 	}
 
 	public function update_record($function, $record){
 		$this->load->model('update_model');
 		if($this->form_validation->run() != FALSE){
 			$this->update_model->$function();
-			$this->edit();
+			//$this->edit();
+			redirect('testimonials/edit');
 		}else{
 			$this->edit($record);
 		}
@@ -245,7 +252,8 @@ class Testimonials extends CI_Controller {
 		$this->load->model('delete_model');
 		$this->delete_model->$function($record);
 
-		$this->edit();
+		//$this->edit();
+		redirect('testimonials/edit');
 	}
 	
 }
