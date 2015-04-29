@@ -11,6 +11,7 @@
     <!-- fonts -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:900,700,400' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:700,400' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
   </head>
       <body class="<?php if(isset($bodyclass)){ echo $bodyclass; } ?>">

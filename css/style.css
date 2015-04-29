@@ -314,6 +314,11 @@ main {
 	font-size: 1.4em;
 }
 
+.admin-nav {
+	background-color: #666a73;
+	list-style-type: none;
+}
+
 footer {
 	background-color: #648a8b;
 	padding-bottom: 15px;

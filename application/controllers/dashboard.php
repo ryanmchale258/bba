@@ -10,9 +10,9 @@ class Dashboard extends CI_Controller {
 		$data['bodyclass'] = "adminhome";
 		$data['pgTitle'] = "Dashboard";
 
-		$this->load->view('template/head', $data);
+		$this->load->view('cms/head', $data);
 		$this->load->view('cms/header');
-		$this->load->view('home/content');
+		$this->load->view('dashboard/dashboard');
 		$this->load->view('template/footer');
 
 		$this->load->view('template/scripts');
