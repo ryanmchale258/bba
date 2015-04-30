@@ -4,7 +4,7 @@
 		<p>
 			BB&amp;A has developed numerous resources and publications for Registered Dietitians, LTC Home Administrators, Nutrition Managers, Interdisciplinary Team members, Residents and family members, including:
 		</p>
-		<ul>
+		<ul class="list">
 			<li>Comprehensive Policy and Procedure Manuals</li>
 			<li>Algorithms and Protocols for the interdisciplinary care teams</li>
 			<li>Quality Care Audit Manual</li>

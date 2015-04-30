@@ -476,7 +476,7 @@ footer p {
 	color: #648a8b;
 }
 
-.structure ul {
+.structure ul.list {
 	padding-left: 10%;
 }
 
@@ -484,7 +484,7 @@ footer p {
 	transition: all .3s ease;
 }
 
-.resources ul {
+.resources ul.list {
 	padding-left: 10%;
 }
 
@@ -492,7 +492,7 @@ footer p {
 	background-color: #ececec;
 }
 
-.jobs ul {
+.jobs ul.list {
 	padding-left: 10%;
 }
 

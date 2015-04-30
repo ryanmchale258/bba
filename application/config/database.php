@@ -48,18 +48,14 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-// $db['default']['hostname'] = 'localhost:8888';
+// $db['default']['hostname'] = 'localhost';
 // $db['default']['username'] = 'root';
-// $db['default']['password'] = 'root';
+// $db['default']['password'] = '';
 // $db['default']['database'] = 'db_bba';
-$db['default']['hostname'] = 'ohioriverboatsong258.ipagemysql.com';
-$db['default']['username'] = 'ryanmchale258';
-$db['default']['password'] = 'Z2a3r8a6!';
-$db['default']['database'] = 'db_bba';
-// $db['default']['hostname'] = 'localhost:8888';
-// $db['default']['username'] = 'barkerbl_admin';
-// $db['default']['password'] = 'V75P6KN';
-// $db['default']['database'] = 'barkerbl_site';
+$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'barkerbl_admin';
+$db['default']['password'] = 'V75P6KN';
+$db['default']['database'] = 'barkerbl_site';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

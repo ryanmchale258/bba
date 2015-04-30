@@ -22,7 +22,7 @@ class Send extends CI_Controller {
 			$this->email->from($this->input->post('email'), $this->input->post('name'));
 			$this->email->to('sarah@faulds.ca'); 
 
-			$this->email->subject($this->input->post('subject'));
+			$this->email->subject('Contact Form Submission:' . $this->input->post('subject'));
 			$this->email->message($this->input->post('message'));	
 
 			if($this->email->send()){
@@ -39,8 +39,9 @@ class Send extends CI_Controller {
 		$arrResources = $this->orderform_model->getAll();
 		$email_setting  = array('mailtype'=>'html');
 		$this->email->initialize($email_setting);
-			$this->email->from('no-reply@barkerblagrave-rds.com', 'Order Form Submission');
-			$this->email->to('ryan.mchale258@gmail.com'); 
+			$this->email->from('no-reply@barkerblagrave.com', 'Order Form Submission');
+			$this->email->to('sarah@faulds.ca');
+			$this->email->cc($this->input->post('email')); 
 
 			$this->email->subject('Order Form Submission: ' . $this->input->post('name'));
 
