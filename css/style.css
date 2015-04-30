@@ -839,6 +839,25 @@ ul.accordion {
 	border-color: #666a73;
 }
 
+.priceselect span {
+	background: #648a8b;
+	color: #fff;
+	border-radius: 8px;
+	padding: 5px;
+}
+
+h2.inline {
+	display: inline-block;
+}
+
+.showme {
+	display: block !important;
+}
+
+.addpresentations {
+	display: none;
+}
+
 
 @media screen and (min-width:640px){
 	.cmslinks {

@@ -134,3 +134,30 @@ $(document).ready(function(){
 	});
 
 });
+
+function toggleInput(value){
+	var name = value;
+	if($('input[name="' + name + '"]').length){
+		destroyInput(name);
+	}else{
+		createInput(name);
+	}
+}
+
+function createInput(name){
+	$('.prices').append('<label for=' + name + '>' + name.charAt(0).toUpperCase() + name.slice(1) + ' Price:</label><input type="text" name="' + name + '">');
+}
+
+function destroyInput(name){
+	$('label[for="' + name + '"]').remove();
+	$('input[name="' + name + '"]').remove();
+}
+
+function togglePres(){
+	$('.addpresentations').toggleClass('showme');
+}
+
+function duplicator(){
+	var newInput = $('#initial').clone().appendTo($('.addpresentations'));
+	newInput.attr('id', '');
+}

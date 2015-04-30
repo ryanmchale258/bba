@@ -53,26 +53,44 @@ class Resources extends CI_Controller {
 				            'placeholder' => 'Description',
 				            'value' => set_value('Description')
 	        ));
-	        $data['email'] = form_input(array(
-				            'name' => 'email',
-				            'type' => 'text',
-				            'value' => set_value('email')
-	        ));
-	        $data['combo'] = form_input(array(
-				            'name' => 'combo',
-				            'type' => 'text',
-				            'value' => set_value('combo')
-	        ));
-	        $data['cd'] = form_input(array(
-				            'name' => 'cd',
-				            'type' => 'text',
-				            'value' => set_value('cd')
-	        ));
-	        $data['manual'] = form_input(array(
-				            'name' => 'manual',
-				            'type' => 'text',
-				            'value' => set_value('manual')
-	        ));
+	        $data['emailcheck'] = form_checkbox('emailprice', 'Email', FALSE, 'onClick="toggleInput(\'email\')"');
+	        $data['combocheck'] = form_checkbox('comboprice', 'Combo', FALSE, 'onClick="toggleInput(\'combo\')"');
+	        $data['manualcheck'] = form_checkbox('manualprice', 'Manual', FALSE, 'onClick="toggleInput(\'manual\')"');
+	        $data['cdcheck'] = form_checkbox('cdprice', 'CD', FALSE, 'onClick="toggleInput(\'cd\')"');
+	        $prices = array();
+	        if(!empty($email)){
+	        	$data['emailcheck'] = form_checkbox('emailprice', 'Email', TRUE, 'onClick="toggleInput(\'email\')"');
+		        $prices['email'] = array('<label for="email">Email Price:</label>', form_input(array(
+					            'name' => 'email',
+					            'type' => 'text',
+					            'value' => set_value('email')
+		        )));
+		    }
+		    if(!empty($cd)){
+		    	$data['cdcheck'] = form_checkbox('cdprice', 'CD', TRUE, 'onClick="toggleInput(\'cd\')"');
+		        $prices['cd'] = array('<label for="cd">CD Price:</label>', form_input(array(
+					            'name' => 'cd',
+					            'type' => 'text',
+					            'value' => set_value('cd')
+		        )));
+	        }
+		    if(!empty($manual)){
+		    	$data['manualcheck'] = form_checkbox('manualprice', 'Manual', TRUE, 'onClick="toggleInput(\'manual\')"');
+		        $prices['manual'] = array('<label for="manual">Manual Price:</label>', form_input(array(
+					            'name' => 'manual',
+					            'type' => 'text',
+					            'value' => set_value('manual')
+		        )));
+	    	}
+		    if(!empty($combo)){
+		    	$data['combocheck'] = form_checkbox('comboprice', 'Combo', TRUE, 'onClick="toggleInput(\'combo\')"');
+		        $prices['combo'] = array('<label for="combo">Combo Price:</label>', form_input(array(
+					            'name' => 'combo',
+					            'type' => 'text',
+					            'value' => set_value('combo')
+		        )));
+	        }
+	    	$data['prices'] = $prices;
 			$this->load->view('cms/head', $data);
 			$this->load->view('cms/header');
 			$this->load->view('cms/options');
@@ -119,37 +137,55 @@ class Resources extends CI_Controller {
 				$data['header'] = "Edit Resource";
 				$data['formstart'] = form_open('resources/update_record/resources/' . $id);
 				$data['title'] = form_input(array(
-				            'name' => 'title',
-				            'type' => 'text',
-				            'placeholder' => 'Resource Title',
-				            'value' => $title
-	        ));
-	        $data['desc'] = form_textarea(array(
-				            'name' => 'desc',
-				            'type' => 'text',
-				            'placeholder' => 'Description',
-				            'value' => $desc
-	        ));
-	        $data['email'] = form_input(array(
-				            'name' => 'email',
-				            'type' => 'text',
-				            'value' => $email
-	        ));
-	        $data['combo'] = form_input(array(
-				            'name' => 'combo',
-				            'type' => 'text',
-				            'value' => $combo
-	        ));
-	        $data['cd'] = form_input(array(
-				            'name' => 'cd',
-				            'type' => 'text',
-				            'value' => $cd
-	        ));
-	        $data['manual'] = form_input(array(
-				            'name' => 'manual',
-				            'type' => 'text',
-				            'value' => $manual
-	        ));
+					            'name' => 'title',
+					            'type' => 'text',
+					            'placeholder' => 'Resource Title',
+					            'value' => $title
+		        ));
+		        $data['desc'] = form_textarea(array(
+					            'name' => 'desc',
+					            'type' => 'text',
+					            'placeholder' => 'Description',
+					            'value' => $desc
+		        ));
+		        $data['emailcheck'] = form_checkbox('emailprice', 'Email', FALSE, 'onClick="toggleInput(\'email\')"');
+		        $data['combocheck'] = form_checkbox('comboprice', 'Combo', FALSE, 'onClick="toggleInput(\'combo\')"');
+		        $data['manualcheck'] = form_checkbox('manualprice', 'Manual', FALSE, 'onClick="toggleInput(\'manual\')"');
+		        $data['cdcheck'] = form_checkbox('cdprice', 'CD', FALSE, 'onClick="toggleInput(\'cd\')"');
+		        $prices = array();
+		        if(!empty($email)){
+		        	$data['emailcheck'] = form_checkbox('emailprice', 'Email', TRUE, 'onClick="toggleInput(\'email\')"');
+			        $prices['email'] = array('<label for="email">Email Price:</label>', form_input(array(
+						            'name' => 'email',
+						            'type' => 'text',
+						            'value' => $email
+			        )));
+			    }
+			    if(!empty($cd)){
+			    	$data['cdcheck'] = form_checkbox('cdprice', 'CD', TRUE, 'onClick="toggleInput(\'cd\')"');
+			        $prices['cd'] = array('<label for="cd">CD Price:</label>', form_input(array(
+						            'name' => 'cd',
+						            'type' => 'text',
+						            'value' => $cd
+			        )));
+		        }
+			    if(!empty($manual)){
+			    	$data['manualcheck'] = form_checkbox('manualprice', 'Manual', TRUE, 'onClick="toggleInput(\'manual\')"');
+			        $prices['manual'] = array('<label for="manual">Manual Price:</label>', form_input(array(
+						            'name' => 'manual',
+						            'type' => 'text',
+						            'value' => $manual
+			        )));
+		    	}
+			    if(!empty($combo)){
+			    	$data['combocheck'] = form_checkbox('comboprice', 'Combo', TRUE, 'onClick="toggleInput(\'combo\')"');
+			        $prices['combo'] = array('<label for="combo">Combo Price:</label>', form_input(array(
+						            'name' => 'combo',
+						            'type' => 'text',
+						            'value' => $combo
+			        )));
+		        }
+		    	$data['prices'] = $prices;
 		        $data['id'] = form_hidden('id', $id);
 				$this->load->view('cms/head', $data);
 				$this->load->view('cms/header');
@@ -164,37 +200,55 @@ class Resources extends CI_Controller {
 				$data['header'] = "Edit Resource";
 				$data['formstart'] = form_open('resources/update_record/resources/' . $id);
 				$data['title'] = form_input(array(
-				            'name' => 'title',
-				            'type' => 'text',
-				            'placeholder' => 'Resource Title',
-				            'value' => set_value('title')
-	        ));
-	        $data['desc'] = form_textarea(array(
-				            'name' => 'desc',
-				            'type' => 'text',
-				            'placeholder' => 'Description',
-				            'value' => set_value('Description')
-	        ));
-	        $data['email'] = form_input(array(
-				            'name' => 'email',
-				            'type' => 'text',
-				            'value' => set_value('email')
-	        ));
-	        $data['combo'] = form_input(array(
-				            'name' => 'combo',
-				            'type' => 'text',
-				            'value' => set_value('combo')
-	        ));
-	        $data['cd'] = form_input(array(
-				            'name' => 'cd',
-				            'type' => 'text',
-				            'value' => set_value('cd')
-	        ));
-	        $data['manual'] = form_input(array(
-				            'name' => 'manual',
-				            'type' => 'text',
-				            'value' => set_value('manual')
-	        ));
+					            'name' => 'title',
+					            'type' => 'text',
+					            'placeholder' => 'Resource Title',
+					            'value' => set_value('title')
+		        ));
+		        $data['desc'] = form_textarea(array(
+					            'name' => 'desc',
+					            'type' => 'text',
+					            'placeholder' => 'Description',
+					            'value' => set_value('Description')
+		        ));
+		        $data['emailcheck'] = form_checkbox('emailprice', 'Email', FALSE, 'onClick="toggleInput(\'email\')"');
+		        $data['combocheck'] = form_checkbox('comboprice', 'Combo', FALSE, 'onClick="toggleInput(\'combo\')"');
+		        $data['manualcheck'] = form_checkbox('manualprice', 'Manual', FALSE, 'onClick="toggleInput(\'manual\')"');
+		        $data['cdcheck'] = form_checkbox('cdprice', 'CD', FALSE, 'onClick="toggleInput(\'cd\')"');
+		        $prices = array();
+		        if(!empty($email)){
+		        	$data['emailcheck'] = form_checkbox('emailprice', 'Email', TRUE, 'onClick="toggleInput(\'email\')"');
+			        $prices['email'] = array('<label for="email">Email Price:</label>', form_input(array(
+						            'name' => 'email',
+						            'type' => 'text',
+						            'value' => set_value('email')
+			        )));
+			    }
+			    if(!empty($cd)){
+			    	$data['cdcheck'] = form_checkbox('cdprice', 'CD', TRUE, 'onClick="toggleInput(\'cd\')"');
+			        $prices['cd'] = array('<label for="cd">CD Price:</label>', form_input(array(
+						            'name' => 'cd',
+						            'type' => 'text',
+						            'value' => set_value('cd')
+			        )));
+		        }
+			    if(!empty($manual)){
+			    	$data['manualcheck'] = form_checkbox('manualprice', 'Manual', TRUE, 'onClick="toggleInput(\'manual\')"');
+			        $prices['manual'] = array('<label for="manual">Manual Price:</label>', form_input(array(
+						            'name' => 'manual',
+						            'type' => 'text',
+						            'value' => set_value('manual')
+			        )));
+		    	}
+			    if(!empty($combo)){
+			    	$data['combocheck'] = form_checkbox('comboprice', 'Combo', TRUE, 'onClick="toggleInput(\'combo\')"');
+			        $prices['combo'] = array('<label for="combo">Combo Price:</label>', form_input(array(
+						            'name' => 'combo',
+						            'type' => 'text',
+						            'value' => set_value('combo')
+			        )));
+		        }
+		    	$data['prices'] = $prices;
 		        $data['id'] = form_hidden('id', $id);
 				$this->load->view('cms/head', $data);
 				$this->load->view('cms/header');
@@ -228,16 +282,17 @@ class Resources extends CI_Controller {
 		$this->load->model('insert_model');
 		if($this->form_validation->run() != FALSE){
 			$this->insert_model->$function();
+			redirect('resources/edit');
+		}else{
+			$this->add();
 		}
-		
-		$this->add();
 	}
 
 	public function update_record($function, $record){
 		$this->load->model('update_model');
 		if($this->form_validation->run() != FALSE){
 			$this->update_model->$function();
-			$this->edit();
+			redirect('resources/edit');
 		}else{
 			$this->edit($record);
 		}
@@ -248,7 +303,7 @@ class Resources extends CI_Controller {
 		$this->load->model('delete_model');
 		$this->delete_model->$function($record);
 
-		$this->edit();
+		redirect('resources/edit');
 	}
 	
 }

@@ -65,13 +65,34 @@ class Insert_model extends CI_Model {
 	}
 
 	public function resources() {
+		if(isset($_POST['cdprice'])){
+			$cdprice = number_format((float)str_replace('$', '', $_POST['cd']), 2, '.', '');
+		}else{
+			$cdprice = '';
+		}
+		if(isset($_POST['emailprice'])){
+			$emailprice = number_format((float)str_replace('$', '', $_POST['email']), 2, '.', '');
+		}else{
+			$emailprice = '';
+		}
+		if(isset($_POST['manualprice'])){
+			$manualprice = number_format((float)str_replace('$', '', $_POST['manual']), 2, '.', '');
+		}else{
+			$manualprice = '';
+		}
+		if(isset($_POST['comboprice'])){
+			$comboprice = number_format((float)str_replace('$', '', $_POST['combo']), 2, '.', '');
+		}else{
+			$comboprice = '';
+		}
 		$record = array(
 					'resource_name' => $_POST['title'],
+					'resource_slug' => str_replace(' ', '-', strtolower($_POST['title'])),
 					'resource_desc' => $_POST['desc'],
-					'resource_cdprice' => $_POST['cd'],
-					'resource_emailprice' => $_POST['email'],
-					'resource_comboprice' => $_POST['combo'],
-					'resource_manualprice' => $_POST['manual']
+					'resource_cdprice' => $cdprice,
+					'resource_emailprice' => $emailprice,
+					'resource_comboprice' => $comboprice,
+					'resource_manualprice' => $comboprice
 				);
 
 		$this->db->insert('tbl_resource', $record);
