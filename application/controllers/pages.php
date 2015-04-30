@@ -38,6 +38,7 @@ class Pages extends CI_Controller {
 		if($this->form_validation->run() == FALSE){
 			$data['bodyclass'] = "addpage";
 			$data['header'] = "Add a New Page";
+			$data['pgTitle'] = 'Add Page';
 			$navparents = $this->navigation_model->getParents();
 			$data['formstart'] = form_open('pages/insert_record/pages');
 			$data['pagename'] = form_input(array(
@@ -92,6 +93,7 @@ class Pages extends CI_Controller {
 			$data['success'] = true;
 			$data['items'] = $this->pages_model->getEditList('tbl_pages');
 			$data['header'] = "Choose Page to Edit";
+			$data['pgTitle'] = 'Add Page';
 			$this->load->view('cms/head', $data);
 			$this->load->view('cms/header');
 			$this->load->view('cms/delete_overlay');
@@ -122,6 +124,7 @@ class Pages extends CI_Controller {
 					$weight = $pagedata->pages_weight;
 				$data['bodyclass'] = "addpage";
 				$data['header'] = "Edit Page";
+				$data['pgTitle'] = 'Edit Page';
 				$navparents = $this->navigation_model->getParents();
 				$data['formstart'] = form_open('pages/update_record/pages/' . $id);
 				$data['pagename'] = form_input(array(
@@ -176,6 +179,7 @@ class Pages extends CI_Controller {
 			}else{
 				$data['bodyclass'] = "addpage";
 				$data['header'] = "Edit Page";
+				$data['pgTitle'] = 'Edit Page';
 				$navparents = $this->navigation_model->getParents();
 				$data['formstart'] = form_open('pages/update_record/pages/' . $id);
 				$data['pagename'] = form_input(array(
@@ -231,6 +235,7 @@ class Pages extends CI_Controller {
 		}else{
 			$data['items'] = $this->pages_model->getEditList('tbl_pages');
 			$data['header'] = "Choose Page to Edit";
+			$data['pgTitle'] = 'Edit Page';
 			$this->load->view('cms/head', $data);
 			$this->load->view('cms/header');
 			$this->load->view('cms/delete_overlay');

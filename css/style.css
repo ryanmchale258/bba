@@ -365,6 +365,11 @@ main {
 	color: #fff !important;
 }
 
+.staff-photo{
+	height: 220px;
+	background-color: #333;
+}
+
 footer {
 	background-color: #648a8b;
 	padding-bottom: 15px;
@@ -687,6 +692,23 @@ input.formsubmit {
 	border: 2px solid #666a73;
 	margin: 10px auto;
 	display: block;
+	cursor: pointer;
+}
+
+.settingshome a.restore {
+	outline: none;
+	background: #E80000 ;
+	color: #fff;
+	padding: 10px 15px;
+	border-radius: 10px;
+	border: 2px solid #666a73;
+	cursor: pointer;
+	float: right;
+}
+
+.settingshome input.formsubmit {
+	margin: 0 !important;
+	display: inline;
 	cursor: pointer;
 }
 

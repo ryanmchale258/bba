@@ -144,4 +144,20 @@ class Update_model extends CI_Model {
 		$this->db->update('tbl_staffbios', $record);
 	}
 
+	public function settings() {
+		$record = array(
+					'settings_email' => $_POST['main-contact']
+				);
+
+		$this->db->where('settings_id', 2);
+		$this->db->update('tbl_settings', $record);
+	}
+
+	public function restore_defaults() {
+		$default = $this->db->get_where('tbl_settings', array('settings_id' => 1))->row();
+
+		$this->db->where('settings_id', 2);
+		$this->db->update('tbl_settings', $default);
+	}
+
 }

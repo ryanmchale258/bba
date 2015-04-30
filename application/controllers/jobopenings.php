@@ -42,6 +42,7 @@ class Jobopenings extends CI_Controller {
 		if($this->form_validation->run() == FALSE){
 			$data['bodyclass'] = "addjob";
 			$data['header'] = "Add a New Job Opening";
+			$data['pgTitle'] = 'Add Job';
 			$data['formstart'] = form_open('jobopenings/insert_record/jobopenings');
 			$data['title'] = form_input(array(
 				            'name' => 'title',
@@ -91,6 +92,7 @@ class Jobopenings extends CI_Controller {
 			$data['success'] = true;
 			$data['items'] = $this->jobs_model->getAll();
 			$data['header'] = "Choose a Job to Edit";
+			$data['pgTitle'] = 'Add Job';
 			$this->load->view('cms/head', $data);
 			$this->load->view('cms/header');
 			$this->load->view('cms/delete_overlay');
@@ -122,6 +124,7 @@ class Jobopenings extends CI_Controller {
 					$quals = $job->jobs_reqs;
 				$data['bodyclass'] = "addjob";
 				$data['header'] = "Edit Job";
+				$data['pgTitle'] = 'Edit Job';
 				$data['formstart'] = form_open('jobopenings/update_record/jobopenings/' . $id);
 				$data['title'] = form_input(array(
 					            'name' => 'title',
@@ -171,6 +174,7 @@ class Jobopenings extends CI_Controller {
 			}else{
 				$data['bodyclass'] = "addjob";
 				$data['header'] = "Edit Job";
+				$data['pgTitle'] = 'Edit Job';
 				$data['formstart'] = form_open('jobopenings/update_record/jobopenings/' . $id);
 				$data['title'] = form_input(array(
 					            'name' => 'title',
@@ -221,6 +225,7 @@ class Jobopenings extends CI_Controller {
 		}else{
 			$data['items'] = $this->jobs_model->getAll();
 			$data['header'] = "Choose a Job to Edit";
+			$data['pgTitle'] = 'Edit Job';
 			$this->load->view('cms/head', $data);
 			$this->load->view('cms/header');
 			$this->load->view('cms/delete_overlay');

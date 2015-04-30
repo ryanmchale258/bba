@@ -31,9 +31,10 @@ class Staff extends CI_Controller {
 		}
 
 		if($this->form_validation->run() == FALSE){
-			$data['bodyclass'] = "addpage";
+			$data['bodyclass'] = "addstaff";
 			$data['header'] = "Add a New Staff Member";
 			$data['formstart'] = form_open('staff/insert_record/staff');
+			$data['pgTitle'] = 'Add Staff';
 			$data['name'] = form_input(array(
 				            'name' => 'name',
 				            'type' => 'text',
@@ -137,6 +138,7 @@ class Staff extends CI_Controller {
 			$data['success'] = true;
 			$data['items'] = $this->staffbio_model->getAll();
 			$data['header'] = "Choose Staff Member to Edit";
+			$data['pgTitle'] = 'Add Staff';
 			$this->load->view('cms/head', $data);
 			$this->load->view('cms/header');
 			$this->load->view('cms/delete_overlay');
@@ -175,9 +177,10 @@ class Staff extends CI_Controller {
 					$email = $staffbio->staffbios_email;
 					$rr = $staffbio->staffbios_rr;
 					$postalcode = $staffbio->staffbios_postalcode;
-				$data['bodyclass'] = "addpage";
+				$data['bodyclass'] = "addstaff";
 				$data['header'] = "Edit Staff Member";
 				$data['formstart'] = form_open('staff/update_record/staff/' . $id);
+				$data['pgTitle'] = 'Edit Staff';
 				$data['name'] = form_input(array(
 					            'name' => 'name',
 					            'type' => 'text',
@@ -279,8 +282,9 @@ class Staff extends CI_Controller {
 				$this->load->view('cms/tinymce-init');
 				$this->load->view('template/close');
 			}else{
-				$data['bodyclass'] = "addpage";
+				$data['bodyclass'] = "addstaff";
 				$data['header'] = "Edit Staff Member";
+				$data['pgTitle'] = 'Edit Staff';
 				$data['formstart'] = form_open('staff/update_record/staff/' . $id);
 				$data['name'] = form_input(array(
 					            'name' => 'name',
@@ -386,6 +390,7 @@ class Staff extends CI_Controller {
 		}else{
 			$data['items'] = $this->staffbio_model->getAll();
 			$data['header'] = "Choose Staff Member to Edit";
+			$data['pgTitle'] = 'Edit Staff';
 			$this->load->view('cms/head', $data);
 			$this->load->view('cms/header');
 			$this->load->view('cms/delete_overlay');

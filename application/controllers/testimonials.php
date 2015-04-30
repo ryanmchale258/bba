@@ -41,6 +41,7 @@ class Testimonials extends CI_Controller {
 			$data['bodyclass'] = "addpage";
 			$data['header'] = "Add a New Testimonial";
 			$data['formstart'] = form_open('testimonials/insert_record/testimonials');
+			$data['pgTitle'] = 'Add Testimonial';
 			$data['author'] = form_input(array(
 				            'name' => 'author',
 				            'type' => 'text',
@@ -87,6 +88,7 @@ class Testimonials extends CI_Controller {
 			$data['success'] = true;
 			$data['items'] = $this->testimonials_model->getAll();
 			$data['header'] = "Add a New Testimonial";
+			$data['pgTitle'] = 'Add Testimonial';
 			$this->load->view('cms/head', $data);
 			$this->load->view('cms/header');
 			$this->load->view('cms/delete_overlay');
@@ -119,6 +121,7 @@ class Testimonials extends CI_Controller {
 				$data['bodyclass'] = "addpage";
 				$data['header'] = "Edit Testimonial";
 				$data['formstart'] = form_open('testimonials/update_record/testimonials/' . $id);
+				$data['pgTitle'] = 'Edit Testimonial';
 				$data['author'] = form_input(array(
 					            'name' => 'author',
 					            'type' => 'text',
@@ -164,6 +167,7 @@ class Testimonials extends CI_Controller {
 			}else{
 				$data['bodyclass'] = "addpage";
 				$data['header'] = "Edit Testimonial";
+				$data['pgTitle'] = 'Edit Testimonial';
 				$data['formstart'] = form_open('testimonials/update_record/testimonials/' . $id);
 				$data['author'] = form_input(array(
 					            'name' => 'author',
@@ -212,6 +216,7 @@ class Testimonials extends CI_Controller {
 		}else{
 			$data['items'] = $this->testimonials_model->getAll();
 			$data['header'] = "Choose Testimonial to Edit";
+			$data['pgTitle'] = 'Edit Testimonial';
 			$this->load->view('cms/head', $data);
 			$this->load->view('cms/header');
 			$this->load->view('cms/delete_overlay');

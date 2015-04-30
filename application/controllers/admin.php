@@ -22,6 +22,7 @@ class Admin extends CI_Controller {
 		$this->form_validation->set_rules('emailconf', 'Email Confirmation', 'required');
 
 		if($this->form_validation->run() == FALSE){
+			$data['pgTitle'] = 'Add User';
 			$data['bodyclass'] = "createadmin";
 			$data['header'] = "Add a New User";
 			$data['formstart'] = form_open('admin/insert_record/admin');
@@ -71,6 +72,7 @@ class Admin extends CI_Controller {
 			$data['success'] = true;
 			$data['items'] = $this->admin_model->getAdmins();
 			$data['header'] = "Choose User to Edit";
+			$data['pgTitle'] = 'Add User';
 			$this->load->view('cms/head', $data);
 			$this->load->view('cms/header');
 			$this->load->view('cms/delete_overlay');
@@ -106,6 +108,7 @@ class Admin extends CI_Controller {
 					$level = $admindata->admin_level;
 				$data['bodyclass'] = "addpage";
 				$data['header'] = "Edit User";
+				$data['pgTitle'] = 'Edit User';
 				$data['formstart'] = form_open('admin/update_record/admin/' . $id);
 				$data['fname'] = form_input(array(
 					            'name' => 'fname',
@@ -158,6 +161,7 @@ class Admin extends CI_Controller {
 				$data['header'] = "Add a New Page";
 				$data['bodyclass'] = "createadmin";
 				$data['header'] = "Edit User";
+				$data['pgTitle'] = 'Edit User';
 				$data['formstart'] = form_open('admin/update_record/admin/' . set_value('id'));
 				$data['fname'] = form_input(array(
 					            'name' => 'fname',
@@ -206,6 +210,7 @@ class Admin extends CI_Controller {
 		}else{
 			$data['items'] = $this->admin_model->getAdmins();
 			$data['header'] = "Choose User to Edit";
+			$data['pgTitle'] = 'Edit User';
 			$this->load->view('cms/head', $data);
 			$this->load->view('cms/header');
 			$this->load->view('cms/delete_overlay');

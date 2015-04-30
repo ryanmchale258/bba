@@ -24,8 +24,8 @@
 							</li>
 							<li class="has-dropdown"><a href="<?php echo base_url() . index_page() ?>staff/edit">Staff</a>
 								<ul class="dropdown">
-									<li><a href="<?php echo base_url() . index_page() ?>home">Add</a></li>
-									<li><a href="<?php echo base_url() . index_page() ?>home">Edit</a></li>
+									<li><a href="<?php echo base_url() . index_page() ?>staff/add">Add</a></li>
+									<li><a href="<?php echo base_url() . index_page() ?>staff/edit">Edit</a></li>
 								</ul>
 							</li>
 							<?php if($this->session->userdata('level') == 1): ?>
@@ -69,6 +69,45 @@
 
 	<aside id="mobile-nav" class="right-off-canvas-menu hide-for-large-up">
 		<ul class="off-canvas-list">
-			<li><a href="<?php echo base_url() . index_page() ?>home">Add Page</a></li>
+			<li class="has-submenu">
+				<a href="<?php echo base_url() . index_page() ?>home">Pages</a>
+				<ul class="right-submenu">
+					<li><a href="<?php echo base_url() . index_page() ?>pages/add">Add</a></li>
+					<li><a href="<?php echo base_url() . index_page() ?>pages/edit">Edit</a></li>
+					<li class="back"><a href="#">Back</a></li>
+				</ul>
+			</li>
+			<li class="has-submenu">
+				<a href="<?php echo base_url() . index_page() ?>home">Users</a>
+				<ul class="right-submenu">
+					<li><a href="<?php echo base_url() . index_page() ?>admin/add">Add</a></li>
+					<li><a href="<?php echo base_url() . index_page() ?>admin/edit">Edit</a></li>
+					<li class="back"><a href="#">Back</a></li>
+				</ul>
+			</li>
+			<li class="has-submenu">
+				<a href="<?php echo base_url() . index_page() ?>home">Staff</a>
+				<ul class="right-submenu">
+					<li><a href="<?php echo base_url() . index_page() ?>staff/add">Add</a></li>
+					<li><a href="<?php echo base_url() . index_page() ?>staff/edit">Edit</a></li>
+					<li class="back"><a href="#">Back</a></li>
+				</ul>
+			</li>
+			<li class="has-submenu">
+				<a href="<?php echo base_url() . index_page() ?>home">Testimonials</a>
+				<ul class="right-submenu">
+					<li><a href="<?php echo base_url() . index_page() ?>testimonials/add">Add</a></li>
+					<li><a href="<?php echo base_url() . index_page() ?>testimonials/edit">Edit</a></li>
+					<li class="back"><a href="#">Back</a></li>
+				</ul>
+			</li>
+			<li class="has-submenu">
+				<a href="<?php echo base_url() . index_page() ?>home">Jobs</a>
+				<ul class="right-submenu">
+					<li><a href="<?php echo base_url() . index_page() ?>jobopenings/add">Add</a></li>
+					<li><a href="<?php echo base_url() . index_page() ?>jobopenings/edit">Edit</a></li>
+					<li class="back"><a href="#">Back</a></li>
+				</ul>
+			</li>
 		</ul>
 	</aside>

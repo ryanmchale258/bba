@@ -40,6 +40,7 @@ class Resources extends CI_Controller {
 		if($this->form_validation->run() == FALSE){
 			$data['bodyclass'] = "addpage";
 			$data['header'] = "Add a New Resource or Presentation";
+			$data['pgTitle'] = 'Add Resource';
 			$data['formstart'] = form_open('resources/insert_record/resources');
 			$data['title'] = form_input(array(
 				            'name' => 'title',
@@ -134,6 +135,7 @@ class Resources extends CI_Controller {
 					$manual = $resource->resource_manualprice;
 					$combo = $resource->resource_comboprice;
 				$data['bodyclass'] = "addpage";
+				$data['pgTitle'] = 'Add Resource';
 				$data['header'] = "Edit Resource";
 				$data['formstart'] = form_open('resources/update_record/resources/' . $id);
 				$data['title'] = form_input(array(
@@ -197,6 +199,7 @@ class Resources extends CI_Controller {
 				$this->load->view('template/close');
 			}else{
 				$data['bodyclass'] = "addpage";
+				$data['pgTitle'] = 'Edit Resource';
 				$data['header'] = "Edit Resource";
 				$data['formstart'] = form_open('resources/update_record/resources/' . $id);
 				$data['title'] = form_input(array(
@@ -264,6 +267,7 @@ class Resources extends CI_Controller {
 			$data['items'] = $this->orderform_model->getResources()['resources'];
 			$data['presentations'] = $this->orderform_model->getResources()['presentations'];
 			$data['header'] = "Choose Resource to Edit";
+			$data['pgTitle'] = 'Edit Resource';
 			$this->load->view('cms/head', $data);
 			$this->load->view('cms/header');
 			$this->load->view('cms/delete_overlay');
