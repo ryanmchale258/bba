@@ -26,4 +26,8 @@ class Delete_model extends CI_Model {
 		$this->db->delete('tbl_resource', array('resource_id' => $record));
 	}
 
+	public function staff($record) {
+		$this->db->delete('tbl_staffbios', array('staffbios_id' => $record));
+	}
+
 }

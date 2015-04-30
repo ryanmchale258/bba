@@ -77,4 +77,26 @@ class Insert_model extends CI_Model {
 		$this->db->insert('tbl_resource', $record);
 	}
 
+	public function staff() {
+		$record = array(
+					'staffbios_name' => $_POST['name'],
+					'staffbios_degree' => $_POST['degree'],
+					'staffbios_designation' => $_POST['designation'],
+					'staffbios_bio' => $_POST['bio'],
+					'staffbios_tagline' => $_POST['tagline'],
+					'staffbios_streetnumber' => $_POST['streetnumber'],
+					'staffbios_streetname' => $_POST['streetname'],
+					'staffbios_city' => $_POST['city'],
+					'staffbios_province' => $_POST['province'],
+					'staffbios_phone' => $_POST['phone'],
+					'staffbios_fax' => $_POST['fax'],
+					'staffbios_mobile' => $_POST['mobile'],
+					'staffbios_email' => $_POST['email'],
+					'staffbios_rr' => $_POST['rr'],
+					'staffbios_postalcode' => $_POST['postalcode']
+				);
+
+		$this->db->insert('tbl_staffbios', $record);
+	}
+
 }

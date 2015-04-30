@@ -276,6 +276,7 @@ class Staff extends CI_Controller {
 				$this->load->view('template/footer');
 
 				$this->load->view('template/scripts');
+				$this->load->view('cms/tinymce-init');
 				$this->load->view('template/close');
 			}else{
 				$data['bodyclass'] = "addpage";
@@ -403,10 +404,10 @@ class Staff extends CI_Controller {
 		$this->load->model('insert_model');
 		if($this->form_validation->run() != FALSE){
 			$this->insert_model->$function();
+			redirect('staff/edit');
+		}else{
+			$this->add();
 		}
-		
-		//$this->add();
-		redirect('staff/edit');
 	}
 
 	public function update_record($function, $record){
