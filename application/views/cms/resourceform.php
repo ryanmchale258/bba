@@ -1,7 +1,4 @@
-<div id="addpage" class="bodycontent">
-	<h1><?php echo $header; ?></h1>
-	
-<?php echo $formstart; ?>
+	<?php echo $formstart; ?>
 	<div class="row">
 		<label>Resource Title:</label>
 		<span class="formerror"><?php echo form_error('title'); ?></span>

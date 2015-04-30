@@ -75,6 +75,7 @@ class Resources extends CI_Controller {
 	        ));
 			$this->load->view('cms/head', $data);
 			$this->load->view('cms/header');
+			$this->load->view('cms/options');
 			$this->load->view('cms/resourceform');
 			$this->load->view('template/footer');
 
@@ -88,6 +89,131 @@ class Resources extends CI_Controller {
 			$this->load->view('cms/head', $data);
 			$this->load->view('cms/header');
 			$this->load->view('cms/delete_overlay');
+			$this->load->view('cms/options');
+			$this->load->view('cms/resourceslist');
+			$this->load->view('template/footer');
+
+			$this->load->view('template/scripts');
+			$this->load->view('cms/deletescript');
+			$this->load->view('template/close');
+		}
+
+	}
+
+	public function edit($record = null){
+		if(!$this->session->userdata('is_logged_in')){
+			redirect('login');
+		}
+
+		if($record != null){
+			if($this->form_validation->run() == FALSE){
+				$resource = $this->orderform_model->getToEdit($record);
+					$id = $resource->resource_id;
+					$title = $resource->resource_name;
+					$desc = $resource->resource_desc;
+					$email = $resource->resource_emailprice;
+					$cd = $resource->resource_cdprice;
+					$manual = $resource->resource_manualprice;
+					$combo = $resource->resource_comboprice;
+				$data['bodyclass'] = "addpage";
+				$data['header'] = "Edit Resource";
+				$data['formstart'] = form_open('resources/update_record/resources/' . $id);
+				$data['title'] = form_input(array(
+				            'name' => 'title',
+				            'type' => 'text',
+				            'placeholder' => 'Resource Title',
+				            'value' => $title
+	        ));
+	        $data['desc'] = form_textarea(array(
+				            'name' => 'desc',
+				            'type' => 'text',
+				            'placeholder' => 'Description',
+				            'value' => $desc
+	        ));
+	        $data['email'] = form_input(array(
+				            'name' => 'email',
+				            'type' => 'text',
+				            'value' => $email
+	        ));
+	        $data['combo'] = form_input(array(
+				            'name' => 'combo',
+				            'type' => 'text',
+				            'value' => $combo
+	        ));
+	        $data['cd'] = form_input(array(
+				            'name' => 'cd',
+				            'type' => 'text',
+				            'value' => $cd
+	        ));
+	        $data['manual'] = form_input(array(
+				            'name' => 'manual',
+				            'type' => 'text',
+				            'value' => $manual
+	        ));
+		        $data['id'] = form_hidden('id', $id);
+				$this->load->view('cms/head', $data);
+				$this->load->view('cms/header');
+				$this->load->view('cms/options');
+				$this->load->view('cms/resourceform');
+				$this->load->view('template/footer');
+
+				$this->load->view('template/scripts');
+				$this->load->view('template/close');
+			}else{
+				$data['bodyclass'] = "addpage";
+				$data['header'] = "Edit Resource";
+				$data['formstart'] = form_open('resources/update_record/resources/' . $id);
+				$data['title'] = form_input(array(
+				            'name' => 'title',
+				            'type' => 'text',
+				            'placeholder' => 'Resource Title',
+				            'value' => set_value('title')
+	        ));
+	        $data['desc'] = form_textarea(array(
+				            'name' => 'desc',
+				            'type' => 'text',
+				            'placeholder' => 'Description',
+				            'value' => set_value('Description')
+	        ));
+	        $data['email'] = form_input(array(
+				            'name' => 'email',
+				            'type' => 'text',
+				            'value' => set_value('email')
+	        ));
+	        $data['combo'] = form_input(array(
+				            'name' => 'combo',
+				            'type' => 'text',
+				            'value' => set_value('combo')
+	        ));
+	        $data['cd'] = form_input(array(
+				            'name' => 'cd',
+				            'type' => 'text',
+				            'value' => set_value('cd')
+	        ));
+	        $data['manual'] = form_input(array(
+				            'name' => 'manual',
+				            'type' => 'text',
+				            'value' => set_value('manual')
+	        ));
+		        $data['id'] = form_hidden('id', $id);
+				$this->load->view('cms/head', $data);
+				$this->load->view('cms/header');
+				$this->load->view('cms/options');
+				$this->load->view('cms/resourceform');
+				$this->load->view('template/footer');
+
+				$this->load->view('template/scripts');
+				$this->load->view('cms/tinymce-init');
+				$this->load->view('template/close');
+			}
+		}else{
+			$data['items'] = $this->orderform_model->getResources()['resources'];
+			$data['presentations'] = $this->orderform_model->getResources()['presentations'];
+			$data['header'] = "Choose Resource to Edit";
+			$this->load->view('cms/head', $data);
+			$this->load->view('cms/header');
+			$this->load->view('cms/delete_overlay');
+			$this->load->view('cms/options');
 			$this->load->view('cms/resourceslist');
 			$this->load->view('template/footer');
 

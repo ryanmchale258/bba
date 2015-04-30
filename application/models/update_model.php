@@ -86,4 +86,18 @@ class Update_model extends CI_Model {
 		$this->db->update('tbl_jobs', $record);
 	}
 
+	public function resources() {
+		$record = array(
+					'resource_name' => $_POST['title'],
+					'resource_desc' => $_POST['desc'],
+					'resource_cdprice' => $_POST['cd'],
+					'resource_emailprice' => $_POST['email'],
+					'resource_comboprice' => $_POST['combo'],
+					'resource_manualprice' => $_POST['manual']
+				);
+
+		$this->db->where('resource_id', $_POST['id']);
+		$this->db->update('tbl_resource', $record);
+	}
+
 }
