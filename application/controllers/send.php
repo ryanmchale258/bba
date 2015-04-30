@@ -37,12 +37,12 @@ class Send extends CI_Controller {
 	public function orderform()	{
 		$this->load->model('orderform_model');
 		$arrResources = $this->orderform_model->getAll();
-		// $email_setting  = array('mailtype'=>'html');
-		// $this->email->initialize($email_setting);
-		// 	$this->email->from('no-reply@barkerblagrave-rds.com', 'Order Form Submission');
-		// 	$this->email->to('sarah@faulds.ca'); 
+		$email_setting  = array('mailtype'=>'html');
+		$this->email->initialize($email_setting);
+			$this->email->from('no-reply@barkerblagrave-rds.com', 'Order Form Submission');
+			$this->email->to('ryan.mchale258@gmail.com'); 
 
-		// 	$this->email->subject('Order Form Submission: ' . $this->input->post('name'));
+			$this->email->subject('Order Form Submission: ' . $this->input->post('name'));
 
 			$selectedPresentations  = 'None';
 			if(isset($_POST['presentations']) && is_array($_POST['presentations']) && count($_POST['presentations']) > 0){
@@ -117,16 +117,13 @@ class Send extends CI_Controller {
 			    </html>
 			';
 
-			$data['message'] = $message;
-			$this->load->view('test', $data);
+			$this->email->message($message);	
 
-			// $this->email->message($message);	
-
-			// if($this->email->send()){
-			// 	redirect('page/thankyou');
-			// }else{
-			// 	echo $this->email->print_debugger();
-			// }
+			if($this->email->send()){
+				redirect('page/thankyou');
+			}else{
+				echo $this->email->print_debugger();
+			}
 
 	}
 
