@@ -8,7 +8,7 @@
 		    	<a href="<?php echo base_url() . 'index.php/staff/edit/' . $row->staffbios_id; ?>" class="edt">Edit</a>
 				<a class="del" href="#" data-record="<?php echo $row->staffbios_id; ?>" data-title="<?php echo $row->staffbios_name; ?>" data-controller="staff">Delete</a>
 		    </div>
-		      <p>"<?php echo $row->staffbios_bio; ?>"</p>
+		      <p><?php echo $row->staffbios_bio; ?></p>
 		    </div>
 		  </li>
 		<?php endforeach; ?>
