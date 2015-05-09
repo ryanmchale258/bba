@@ -22,9 +22,10 @@
 				<?php echo $row->staffbios_city.', '.$row->staffbios_province.' '.$row->staffbios_postalcode; ?><br>
 				Tel: <a href="tel:+<?php echo preg_replace('/\D+/', '', $row->staffbios_phone); ?>"><?php echo $row->staffbios_phone; ?></a><br>
 				<?php if(isset($row->staffbios_mobile) && $row->staffbios_mobile != NULL ){echo "Mobile: <a href=\"tel:+" . preg_replace('/\D+/', '', $row->staffbios_mobile) . "\">" . $row->staffbios_mobile . "</a><br>"; }?>
-				<?php echo 'Fax: '.$row->staffbios_fax; ?><br>
+				<?php if(isset($row->staffbios_fax) && $row->staffbios_fax != NULL ){echo "Fax: " . $row->staffbios_fax . "<br>"; }?>
 				Email: <a href="mailto:<?php echo $row->staffbios_email; ?>"><?php echo $row->staffbios_email; ?></a><br>
 				<?php if(isset($row->staffbios_mobile) && $row->staffbios_mobile == NULL ){echo '<br>'; }?>
+				<?php if(isset($row->staffbios_fax) && $row->staffbios_fax == NULL ){echo '<br>'; }?>
 			</p>
 		</article>
 	<?php endforeach; ?>

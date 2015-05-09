@@ -264,7 +264,7 @@ class Admin extends CI_Controller {
 			$this->email->from('no-reply@barkerblagrave-rds.com', 'Barker Blagrave & Associates');
 			$this->email->to($_POST['email']); 
 			$this->email->subject('New Administrator Signup');
-			$this->email->message('You have been registered as an administrator on barkerblagrave.com. Your username is ' . $_POST['username'] . ' and your temporary password is ' .  $pass . '. Visit barkerblagrave.com/login to sign in.');	
+			$this->email->message('You have been registered as an administrator on barkerblagrave.com. Your username is ' . $_POST['username'] . ' and your temporary password is ' .  $pass . '. Visit www.barkerblagrave.com/login to sign in.');	
 			$this->email->send();
 			//echo $this->email->print_debugger();
 
@@ -319,7 +319,7 @@ class Admin extends CI_Controller {
 		$this->email->from('no-reply@barkerblagrave-rds.com', 'Barker Blagrave & Associates');
 		$this->email->to($emailAddress); 
 		$this->email->subject('Password Reset');
-		$this->email->message('Your password has been reset to ' .  $pass . '. Please sign in with your temporary password in order to change it to a password of your choice.');	
+		$this->email->message('Your password has been reset to ' .  $pass . '. Please sign in with your temporary password in order to change it to a password of your choice. You can sign in at http://www.barkerblagrave.com/login.');	
 		$this->email->send();
 		//echo $this->email->print_debugger();
 

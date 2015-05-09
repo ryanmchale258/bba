@@ -8,11 +8,11 @@
 		    	<a href="<?php echo base_url() . 'index.php/resources/edit/' . $row->resource_id; ?>" class="edt">Edit</a>
 				<a class="del" href="#" data-record="<?php echo $row->resource_id; ?>" data-title="<?php echo $row->resource_name; ?>" data-controller="resources">Delete</a>
 		    </div>
-		      <p>Description: <?php echo $row->resource_desc; ?></p>
+		      <?php if(!empty($row->resource_desc)){ echo '<p>Description: ' . $row->resource_desc . '</p>'; } ?>
 		      <?php if(!empty($row->resource_cdprice)){ echo '<p>CD Price: ' . $row->resource_cdprice . '</p>'; } ?>
 		      <?php if(!empty($row->resource_emailprice)){ echo '<p>Email Price: ' . $row->resource_emailprice . '</p>'; } ?>
 		      <?php if(!empty($row->resource_manualprice)){ echo '<p>Manual Price: ' . $row->resource_manualprice . '</p>'; } ?>
-		      <?php if(!empty($row->resource_comboprice)){ echo '<p>Combo Price: ' . $row->resource_comboprice . '</p>'; } ?>
+		      <?php if(!empty($row->resource_individualprice)){ echo '<p>Individual Price: ' . $row->resource_individualprice . '</p>'; } ?>
 		       <?php 
 			    	foreach($presentations as $pres){
 			    		if($pres->resource_id == $row->resource_id){

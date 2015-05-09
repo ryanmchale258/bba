@@ -290,9 +290,9 @@ main {
 	margin: 10px;
 }
 
-.bio p:nth-child(even) {
+/*.bio p:nth-child(even) {
 	clear: both;
-}
+}*/
 
 #testimonials {
 	margin: 0;
@@ -693,6 +693,7 @@ input.formsubmit {
 	margin: 10px auto;
 	display: block;
 	cursor: pointer;
+	clear: both;
 }
 
 .settingshome a.restore {
@@ -876,10 +877,67 @@ h2.inline {
 	display: block !important;
 }
 
+.empty,
 .addpresentations {
 	display: none;
 }
 
+.insentence {
+	display: inline-block !important;
+	width: 60px !important;
+}
+
+.inputset .fa {
+	padding: .5rem;
+	height: 2.3125rem;
+	font-size: 0.875rem;
+	display: inline-block;
+	border: 1px solid #cccccc;
+	top: -3px;
+	position: relative;
+	cursor: pointer;
+}
+
+.inputset .addmore {
+	display: none;
+}
+
+#initial .duplicateme .addmore {
+	display: inline-block;
+}
+
+#initial .duplicateme .removeit {
+	display: none;
+}
+
+.addpresentations input {
+	display: inline-block;
+	width: 60%;
+}
+
+.imguploadcontainer {
+	height: 220px;
+	text-align: center;
+}
+
+.imguploadcontainer img {
+	height: 100%;
+}
+
+.imguploadcontainer input#imgInputOv {
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  width: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.cmsnav .top-bar-section ul li a {
+	font-size: 0.7125rem;
+}
 
 @media screen and (min-width:640px){
 	.cmslinks {

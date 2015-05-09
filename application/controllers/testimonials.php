@@ -234,18 +234,17 @@ class Testimonials extends CI_Controller {
 	public function insert_record($function) {
 		$this->load->model('insert_model');
 		if($this->form_validation->run() != FALSE){
-			$this->insert_model->$function();
+			$this->update_model->$function();
+			redirect('testimonials/edit');
+		}else{
+			$this->add();
 		}
-		
-		//$this->add();
-		redirect('testimonials/edit');
 	}
 
 	public function update_record($function, $record){
 		$this->load->model('update_model');
 		if($this->form_validation->run() != FALSE){
 			$this->update_model->$function();
-			//$this->edit();
 			redirect('testimonials/edit');
 		}else{
 			$this->edit($record);

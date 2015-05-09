@@ -56,7 +56,9 @@ class Orderform_model extends CI_Model {
 	}
 
 	public function getToEdit($record){
-		$page = $this->db->get_where('tbl_resource', array('resource_id' => $record));
-		return $page->row();
+		$resource = $this->db->get_where('tbl_resource', array('resource_id' => $record))->row();
+		$presentations = $this->db->get_where('tbl_presentation', array('resource_id' => $record))->result();
+		$resource->resource_presentations = $presentations;
+		return $resource;
 	}
 }

@@ -133,9 +133,21 @@ $(document).ready(function(){
 		setHeights();
 	});
 
+	if($('input[name="indprice"').length){
+		if($('input[name="indprice"').is(':checked')){
+			$('.empty').removeClass('showme');
+			$('.addpresentations').addClass('showme');
+		}
+	}
+
 });
 
 function toggleInput(value){
+	if($('input[name="indprice"]').attr('checked', true)){
+		$('input[name="indprice"]').attr('checked', false);
+		$('.addpresentations').toggleClass('showme');
+		$('.empty').toggleClass('showme');
+	}
 	var name = value;
 	if($('input[name="' + name + '"]').length){
 		destroyInput(name);
@@ -155,9 +167,33 @@ function destroyInput(name){
 
 function togglePres(){
 	$('.addpresentations').toggleClass('showme');
+	$('.empty').toggleClass('showme');
+	if($('input[name="indprice"]').attr('checked', true)){
+		$('input[name="emailprice"]').attr('checked', false);
+		if($('input[name="email"]').length){
+			toggleInput('email');
+		}
+		$('input[name="cdprice"]').attr('checked', false);
+		if($('input[name="cd"]').length){
+			toggleInput('cd');
+		}
+		$('input[name="manualprice"]').attr('checked', false);
+		if($('input[name="manual"]').length){
+			toggleInput('manual');
+		}
+	}
 }
 
-function duplicator(){
-	var newInput = $('#initial').clone().appendTo($('.addpresentations'));
-	newInput.attr('id', '');
-}
+$('i.removeit').on('click', function(){
+	$(this).parent().remove();
+});
+
+$('i.addmore').on('click', function(){
+	var newInput = $('.duplicateme').clone().prependTo($('.presentationslist'));
+	newInput.find('input').val('');
+	newInput.removeClass('duplicateme');
+
+	$('i.removeit').on('click', function(){
+		$(this).parent().remove();
+	});
+});

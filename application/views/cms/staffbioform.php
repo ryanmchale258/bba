@@ -1,6 +1,11 @@
 <?php echo $formstart; ?>
 	<div class="row">
 		<div class="staff-photo small-6 columns">
+			<?php if($imgerror){ echo '<span class="formerror">' . $imgerror . '</span>'; } ?>
+			<div class="imguploadcontainer">
+        	   <img src="<?php echo $imagesource; ?>" alt="Choose an Image" id="imageButton" type="file" name="image">
+            	<?php echo $img; ?>
+            </div>
 		</div>
 		
 		<div class="small-6 columns">
@@ -74,12 +79,6 @@
 			<label>Postal Code:</label>
 			<span class="formerror"><?php echo form_error('postalcode'); ?></span>
 			<?php echo $postalcode; ?>
-		</div>
-		
-		<div class="small-12 columns">
-			<label>Tagline:</label>
-			<span class="formerror"><?php echo form_error('tagline'); ?></span>
-			<?php echo $tagline; ?>
 		</div>
 		
 		<div class="small-12 columns">

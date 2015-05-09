@@ -244,18 +244,17 @@ class Jobopenings extends CI_Controller {
 		$this->load->model('insert_model');
 		if($this->form_validation->run() != FALSE){
 			$this->insert_model->$function();
+			redirect('jobopenings/edit');
+		}else{
+			$this->add();
 		}
-		
-		//$this->add();
-		redirect('admin/edit');
 	}
 
 	public function update_record($function, $record){
 		$this->load->model('update_model');
 		if($this->form_validation->run() != FALSE){
 			$this->update_model->$function();
-			//$this->edit();
-			redirect('admin/edit');
+			redirect('jobopenings/edit');
 		}else{
 			$this->edit($record);
 		}

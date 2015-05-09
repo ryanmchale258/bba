@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
+-- version 4.0.10.7
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: May 08, 2015 at 02:33 AM
--- Server version: 5.6.17
--- PHP Version: 5.5.12
+-- Host: localhost
+-- Generation Time: May 07, 2015 at 08:15 PM
+-- Server version: 5.5.42-cll
+-- PHP Version: 5.4.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: 'db_bba'
+-- Database: 'barkerbl_site'
 --
 
 -- --------------------------------------------------------
@@ -40,8 +40,9 @@ CREATE TABLE IF NOT EXISTS captcha (
 --
 
 INSERT INTO captcha (captcha_id, captcha_time, ip_address, word) VALUES
-(1, 1430435715, '174.93.32.237', 'zF3sGw2U'),
-(2, 1430436230, '174.93.32.237', 'jgf1CM1i');
+(3, 1431045749, '174.93.32.237', '8RCaJb4u'),
+(4, 1431045798, '174.93.32.237', '5PW6krK7'),
+(5, 1431046001, '174.93.32.237', 'imk6zKy4');
 
 -- --------------------------------------------------------
 
@@ -64,7 +65,9 @@ CREATE TABLE IF NOT EXISTS ci_sessions (
 --
 
 INSERT INTO ci_sessions (session_id, ip_address, user_agent, last_activity, user_data) VALUES
-('09663e98a63f15a94ad368f4caee2d55', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36', 1431045192, 'a:6:{s:9:"user_data";s:0:"";s:8:"username";s:10:"ryanmchale";s:4:"name";s:4:"Ryan";s:3:"sId";s:1:"1";s:5:"level";s:1:"1";s:12:"is_logged_in";b:1;}');
+('09663e98a63f15a94ad368f4caee2d55', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36', 1431045192, 'a:6:{s:9:"user_data";s:0:"";s:8:"username";s:10:"ryanmchale";s:4:"name";s:4:"Ryan";s:3:"sId";s:1:"1";s:5:"level";s:1:"1";s:12:"is_logged_in";b:1;}'),
+('5cd1023cf2223ff7cc17bf6888b7c722', '62.212.89.117', 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:37.0) Gecko/20100101 Firefox/37.0', 1431047659, ''),
+('6e97efdfb996337c812a45368c609be6', '174.93.32.237', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36', 1431047507, 'a:6:{s:9:"user_data";s:0:"";s:8:"username";s:10:"newestuser";s:4:"name";s:3:"New";s:3:"sId";s:1:"6";s:5:"level";s:1:"1";s:12:"is_logged_in";b:1;}');
 
 -- --------------------------------------------------------
 
@@ -90,7 +93,8 @@ CREATE TABLE IF NOT EXISTS tbl_admin (
 --
 
 INSERT INTO tbl_admin (admin_id, admin_username, admin_password, admin_firstname, admin_lastname, admin_email, admin_level, admin_lastlogin, admin_lastsession) VALUES
-(1, 'ryanmchale', 'd66fcc742cc640480ace083585445fd5cb3ea224', 'Ryan', 'McHale', 'r_mchale2@fanshaweonline.ca', 1, 1431035271, '7f09498be9457bfc15dfad2f3ccd4377');
+(1, 'ryanmchale', 'd66fcc742cc640480ace083585445fd5cb3ea224', 'Ryan', 'McHale', 'contact@ryanmchale.ca', 1, 1431047487, 'b1b4010b6ba9cb6e44265ba2cdb3fd2e'),
+(7, 'sarahfaulds', 'b62e66840c7cde82a0e94531f7456b333c74aef5', 'Sarah', 'Faulds', 'sarah@faulds.ca', 1, 0, '');
 
 -- --------------------------------------------------------
 
@@ -185,7 +189,7 @@ INSERT INTO tbl_pages (pages_id, pages_slug, pages_title, pages_meta, pages_cont
 (2, 'services', 'What We Do', '', '', 1, 0, NULL, 1, 0),
 (3, 'resources', 'Resources', '', 'Resources - Coming Soon', 1, 0, NULL, 1, 0),
 (4, 'orderform', 'Order Form', '', 'Order Form - Coming Soon', 1, 0, NULL, 1, 0),
-(5, 'thankyou', 'Thank You', 'This is a meta description', '<p>Thank you for your interest in Barker, Blagrave & Associates. We will respond to your inquiry promptly. If this is an emergency, please contact the approprate member of our staff via the method of your choice listed on our <a href="<?php echo base_url() . index_page() ?>staffcontact">Staff Contact page</a>.</p>', 2, 0, 'null', 0, 0),
+(5, 'thankyou', 'Thank You', 'This is a meta description', '<p>Thank you for your interest in Barker, Blagrave &amp; Associates. We will respond to your inquiry promptly. If this is an emergency, please contact the approprate member of our staff via the method of your choice listed on our <a href="../../staffcontact">Staff Contact page</a>.</p>', 2, 0, 'null', 0, 0),
 (6, 'contact', 'Contact Us', '', '', 1, 0, NULL, 1, 0),
 (7, 'jobopenings', 'Job Openings', '', 'Job Openings - Coming Soon', 2, 0, 'contact', 1, 1),
 (8, 'staffcontact', 'Staff Contact Info', '', 'Staff Contact Info - Coming Soon', 2, 0, 'contact', 1, 2),
@@ -287,7 +291,7 @@ CREATE TABLE IF NOT EXISTS tbl_settings (
 
 INSERT INTO tbl_settings (settings_id, settings_email) VALUES
 (1, 'sarah@faulds.ca'),
-(2, 'ryan.mchale258@gmail.com');
+(2, 'sarah@faulds.ca');
 
 -- --------------------------------------------------------
 

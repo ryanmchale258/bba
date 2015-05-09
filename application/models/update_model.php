@@ -41,7 +41,8 @@ class Update_model extends CI_Model {
 
 	public function newpass($id, $encpass) {
 		$record = array(
-					'admin_password' => $encpass
+					'admin_password' => $encpass,
+					'admin_lastsession' => null
 				);
 
 		$this->db->where('admin_id', $id);
@@ -87,6 +88,10 @@ class Update_model extends CI_Model {
 	}
 
 	public function resources() {
+
+		$this->db->delete('tbl_presentation', array('resource_id' => $_POST['id']));
+
+
 		if(isset($_POST['cdprice'])){
 			$cdprice = number_format((float)str_replace('$', '', $_POST['cd']), 2, '.', '');
 		}else{
@@ -102,46 +107,51 @@ class Update_model extends CI_Model {
 		}else{
 			$manualprice = '';
 		}
-		if(isset($_POST['comboprice'])){
-			$comboprice = number_format((float)str_replace('$', '', $_POST['combo']), 2, '.', '');
+		if(isset($_POST['indprice'])){
+			$indprice = number_format((float)str_replace('$', '', $_POST['ind']), 2, '.', '');
+			$haschecklist = '1';
 		}else{
-			$comboprice = '';
+			$indprice = '';
+			$haschecklist = '0';
 		}
+		if(isset($_POST['discper'])){
+			$discountprice = number_format((float)str_replace('$', '', $_POST['discper']), 2, '.', '');
+		}else{
+			$discountprice = '';
+		}
+
 		$record = array(
 					'resource_name' => $_POST['title'],
 					'resource_slug' => str_replace(' ', '-', strtolower($_POST['title'])),
 					'resource_desc' => $_POST['desc'],
 					'resource_cdprice' => $cdprice,
 					'resource_emailprice' => $emailprice,
-					'resource_comboprice' => $comboprice,
-					'resource_manualprice' => $comboprice
+					'resource_manualprice' => $comboprice,
+					'resource_checklist' => $haschecklist,
+					'resource_individualprice' => $indprice,
+					'resource_discount' => $discountprice,
+					'resource_discountreq' => $_POST['peramt']
 				);
 
 		$this->db->where('resource_id', $_POST['id']);
 		$this->db->update('tbl_resource', $record);
+
+		if(isset($_POST['indprice'])){
+			foreach($_POST['presentationitems'] as $pres){
+				if(!empty($pres)){
+					$presrecord = array(
+							'presentation_name' => $pres,
+							'resource_id' => $_POST['id']
+						);
+					$this->db->insert('tbl_presentation', $presrecord);
+				}
+			}
+		}
 	}
 
-	public function staff() {
-		$record = array(
-					'staffbios_name' => $_POST['name'],
-					'staffbios_degree' => $_POST['degree'],
-					'staffbios_designation' => $_POST['designation'],
-					'staffbios_bio' => $_POST['bio'],
-					'staffbios_tagline' => $_POST['tagline'],
-					'staffbios_streetnumber' => $_POST['streetnumber'],
-					'staffbios_streetname' => $_POST['streetname'],
-					'staffbios_city' => $_POST['city'],
-					'staffbios_province' => $_POST['province'],
-					'staffbios_phone' => $_POST['phone'],
-					'staffbios_fax' => $_POST['fax'],
-					'staffbios_mobile' => $_POST['mobile'],
-					'staffbios_email' => $_POST['email'],
-					'staffbios_rr' => $_POST['rr'],
-					'staffbios_postalcode' => $_POST['postalcode']
-				);
-
-		$this->db->where('staffbios_id', $_POST['id']);
-		$this->db->update('tbl_staffbios', $record);
+	public function staff($record, $data) {
+		$this->db->where('staffbios_id', $record);
+		$this->db->update('tbl_staffbios', $data);
 	}
 
 	public function settings() {
@@ -151,13 +161,6 @@ class Update_model extends CI_Model {
 
 		$this->db->where('settings_id', 2);
 		$this->db->update('tbl_settings', $record);
-	}
-
-	public function restore_defaults() {
-		$default = $this->db->get_where('tbl_settings', array('settings_id' => 1))->row();
-
-		$this->db->where('settings_id', 2);
-		$this->db->update('tbl_settings', $default);
 	}
 
 }

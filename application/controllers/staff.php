@@ -7,12 +7,12 @@ class Staff extends CI_Controller {
 		$this->load->model('staffbio_model');
 		$this->load->model('navigation_model');
 		$this->load->helper('form');
+		$this->load->helper('fileupload_helper');
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('name', 'Name', 'trim|required');
 		$this->form_validation->set_rules('degree', 'Degree', 'trim');
 		$this->form_validation->set_rules('designation', 'Designation', 'trim');
 		$this->form_validation->set_rules('bio', 'Biography', 'trim|required');
-		$this->form_validation->set_rules('tagline', 'Brief Tagline', 'trim|required');
 		$this->form_validation->set_rules('streetnumber', 'Street Number', 'trim|required');
 		$this->form_validation->set_rules('streetname', 'Testimonial', 'trim|required');
 		$this->form_validation->set_rules('city', 'City', 'trim|required');
@@ -25,15 +25,20 @@ class Staff extends CI_Controller {
 		$this->form_validation->set_rules('postalcode', 'Postal Code', 'trim|required');
 	}	
 
-	public function add(){
+	public function add($error = null){
 		if(!$this->session->userdata('is_logged_in')){
 			redirect('login');
 		}
 
 		if($this->form_validation->run() == FALSE){
+			if($error){
+				$data['imgerror'] = $error;
+			}else{
+				$data['imgerror'] = '';
+			}
 			$data['bodyclass'] = "addstaff";
 			$data['header'] = "Add a New Staff Member";
-			$data['formstart'] = form_open('staff/insert_record/staff');
+			$data['formstart'] = form_open_multipart('staff/insert_record/staff');
 			$data['pgTitle'] = 'Add Staff';
 			$data['name'] = form_input(array(
 				            'name' => 'name',
@@ -53,6 +58,13 @@ class Staff extends CI_Controller {
 				            'placeholder' => 'RD',
 				            'value' => set_value('designation')
 	        ));
+	        $data['imagesource'] = base_url() . 'img/staffbios/upload.png';
+	        $data['img'] = form_input(array(
+									'name' => 'userfile',
+									'type' => 'file',
+									'id' => 'imgInputOv',
+									'onchange' => 'readURL(this)'
+			));
 	        $data['streetnumber'] = form_input(array(
 				            'name' => 'streetnumber',
 				            'type' => 'text',
@@ -113,12 +125,6 @@ class Staff extends CI_Controller {
 				            'placeholder' => 'A1A 1A1',
 				            'value' => set_value('postalcode')
 	        ));
-	        $data['tagline'] = form_input(array(
-				            'name' => 'tagline',
-				            'type' => 'text',
-				            'placeholder' => 'Short Description of Staff Member',
-				            'value' => set_value('designation')
-	        ));
 	        $data['bio'] = form_textarea(array(
 				            'name' => 'bio',
 				            'placeholder' => 'A longer biography of Staff Member',
@@ -133,6 +139,7 @@ class Staff extends CI_Controller {
 
 			$this->load->view('template/scripts');
 			$this->load->view('cms/tinymce-init');
+			$this->load->view('cms/readurl');
 			$this->load->view('template/close');
 		}else{
 			$data['success'] = true;
@@ -153,19 +160,24 @@ class Staff extends CI_Controller {
 
 	}
 
-	public function edit($record = null){
+	public function edit($record = null, $error = null){
 		if(!$this->session->userdata('is_logged_in')){
 			redirect('login');
 		}
 
 		if($record != null){
+			if($error){
+				$data['imgerror'] = $error;
+			}else{
+				$data['imgerror'] = '';
+			}
 			if($this->form_validation->run() == FALSE){
 				$staffbio = $this->staffbio_model->getToEdit($record);
 					$id = $staffbio->staffbios_id;
 					$name = $staffbio->staffbios_name;
 					$degree = $staffbio->staffbios_degree;
 					$designation = $staffbio->staffbios_designation;
-					$tagline = $staffbio->staffbios_tagline;
+					$imgpath = $staffbio->staffbios_photo;
 					$streetnumber = $staffbio->staffbios_streetnumber;
 					$bio = $staffbio->staffbios_bio;
 					$streetname = $staffbio->staffbios_streetname;
@@ -179,7 +191,7 @@ class Staff extends CI_Controller {
 					$postalcode = $staffbio->staffbios_postalcode;
 				$data['bodyclass'] = "addstaff";
 				$data['header'] = "Edit Staff Member";
-				$data['formstart'] = form_open('staff/update_record/staff/' . $id);
+				$data['formstart'] = form_open_multipart('staff/update_record/staff/' . $id);
 				$data['pgTitle'] = 'Edit Staff';
 				$data['name'] = form_input(array(
 					            'name' => 'name',
@@ -199,6 +211,17 @@ class Staff extends CI_Controller {
 					            'placeholder' => 'RD',
 					            'value' => $designation
 		        ));
+		        if((empty($imgpath) === FALSE) && (stristr($imgpath, 'default') === FALSE)){
+					$data['imagesource'] = base_url() . 'img/staffbios/' . $imgpath;
+				}else{
+					$data['imagesource'] = base_url() . 'img/staffbios/upload.png';
+				}
+				$data['img'] = form_input(array(
+										'name' => 'userfile',
+										'type' => 'file',
+										'id' => 'imgInputOv',
+										'onchange' => 'readURL(this)'
+				));
 		        $data['streetnumber'] = form_input(array(
 					            'name' => 'streetnumber',
 					            'type' => 'text',
@@ -259,12 +282,6 @@ class Staff extends CI_Controller {
 					            'placeholder' => 'A1A 1A1',
 					            'value' => $postalcode
 		        ));
-		        $data['tagline'] = form_input(array(
-					            'name' => 'tagline',
-					            'type' => 'text',
-					            'placeholder' => 'Short Description of Staff Member',
-					            'value' => $tagline
-		        ));
 		        $data['bio'] = form_textarea(array(
 					            'name' => 'bio',
 					            'placeholder' => 'A longer biography of Staff Member',
@@ -280,12 +297,18 @@ class Staff extends CI_Controller {
 
 				$this->load->view('template/scripts');
 				$this->load->view('cms/tinymce-init');
+				$this->load->view('cms/readurl');
 				$this->load->view('template/close');
 			}else{
+				if($error){
+					$data['imgerror'] = $error;
+				}else{
+					$data['imgerror'] = '';
+				}
 				$data['bodyclass'] = "addstaff";
 				$data['header'] = "Edit Staff Member";
 				$data['pgTitle'] = 'Edit Staff';
-				$data['formstart'] = form_open('staff/update_record/staff/' . $id);
+				$data['formstart'] = form_open_multipart('staff/update_record/staff/' . $id);
 				$data['name'] = form_input(array(
 					            'name' => 'name',
 					            'type' => 'text',
@@ -304,6 +327,13 @@ class Staff extends CI_Controller {
 					            'placeholder' => 'RD',
 					            'value' => set_value('designation')
 		        ));
+		        $data['imagesource'] = base_url() . 'img/staffbios/upload.png';
+				$data['image'] = form_input(array(
+										'name' => 'userfile',
+										'type' => 'file',
+										'id' => 'imgInputOv',
+										'onchange' => 'readURL(this)'
+				));
 		        $data['streetnumber'] = form_input(array(
 					            'name' => 'streetnumber',
 					            'type' => 'text',
@@ -364,12 +394,6 @@ class Staff extends CI_Controller {
 					            'placeholder' => 'A1A 1A1',
 					            'value' => set_value('postalcode')
 		        ));
-		        $data['tagline'] = form_input(array(
-					            'name' => 'tagline',
-					            'type' => 'text',
-					            'placeholder' => 'Short Description of Staff Member',
-					            'value' => set_value('designation')
-		        ));
 		        $data['bio'] = form_textarea(array(
 					            'name' => 'bio',
 					            'placeholder' => 'A longer biography of Staff Member',
@@ -385,6 +409,7 @@ class Staff extends CI_Controller {
 
 				$this->load->view('template/scripts');
 				$this->load->view('cms/tinymce-init');
+				$this->load->view('cms/readurl');
 				$this->load->view('template/close');
 			}
 		}else{
@@ -405,22 +430,95 @@ class Staff extends CI_Controller {
 
 	}
 
-	public function insert_record($function) {
+	public function insert_record() {
 		$this->load->model('insert_model');
+		$file_name = rand(1,50000) . '_' . str_replace(' ', '-', strtolower($_POST['name'])) . '_bioimage';
+    	$filepath = './img/staffbios/';
+    	$origpath = $_FILES['userfile']['name'];
+		$ext = pathinfo($origpath, PATHINFO_EXTENSION);
+		$upload = upload_file($file_name, $filepath);
 		if($this->form_validation->run() != FALSE){
-			$this->insert_model->$function();
-			redirect('staff/edit');
+			$data = array(
+				'staffbios_name' => $_POST['name'],
+				'staffbios_degree' => $_POST['degree'],
+				'staffbios_designation' => $_POST['designation'],
+				'staffbios_photo' => $file_name . '.' . $ext,
+				'staffbios_bio' => $_POST['bio'],
+				'staffbios_streetnumber' => $_POST['streetnumber'],
+				'staffbios_streetname' => $_POST['streetname'],
+				'staffbios_city' => $_POST['city'],
+				'staffbios_province' => $_POST['province'],
+				'staffbios_phone' => $_POST['phone'],
+				'staffbios_fax' => $_POST['fax'],
+				'staffbios_mobile' => $_POST['mobile'],
+				'staffbios_email' => $_POST['email'],
+				'staffbios_rr' => $_POST['rr'],
+				'staffbios_postalcode' => $_POST['postalcode']
+			);
+			if($upload['status'] != false){
+				$this->insert_model->staff($data);
+				redirect(base_url() . index_page() . 'staff/edit');
+			}else{
+				$this->add($upload['message']);
+			}
 		}else{
 			$this->add();
+			//redirect('options/add');
 		}
 	}
 
 	public function update_record($function, $record){
 		$this->load->model('update_model');
 		if($this->form_validation->run() != FALSE){
-			$this->update_model->$function();
-			//$this->edit();
-			redirect('staff/edit');
+			if(!empty($_FILES['userfile']['name'])){
+				$file_name = rand(1,50000) . '_' . str_replace(' ', '-', strtolower($_POST['name'])) . '_bioimage';
+    			$filepath = './img/staffbios/';
+		    	$origpath = $_FILES['userfile']['name'];
+				$ext = pathinfo($origpath, PATHINFO_EXTENSION);
+				$upload = upload_file($file_name, $filepath);
+				$data = array(
+					'staffbios_name' => $_POST['name'],
+					'staffbios_degree' => $_POST['degree'],
+					'staffbios_designation' => $_POST['designation'],
+					'staffbios_photo' => $file_name . '.' . $ext,
+					'staffbios_bio' => $_POST['bio'],
+					'staffbios_streetnumber' => $_POST['streetnumber'],
+					'staffbios_streetname' => $_POST['streetname'],
+					'staffbios_city' => $_POST['city'],
+					'staffbios_province' => $_POST['province'],
+					'staffbios_phone' => $_POST['phone'],
+					'staffbios_fax' => $_POST['fax'],
+					'staffbios_mobile' => $_POST['mobile'],
+					'staffbios_email' => $_POST['email'],
+					'staffbios_rr' => $_POST['rr'],
+					'staffbios_postalcode' => $_POST['postalcode']
+				);
+				if($upload['status'] != false){
+					$this->update_model->staff($record, $data);
+					redirect(base_url() . index_page() . 'staff/edit');
+				}else{
+					$this->edit($record, $upload['message']);
+				}
+			}else{
+				$data = array(
+					'staffbios_name' => $_POST['name'],
+					'staffbios_degree' => $_POST['degree'],
+					'staffbios_designation' => $_POST['designation'],
+					'staffbios_bio' => $_POST['bio'],
+					'staffbios_streetnumber' => $_POST['streetnumber'],
+					'staffbios_streetname' => $_POST['streetname'],
+					'staffbios_city' => $_POST['city'],
+					'staffbios_province' => $_POST['province'],
+					'staffbios_phone' => $_POST['phone'],
+					'staffbios_fax' => $_POST['fax'],
+					'staffbios_mobile' => $_POST['mobile'],
+					'staffbios_email' => $_POST['email'],
+					'staffbios_rr' => $_POST['rr'],
+					'staffbios_postalcode' => $_POST['postalcode']
+				);
+			}
+			$this->update_model->staff($record, $data);
+			redirect(base_url() . index_page() . 'staff/edit/' . $record);
 		}else{
 			$this->edit($record);
 		}

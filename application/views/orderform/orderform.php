@@ -87,7 +87,7 @@
 			<label class="small-6 columns" for="email">Email:<br>
 				<input name="email" type="text">
 			</label>
-			<label class="small-6 columns" for="street">Street:<br>
+			<label class="small-6 columns" for="street">Street Address:<br>
 				<input name="street" type="text">
 			</label>
 			<label class="small-6 columns" for="city">City:<br>

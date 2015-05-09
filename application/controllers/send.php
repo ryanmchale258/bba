@@ -5,6 +5,7 @@ class Send extends CI_Controller {
 	public function __construct() {
 	    parent::__construct();
 	    $this->load->library('email');
+	    $this->load->model('settings_model');
 	}
 
 	public function contactus()	{
@@ -20,7 +21,7 @@ class Send extends CI_Controller {
 		    redirect('contact');
 		}else{
 			$this->email->from($this->input->post('email'), $this->input->post('name'));
-			$this->email->to('sarah@faulds.ca'); 
+			$this->email->to($this->settings_model->getEmail()->settings_email); 
 
 			$this->email->subject('Contact Form Submission:' . $this->input->post('subject'));
 			$this->email->message($this->input->post('message'));	
@@ -40,7 +41,7 @@ class Send extends CI_Controller {
 		$email_setting  = array('mailtype'=>'html');
 		$this->email->initialize($email_setting);
 			$this->email->from('no-reply@barkerblagrave.com', 'Order Form Submission');
-			$this->email->to('sarah@faulds.ca');
+			$this->email->to($this->settings_model->getEmail()->settings_email);
 			$this->email->cc($this->input->post('email')); 
 
 			$this->email->subject('Order Form Submission: ' . $this->input->post('name'));
@@ -73,7 +74,7 @@ class Send extends CI_Controller {
 							<strong>Phone:</strong> ' . $this->input->post('phone') . '<br>
 							<strong>Ext:</strong> ' . $this->input->post('ext') . '<br>
 							<strong>Email:</strong> ' . $this->input->post('email') . '<br>
-							<strong>Street:</strong> ' . $this->input->post('street') . '<br>
+							<strong>Street Address:</strong> ' . $this->input->post('street') . '<br>
 							<strong>City:</strong> ' . $this->input->post('city') . '<br>
 							<strong>Province:</strong> ' . $this->input->post('province') . '<br>
 							<strong>Postal:</strong> ' . $this->input->post('postal') . '<br>

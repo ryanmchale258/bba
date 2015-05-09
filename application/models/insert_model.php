@@ -80,43 +80,53 @@ class Insert_model extends CI_Model {
 		}else{
 			$manualprice = '';
 		}
-		if(isset($_POST['comboprice'])){
-			$comboprice = number_format((float)str_replace('$', '', $_POST['combo']), 2, '.', '');
+		if(isset($_POST['indprice'])){
+			$haschecklist = '1';
+			$indprice = number_format((float)str_replace('$', '', $_POST['ind']), 2, '.', '');
 		}else{
-			$comboprice = '';
+			$haschecklist = '0';
+			$indprice = '';
 		}
+		if(isset($_POST['discper'])){
+			$discountprice = number_format((float)str_replace('$', '', $_POST['discper']), 2, '.', '');
+		}else{
+			$discountprice = '';
+		}
+
 		$record = array(
 					'resource_name' => $_POST['title'],
 					'resource_slug' => str_replace(' ', '-', strtolower($_POST['title'])),
 					'resource_desc' => $_POST['desc'],
 					'resource_cdprice' => $cdprice,
+					'resource_checklist' => $haschecklist,
 					'resource_emailprice' => $emailprice,
-					'resource_comboprice' => $comboprice,
-					'resource_manualprice' => $comboprice
+					'resource_manualprice' => $manualprice,
+					'resource_checklist' => $haschecklist,
+					'resource_individualprice' => $indprice,
+					'resource_discount' => $discountprice,
+					'resource_discountreq' => $_POST['peramt']
 				);
 
 		$this->db->insert('tbl_resource', $record);
+		$this->db->trans_complete();
+    	$query = $this->db->query('SELECT LAST_INSERT_ID()');
+    	$row = $query->row_array();
+    	$prev_id = $row['LAST_INSERT_ID()'];
+
+		if(isset($_POST['presentationitems'])){
+			foreach($_POST['presentationitems'] as $pres){
+				if(!empty($pres)){
+					$record = array(
+							'presentation_name' => $pres,
+							'resource_id' => $prev_id
+						);
+					$this->db->insert('tbl_presentation', $record);
+				}
+			}
+		}
 	}
 
-	public function staff() {
-		$record = array(
-					'staffbios_name' => $_POST['name'],
-					'staffbios_degree' => $_POST['degree'],
-					'staffbios_designation' => $_POST['designation'],
-					'staffbios_bio' => $_POST['bio'],
-					'staffbios_tagline' => $_POST['tagline'],
-					'staffbios_streetnumber' => $_POST['streetnumber'],
-					'staffbios_streetname' => $_POST['streetname'],
-					'staffbios_city' => $_POST['city'],
-					'staffbios_province' => $_POST['province'],
-					'staffbios_phone' => $_POST['phone'],
-					'staffbios_fax' => $_POST['fax'],
-					'staffbios_mobile' => $_POST['mobile'],
-					'staffbios_email' => $_POST['email'],
-					'staffbios_rr' => $_POST['rr'],
-					'staffbios_postalcode' => $_POST['postalcode']
-				);
-
+	public function staff($record) {
 		$this->db->insert('tbl_staffbios', $record);
 	}
 
